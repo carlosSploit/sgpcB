@@ -1,0 +1,40 @@
+{
+    "googledrive":{
+        "CLIENT_ID": "368279704593-vn92156sek6np0c2122hevrte4m3bidd.apps.googleusercontent.com",
+        "CLIENT_SECRET": "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",
+        "REDIRECT_URI": "https://developers.google.com/oauthplayground",
+        "REFRESH_TOKEN": "1//04fAtZqycyPs-CgYIARAAGAQSNwF-L9IrAiwhtUTa7qpK3-qNly-Jost9TzmYJJcUSF7grJXu-mZMDl45tYxsWVAwgsKbhdBbpv4"
+    },
+    "cloudinary":{
+        "CLOUND_NAME": "canvarith",
+        "API_KEY": "811518876614641",
+        "API_SECRET": "xO8k2ygfcVnZldrMrYVeEk05Tks"
+    },
+    "gmailcredencial":{
+        "CLIENT_ID": "368279704593-vn92156sek6np0c2122hevrte4m3bidd.apps.googleusercontent.com",
+        "CLIENT_SECRET": "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",
+        "REDIRECT_URI": "https://developers.google.com/oauthplayground",
+        "REFRESH_TOKEN": "1//04xmBYiHGpU1ICgYIARAAGAQSNwF-L9Ir6Yk8QcgUISueb53TDMYJAnaO8sBsB0mP3YwsW0E1qy7Fk6EA_G_Rtu3jhwx2EmM1Tlw",
+        "USSER": "cavarithprueba2004@gmail.com",
+        "PASS": "@Aa123456789"
+    },
+    "cpanelsmtp":{
+        "HOST": "mail.canvaritech.com",
+        "PORT": 465,
+        "USSER" : "smtpdev@canvaritech.com",
+        "PASS": "@Aa969280255"
+    },
+    "etereosmtp":{
+        "HOST"  : "smtp.ethereal.email",
+        "PORT"  : 587,
+        "USSER" : "gfjo7rfxz2ar7i5t@ethereal.email",
+        "PASS"  : "bRQw5Mw9TbdkVEsmZe"
+    },
+    "bdcpanel":{
+        "HOST"    : "www.canvaritech.com",
+        "PORT"    : 3306,
+        "USSER"    : "canvarit_dev",
+        "PASSWORD": "Jsa415649221!",
+        "DATABASE": "canvarit_practica"
+    }
+}

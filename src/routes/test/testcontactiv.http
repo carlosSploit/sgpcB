@@ -1,0 +1,26 @@
+### LISTAR LOS CONTENIDOS POR SESSION
+GET http://localhost:5000/contactv/10 HTTP/1.1
+
+### ELIMINAR UN CONTENIDO DE UNA SESSION
+DELETE http://localhost:5000/contactv/14 HTTP/1.1
+
+### INSERTAR UN CONTENIDO DE UNA SESSION
+POST http://localhost:5000/contactv/ HTTP/1.1 
+Content-Type: application/json
+
+{
+    "idsession" : 10,
+    "name": "Contenido de seccion",
+    "descr": "hajdhajkdhas asdasdhsajkdhas jashdjkashdjaskdhsa jashdjkashdjksa haskjdhaskjdhas",
+    "urlcont": "http://hjasdhkasd.com"
+}
+
+### ACTUALIZAR UN CONTENIDO DE UNA SESSION
+PUT http://localhost:5000/contactv/4 HTTP/1.1 
+Content-Type: application/json
+
+{
+    "name": "Contenido de seccion",
+    "descr": "El contenido generico de pruebas",
+    "urlcont": "http://hjasdhkasd.com"
+}

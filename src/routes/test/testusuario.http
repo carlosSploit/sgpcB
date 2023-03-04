@@ -1,0 +1,40 @@
+### comprobar un pass y usuario
+POST http://localhost:5001/api2/usuar/complog HTTP/1.1
+Content-Type: application/json
+
+{
+    "usser" : "arturoJOST@gmail.com",
+    "pass"  : "univerlucia"
+}
+
+### INSERGAR UN LOG DE LOGEO
+POST http://localhost:5000/usuar/insinglog HTTP/1.1
+Content-Type: application/json
+
+{
+    "id_usuario": 6
+}
+
+### Recuperar la contraseña
+POST http://localhost:5000/usuar/comprespass HTTP/1.1
+Content-Type: application/json
+
+{
+    "correo": "Arturo14212000@gmail.com"
+}
+
+### RETORNAR KEY API
+POST http://localhost:5000/usuar/apiac HTTP/1.1
+Content-Type: application/json
+
+{
+    "seccionkey" : "5ed9a551-150f-4818-ae3a-ee1dae15c813"
+}
+
+### RETORNAR DATA
+POST http://localhost:5000/usuar/compdatalog HTTP/1.1
+Content-Type: application/json
+
+{
+    "seccionkey" : "605e8eea-c307-411e-b01c-dd947af9f440"
+}

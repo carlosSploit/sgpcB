@@ -1,0 +1,84 @@
+// admin
+insert_admin (✓)
+update_admin (✓)
+list_admin (✓)
+delect_admin (✓)
+read_admin (✓)
+
+// alumno
+insert_alumno (✓)
+update_alumno (✓)
+list_alumno (✓)
+delect_alumno (✓)
+
+// ciclo de curso
+insert_ciclocurso (✓)
+update_ciclocurso (✓)
+update_ciclocourseStade (✓)
+valider_couse_ciclo (✓)
+list_ciclocursoCurso (✓)
+delect_ciclocurso (✓)
+read_ciclocurso (✓)
+
+// contenido de actividad
+insert_conttarea (✓)
+update_conttarea (✓)
+list_conttarea (✓)
+delect_conttarea (✓)
+
+// contenido de session
+insert_contsession (✓)
+update_contsesion (✓)
+list_contsesi (✓)
+delect_contsessi (✓)
+
+// cursos
+insert_curso (✓)
+update_curso (✓)
+list_curso (✓)
+delect_curso (✓)
+
+// inscripcciones
+insert_inscrip (✓)
+update_stadeinscrip (✓)
+valider_inscricurse (✓)
+list_inscri_curso (✓)
+list_inscri_alumn (✓)
+list_preinscrip (✓)
+read_idinscripconttar (x)
+
+// profesor
+insert_profe (✓)
+update_profesor (✓) -> update_profe
+list_profe (✓)
+delect_profe (✓)
+read_profe (✓)
+
+// sesion 
+insert_sesion (✓)
+update_sesion (✓)
+list_sesion (✓)
+delect_sesion (✓)
+
+// resolucon de la tarea
+insert_tareainscr (✓)
+update_tareainsc (✓)
+list_tareainscr (✓)
+delect_tareainscr (✓)
+update_tareainsc_ponint (✓) 
+
+// tipo de contenido
+list_tipoconte (✓)
+
+// tipo de curso
+insert_tipocurso (✓)
+update_tipocurso (✓)
+list_tipocurso (✓)
+delect_tipocurso (✓)
+
+// usuario
+compru_logusser (✓)
+compru_api_key (✓)
+Compru_datuserlog (✓) -> compru_datuserlog
+Compru_rescupass (✓) -> compru_rescupass
+insert_singlog (✓)

@@ -1,0 +1,36 @@
+### LISTAR DE UNA TAREA LAS RESOLUCIONES DE TAREA DE UN INSCRITO
+GET http://localhost:5000/tarinsc/1 HTTP/1.1
+
+### LISTA A LOS INSCRCITOS CON LOS PUNTOS OPTENIDOS
+GET http://localhost:5000/tarinsc/pointrank/10 HTTP/1.1
+
+### ELIMINAR UNA RESOLUCION DE TAREA DE UN INSCRITO
+DELETE http://localhost:5000/tarinsc/14 HTTP/1.1
+
+### INSERTAR UNA RESOLUCION DE TAREA DE UN INSCRITO
+POST http://localhost:5000/tarinsc/ HTTP/1.1 
+Content-Type: application/json
+
+{
+    "id_inscr" : 6,
+    "id_conttar": 1,
+    "urlcont": "http://hjasdhkasd.com"
+}
+
+### ACTUALIZAR UNA RESOLUCION DE TAREA DE UN INSCRITO
+PUT http://localhost:5000/tarinsc/4 HTTP/1.1 
+Content-Type: application/json
+
+{
+    "urlcont": "http://hjasdhkasd.com"
+}
+
+### ACTUALIZAR LOS PUNTOS DE UNA RESOLUCION DE TAREA DE UN INSCRITO
+### ID HACE REFERENCIA AL CONTENIDO DE TAREAS
+PUT http://localhost:5000/tarinsc/point/9 HTTP/1.1 
+Content-Type: application/json
+
+{
+    "id_conttare": 10,
+    "point": 10
+}

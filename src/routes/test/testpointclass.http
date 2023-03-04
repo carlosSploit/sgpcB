@@ -1,0 +1,40 @@
+### LISTAR LOS PUNTOS DE CLASE
+GET http://localhost:5000/pointcl/19 HTTP/1.1
+Authorization: banner eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5NjkyODAyNTUsIm5vbWJyZSI6ImJyYWRjYXIiLCJlbWFpbCI6InVjdjIwMjFAZW1haWwuY29tIn0sImlhdCI6MTY2MzY0Mzk2OH0.1LAb0CB-scWLhvfZlVOA7Q_rh4W2Ih9zR5GRmA_pPhY
+
+### ELIMINAR LOS PUNTOS DE CLASE
+DELETE http://localhost:5000/pointcl/1 HTTP/1.1
+
+### INSERTAR LOS PUNTOS DE CLASE
+POST http://localhost:5000/pointcl/ HTTP/1.1 
+Content-Type: application/json
+Authorization: banner eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5NjkyODAyNTUsIm5vbWJyZSI6ImJyYWRjYXIiLCJlbWFpbCI6InVjdjIwMjFAZW1haWwuY29tIn0sImlhdCI6MTY2MzY0Mzk2OH0.1LAb0CB-scWLhvfZlVOA7Q_rh4W2Ih9zR5GRmA_pPhY
+
+{
+    "name" : "participo",
+    "valpoint" :  1,
+    "photo" : "1",
+    "id_prof" : 21,
+    "isacumulable": 0
+}
+
+### INSERTAR LOS PUNTOS DE CLASE POR DEFAULT
+POST http://localhost:5000/pointcl/default HTTP/1.1 
+Content-Type: application/json
+Authorization: banner eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5NjkyODAyNTUsIm5vbWJyZSI6ImJyYWRjYXIiLCJlbWFpbCI6InVjdjIwMjFAZW1haWwuY29tIn0sImlhdCI6MTY2MzY0Mzk2OH0.1LAb0CB-scWLhvfZlVOA7Q_rh4W2Ih9zR5GRmA_pPhY
+
+{
+    "id_prof" : 21
+}
+
+### ACTUALIZAR LOS PUNTOS DE CLASE
+PUT http://localhost:5000/pointcl/19 HTTP/1.1 
+Authorization: banner eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5NjkyODAyNTUsIm5vbWJyZSI6ImJyYWRjYXIiLCJlbWFpbCI6InVjdjIwMjFAZW1haWwuY29tIn0sImlhdCI6MTY2MzY0Mzk2OH0.1LAb0CB-scWLhvfZlVOA7Q_rh4W2Ih9zR5GRmA_pPhY
+Content-Type: application/json
+
+{
+    "name" : "Participación grupal",
+    "valpoint" :  1,
+    "photo" : "5",
+    "isacumulable": 0
+}

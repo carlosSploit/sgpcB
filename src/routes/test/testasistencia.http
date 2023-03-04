@@ -1,0 +1,31 @@
+### LISTAR LAS APERTURAS DE ASISTENCIA
+GET http://localhost:5001/asisten/list/aperture/30 HTTP/1.1
+Authorization: Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5NjkyODAyNTUsIm5vbWJyZSI6ImJyYWRjYXIiLCJlbWFpbCI6InVjdjIwMjFAZW1haWwuY29tIn0sImlhdCI6MTY0NzY2OTY0M30.E6MQy_q72P3FajQMLBPvO88jtPQo2N6XWA7rBR-HNR4
+
+### LISTAR LOS ESTUDIANTES DE CADA ASISTENCIA
+GET http://localhost:5000/asisten/list/inscrip/4 HTTP/1.1
+Authorization: Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5NjkyODAyNTUsIm5vbWJyZSI6ImJyYWRjYXIiLCJlbWFpbCI6InVjdjIwMjFAZW1haWwuY29tIn0sImlhdCI6MTY0NzY2OTY0M30.E6MQy_q72P3FajQMLBPvO88jtPQo2N6XWA7rBR-HNR4
+
+### APERTURA UNA ASISTENCIA
+POST http://localhost:5000/asisten/ HTTP/1.1
+Authorization: Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5NjkyODAyNTUsIm5vbWJyZSI6ImJyYWRjYXIiLCJlbWFpbCI6InVjdjIwMjFAZW1haWwuY29tIn0sImlhdCI6MTY0NzY2OTY0M30.E6MQy_q72P3FajQMLBPvO88jtPQo2N6XWA7rBR-HNR4
+Content-Type: application/json
+
+{
+    "id_sesion": 0,
+    "id_ciclocur" : 19
+}
+
+### ACTUALIZAR EL ESTADO DE UNA ASISTENCIA DE INSCRIPCCION
+## 1: asistio, 2 : falto, 0: desconocido
+PUT http://localhost:5001/asisten/25 HTTP/1.1
+Authorization: Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5NjkyODAyNTUsIm5vbWJyZSI6ImJyYWRjYXIiLCJlbWFpbCI6InVjdjIwMjFAZW1haWwuY29tIn0sImlhdCI6MTY0NzY2OTY0M30.E6MQy_q72P3FajQMLBPvO88jtPQo2N6XWA7rBR-HNR4
+Content-Type: application/json
+
+{
+    "stade" : 1
+}
+
+### ELIMINAR LA ASISTENCIA
+DELETE http://localhost:5001/api2/asisten/49 HTTP/1.1
+Authorization: Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5NjkyODAyNTUsIm5vbWJyZSI6ImJyYWRjYXIiLCJlbWFpbCI6InVjdjIwMjFAZW1haWwuY29tIn0sImlhdCI6MTY0NzY2OTY0M30.E6MQy_q72P3FajQMLBPvO88jtPQo2N6XWA7rBR-HNR4

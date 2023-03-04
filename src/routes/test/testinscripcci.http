@@ -1,0 +1,46 @@
+### LISTAR LOS CURSOS INSCRITOS POR UN ALUMNO
+GET http://localhost:5000/inscri/list/inscrtocouse/13 HTTP/1.1
+
+### LISTAR LAS INSCRIPCCIONES EN PRE-INSCRIPCCION
+GET http://localhost:5000/inscri/list/preinscr/ HTTP/1.1
+
+### LISTAR LOS ALUMNOS INSCRITOS A UN CICLO DE CURSO
+GET http://localhost:5000/inscri/list/inscralumno/10 HTTP/1.1
+Authorization: Bearer  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5NjkyODAyNTUsIm5vbWJyZSI6ImJyYWRjYXIiLCJlbWFpbCI6InVjdjIwMjFAZW1haWwuY29tIn0sImlhdCI6MTY0NzY2OTY0M30.E6MQy_q72P3FajQMLBPvO88jtPQo2N6XWA7rBR-HNR4
+
+### VALIDAR SI EL ALUMNO SE A INSCRITO EN UN CICLO DE CURSO
+POST http://localhost:5000/inscri/valalumnocurs/ HTTP/1.1 
+Content-Type: application/json
+
+{
+    "idalumno" : 13,
+    "idciclocur" : 12
+}
+
+### INSERTAR UNA INSCRIPCCION
+POST http://localhost:5000/inscri/ HTTP/1.1 
+Content-Type: application/json
+
+{
+    "idalumno" : 13,
+    "idciclocur" : 12,
+    "idtipoinscrip" : 1,
+    "urlvoucher" : ""
+}
+
+### LEER LA ID DE LA INSCRIPCCION CONSIDERANDO EL ID DEL CONTENIDO DE TAREA Y LA ID DEL ALUMNO
+POST http://localhost:5000/inscri/getidinscrip/ HTTP/1.1 
+Content-Type: application/json
+
+{
+    "idconttar" : 1,
+    "idalum" : 13
+}
+
+### ACTUALIZAR EL ESTADO DE LA INSCRIPCCION
+PUT http://localhost:5000/inscri/actstade/2 HTTP/1.1 
+Content-Type: application/json
+
+{
+    "estade" : 1
+}

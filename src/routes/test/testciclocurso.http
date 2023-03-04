@@ -1,0 +1,37 @@
+### LISTAR LOS ADMINISTRADORES
+GET http://localhost:5000/cicurs/listcurso/%20 HTTP/1.1
+
+### LISTAR LOS CICLO DE CURSO
+GET http://localhost:5001/api/cicurs/listciclocurso/15 HTTP/1.1
+
+### LEER UN USUARIOS ADMINISTRADOR
+GET http://localhost:5000/cicurs/read/2 HTTP/1.1
+
+### ELIMINAR UN CICLO DE CURSO
+DELETE http://localhost:5000/cicurs/3 HTTP/1.1
+
+### INSERTAR UN CICLO DE CURSO
+POST http://localhost:5000/cicurs/ HTTP/1.1 
+Content-Type: application/json
+
+{
+    "idcurso" : 4,
+    "idprof" : 6,
+    "fech_in" : "2022/05/25",
+    "fech_fin" : "2022/05/28",
+    "disdu" : 2,
+    "presio": 20
+}
+
+### INSERTAR UN CICLO DE CURSO
+PUT http://localhost:5000/cicurs/10 HTTP/1.1 
+Content-Type: application/json
+
+{
+    "idcurso" : 4,
+    "idprof" : 6,
+    "fech_in" : "2022/05/20",
+    "fech_fin" : "2022/05/25",
+    "disdu" : 2,
+    "presio": 20
+}

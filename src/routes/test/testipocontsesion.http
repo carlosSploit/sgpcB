@@ -1,0 +1,2 @@
+### LISTAR LOS TIPOS DE CONTENIDOS POR SESSION
+GET http://localhost:5000/tipcontses HTTP/1.1

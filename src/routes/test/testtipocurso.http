@@ -1,0 +1,21 @@
+### LISTAR LOS TIPO DE CURSO
+GET http://localhost:5000/tipocur HTTP/1.1
+
+### ELIMINAR UN TIPO DE CURSO
+DELETE http://localhost:5000/tipocur/1 HTTP/1.1
+
+### INSERTAR UN TIPO DE CURSO
+POST http://localhost:5000/tipocur/ HTTP/1.1 
+Content-Type: application/json
+
+{
+    "name" : "Tecnologia"
+}
+
+### ACTUALIZAR UN TIPO DE CURSO
+PUT http://localhost:5000/tipocur/7 HTTP/1.1 
+Content-Type: application/json
+
+{
+    "name" : "Diseño"
+}

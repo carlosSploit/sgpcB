@@ -1,0 +1,2 @@
+Este archivo de controlado, en si debe estar concetado la base de datos, pero sera usada, para hacer
+validaciones
