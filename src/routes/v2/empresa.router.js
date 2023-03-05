@@ -19,14 +19,23 @@ rooutes.post('/', async (req, res) => {
   objempresa.inser_empresa(req, res)
 })
 
+// insertar enlace
+rooutes.post('/enlace', async (req, res) => {
+  objempresa.inser_empresa_enlace(req, res)
+})
+
+// delete
+rooutes.delete('/:id_clienAnalit/:id_empresa', async (req, res) => {
+  objempresa.eliminar_empresa_enlace(req, res)
+})
 // actualizar
 // rooutes.put('/:id_clienAnalit', async (req, res) => {
 //   objempresa.actuali_clienAnalit(req, res)
 // })
 
 // actualizar
-// rooutes.put('/infoCuenta/:id_clienAnalit', async (req, res) => {
-//   objempresa.actuali_clienAnalitInfoUser(req, res)
-// })
+rooutes.put('/:id_empresa', async (req, res) => {
+  objempresa.actuali_empresa(req, res)
+})
 
 module.exports = rooutes

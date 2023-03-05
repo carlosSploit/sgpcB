@@ -53,6 +53,15 @@ const Valideinsert = (req) => {
 // }
 
 module.exports = class ngclienAnalit {
+  async inser_empresa_enlace (req, res) {
+    const result = await objempresa.inser_empresa_enlace(req, res)
+    res.send({
+      status: 200,
+      typo: 'succes',
+      messege: result
+    })
+  }
+
   async inser_empresa (req, res) {
     // validar datos insertados
     const validado = Valideinsert(req)
@@ -76,66 +85,37 @@ module.exports = class ngclienAnalit {
     })
   }
 
-  // async actuali_clienAnalit (req, res) {
-  //   // validar datos insertados
-  //   const validado = Valideupdate(req)
+  async actuali_empresa (req, res) {
+    // validar datos insertados
+    const validado = Valideinsert(req)
 
-  //   if (validado.valida) {
-  //     res.send({
-  //       status: 404,
-  //       typo: 'error',
-  //       messege: 'Casillas mal ingresadas',
-  //       data: validado.auxvalidetdata
-  //     })
-  //     // eslint-disable-next-line no-useless-return
-  //     return
-  //   }
+    if (validado.valida) {
+      res.send({
+        status: 404,
+        typo: 'error',
+        messege: 'Casillas mal ingresadas',
+        data: validado.auxvalidetdata
+      })
+      // eslint-disable-next-line no-useless-return
+      return
+    }
 
-  //   // si todo esta correcto, inserta los datos
-  //   const result = await objclienAnalit.actualise_clienAnalit(req, res)
-  //   res.send({
-  //     status: 200,
-  //     typo: 'succes',
-  //     messege: result
-  //   })
-  // }
-
-  // async actuali_clienAnalitInfoUser (req, res) {
-  //   // validar datos insertados
-  //   const validado = ValideupdateInfoSecion(req)
-
-  //   if (validado.valida) {
-  //     res.send({
-  //       status: 404,
-  //       typo: 'error',
-  //       messege: 'Casillas mal ingresadas',
-  //       data: validado.auxvalidetdata
-  //     })
-  //     // eslint-disable-next-line no-useless-return
-  //     return
-  //   }
-
-  //   // validar si el usuario existe si se ingresa nuevos usuarios y contraseñas
-  //   const valideCorPass = await ValideCorreoandPass(req, res)
-  //   if (valideCorPass.status === 404) return res.send(valideCorPass)
-
-  //   // generar el username
-  //   const correo = req.body.correo
-  //   const listdatauser = correo.split('@')
-  //   req.body.username = '@' + listdatauser[0]
-
-  //   // si todo esta correcto, inserta los datos
-  //   const result = await objclienAnalit.actuali_clienAnalitInfoUser(req, res)
-  //   res.send({
-  //     status: 200,
-  //     typo: 'succes',
-  //     messege: result
-  //   })
-  
-  // }
+    // si todo esta correcto, inserta los datos
+    const result = await objempresa.actualise_empresa(req, res)
+    res.send({
+      status: 200,
+      typo: 'succes',
+      messege: result
+    })
+  }
 
   async list_empresa (req, res) {
     const result = await objempresa.list_empresa(req, res)
+    res.json(result)
+  }
+
+  async eliminar_empresa_enlace (req, res) {
+    const result = await objempresa.eliminar_empresa_enlace(req, res)
     res.json(result)
   }
 }

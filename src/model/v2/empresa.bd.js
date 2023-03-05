@@ -22,19 +22,50 @@ module.exports = class DbclientAnali {
     return results
   }
 
+  async inser_empresa_enlace (req, res) {
+    const results = await conexibd.single_query(
+      req,
+      res,
+      'CALL `insert_empresa_enlace`(?,?);',
+      [
+        req.body.id_empresa,
+        req.body.id_clienAnalit
+      ],
+      'Se inserto correctamente la empresa'
+    )
+    return results
+  }
+
   async actualise_empresa (req, res) {
     const results = await conexibd.single_query(
       req,
       res,
-      'CALL `update_clientAnali`(?,?,?,?,?);',
+      'CALL `update_empresa`(?,?,?,?,?,?,?,?);',
       [
-        req.body.nombre,
-        req.body.apellidos,
-        req.body.telf,
-        req.body.photo,
+        req.params.id_empresa,
+        req.body.nombreempresa,
+        req.body.ruc,
+        req.body.descripc,
+        req.body.telefono,
+        req.body.rubroempresa,
+        req.body.misio,
+        req.body.vision
+      ],
+      'Se actualizo correctamente el empresa'
+    )
+    return results
+  }
+
+  async eliminar_empresa_enlace (req, res) {
+    const results = await conexibd.single_query(
+      req,
+      res,
+      'CALL `delete_empresa_enlace`(?,?);',
+      [
+        req.params.id_empresa,
         req.params.id_clienAnalit
       ],
-      'Se actualizo correctamente el cliente analista'
+      'Se elimino correctamente el empresa'
     )
     return results
   }
@@ -44,27 +75,6 @@ module.exports = class DbclientAnali {
       req,
       res,
       'CALL `list_empresa`(?);',
-      [req.params.id_clienAnalit]
-    )
-    return Array.isArray(results) ? results : []
-  }
-
-  // async delect_admin (req, res) {
-  //   const results = await conexibd.single_query(
-  //     req,
-  //     res,
-  //     'CALL `delect_admin`(?);',
-  //     [req.params.id_admin],
-  //     'Se elimino el administrador con exito.'
-  //   )
-  //   return results
-  // }
-
-  async read_clienAnalit (req, res) {
-    const results = await conexibd.single_query(
-      req,
-      res,
-      'CALL `read_clientAnali`(?);',
       [req.params.id_clienAnalit]
     )
     return Array.isArray(results) ? results : []
