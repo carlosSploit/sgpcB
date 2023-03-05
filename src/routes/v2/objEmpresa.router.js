@@ -15,13 +15,13 @@ rooutes.post('/', async (req, res) => {
 })
 
 // delete
-rooutes.delete('/:id_areempre', async (req, res) => {
-  odjobjempresa.eliminar_areasempresa(req, res)
+rooutes.delete('/:id_objEmpresa', async (req, res) => {
+  odjobjempresa.eliminar_objempresa(req, res)
 })
 
 // actualizar
-rooutes.put('/:id_areempre', async (req, res) => {
-  odjobjempresa.actualise_areasempresa(req, res)
+rooutes.put('/:id_objEmpresa', async (req, res) => {
+  odjobjempresa.actualise_objempresa(req, res)
 })
 
 module.exports = rooutes

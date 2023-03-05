@@ -61,7 +61,7 @@ module.exports = class ngclienAnalit {
     })
   }
 
-  async actualise_areasempresa (req, res) {
+  async actualise_objempresa (req, res) {
     // validar datos insertados
     const validado = Valideinsert(req)
 
@@ -77,7 +77,7 @@ module.exports = class ngclienAnalit {
     }
 
     // si todo esta correcto, inserta los datos
-    const result = await objobjempresa.actualise_areasempresa(req, res)
+    const result = await objobjempresa.actualise_objempresa(req, res)
     res.send({
       status: 200,
       typo: 'succes',
@@ -90,8 +90,8 @@ module.exports = class ngclienAnalit {
     res.json(result)
   }
 
-  async eliminar_areasempresa (req, res) {
-    const result = await objobjempresa.eliminar_areasempresa(req, res)
+  async eliminar_objempresa (req, res) {
+    const result = await objobjempresa.eliminar_objempresa(req, res)
     res.json(result)
   }
 }

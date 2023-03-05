@@ -20,11 +20,10 @@ module.exports = class Dbareasempresa {
     const results = await conexibd.single_query(
       req,
       res,
-      'CALL `update_areasempresa`(?,?,?);',
+      'CALL `update_objempresa`(?,?);',
       [
-        req.body.nombrearea,
-        req.body.descriparea,
-        req.params.id_areempre
+        req.body.nombreObje,
+        req.params.id_objEmpresa
       ],
       'Se actualizo correctamente el empresa'
     )
@@ -35,9 +34,9 @@ module.exports = class Dbareasempresa {
     const results = await conexibd.single_query(
       req,
       res,
-      'CALL `delete_areasempresa`( ? );',
+      'CALL `delete_objempresa`( ? );',
       [
-        req.params.id_areempre
+        req.params.id_objEmpresa
       ],
       'Se elimino correctamente el empresa'
     )
