@@ -1,41 +1,21 @@
-### LISTAR UNA EMPRESA
-GET http://localhost:5001/api/v1/empresa/2 HTTP/1.1
+### LISTAR LAS AREAS DE UNA EMPRESA
+GET http://localhost:5001/api/v1/areempr/2 HTTP/1.1
 
-### ELIMINAR UNA EMPRESA
-DELETE http://localhost:5001/api/v1/empresa/2/1 HTTP/1.1
+### ELIMINAR UN AREA DE UNA EMPRESA
+DELETE http://localhost:5001/api/v1/areempr/1/1 HTTP/1.1
 
-### INSERTAR UNA EMPRESA
-POST http://localhost:5001/api/v1/empresa/ HTTP/1.1 
+### INSERTAR UN AREA DE UNA EMPRESA EMPRESA
+POST http://localhost:5001/api/v1/areempr/ HTTP/1.1 
 Content-Type: application/json
 
 {
-    "id_clienAnalit" : 1,
-    "nombreempresa": "Canvaritech",
-    "ruc" :  "745465465879",
-    "telefono": "985796307",
-    "descripc" : "Empresa de entretenimiento y apremdisaje para niños.",
-    "rubroempresa" : "Entretenimiento y  Cursos en linea",
-    "misio": "Ser una empresa que brinda entretenimiento y aprendisaje a niños, basados en tecnicas de gamificacion, con el fin de que los niños puedan aprender y entretenerce en sus tiempos de ocio, dado desde un entorno virtual, como precencial desde la cede de piura.",
-    "vision": "Ser unas de las empresas mas prestigiosas sobre el entretenimiento y aprendisaje en el año 2023."
+    "id_empresa" : 1,
+    "nombrearea": "Administracion",
+    "descriparea" :  "Encargado de velar a todas las areas de la empresa."
 }
 
-### INSERTAR UNA EMPRESA POR ENLACE
-POST http://localhost:5001/api/v1/empresa/enlace HTTP/1.1 
-Content-Type: application/json
-
-{
-    "id_clienAnalit" : 1,
-    "nombreempresa": "Canvaritech",
-    "ruc" :  "745465465879",
-    "telefono": "985796307",
-    "descripc" : "Empresa de entretenimiento y apremdisaje para niños.",
-    "rubroempresa" : "Entretenimiento y  Cursos en linea",
-    "misio": "Ser una empresa que brinda entretenimiento y aprendisaje a niños, basados en tecnicas de gamificacion, con el fin de que los niños puedan aprender y entretenerce en sus tiempos de ocio, dado desde un entorno virtual, como precencial desde la cede de piura.",
-    "vision": "Ser unas de las empresas mas prestigiosas sobre el entretenimiento y aprendisaje en el año 2023."
-}
-
-### ACTUALIZAR UNA EMPRESA
-PUT http://localhost:5001/api/v1/empresa/1 HTTP/1.1 
+### ACTUALIZAR UN AREA DE UNA EMPRESA
+PUT http://localhost:5001/api/v1/areempr/1 HTTP/1.1 
 Content-Type: application/json
 
 {

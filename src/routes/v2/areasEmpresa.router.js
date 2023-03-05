@@ -1,41 +1,27 @@
 const express = require('express')
 const rooutes = express.Router()
-const Negempresa = require('../../negocio/v2/empresa.negocio')
-const objempresa = new Negempresa()
+const Negareasempresa = require('../../negocio/v2/areasEmpresa.negocio')
+const objareasempresa = new Negareasempresa()
 // ######################### rooutes ###################################
 
 // List
-rooutes.get('/:id_clienAnalit', async (req, res) => {
-  objempresa.list_empresa(req, res)
+rooutes.get('/:id_empresa', async (req, res) => {
+  objareasempresa.list_areasempresa(req, res)
 })
-
-// read
-// rooutes.get('/read/:id_clienAnalit', async (req, res) => {
-//   objempresa.read_clienAnalit(req, res)
-// })
 
 // insertar
 rooutes.post('/', async (req, res) => {
-  objempresa.inser_empresa(req, res)
-})
-
-// insertar enlace
-rooutes.post('/enlace', async (req, res) => {
-  objempresa.inser_empresa_enlace(req, res)
+  objareasempresa.inser_areasempresa(req, res)
 })
 
 // delete
-rooutes.delete('/:id_clienAnalit/:id_empresa', async (req, res) => {
-  objempresa.eliminar_empresa_enlace(req, res)
+rooutes.delete('/:id_areempre', async (req, res) => {
+  objareasempresa.eliminar_areasempresa(req, res)
 })
-// actualizar
-// rooutes.put('/:id_clienAnalit', async (req, res) => {
-//   objempresa.actuali_clienAnalit(req, res)
-// })
 
 // actualizar
-rooutes.put('/:id_empresa', async (req, res) => {
-  objempresa.actuali_empresa(req, res)
+rooutes.put('/:id_areempre', async (req, res) => {
+  objareasempresa.actualise_areasempresa(req, res)
 })
 
 module.exports = rooutes
