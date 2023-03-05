@@ -1,0 +1,2 @@
+### LISTAR LOS TIPOS DE PROCESOS
+GET http://localhost:5001/api/v1/tipProce/ HTTP/1.1
