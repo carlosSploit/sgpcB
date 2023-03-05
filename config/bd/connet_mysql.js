@@ -32,9 +32,14 @@ module.exports = class dbconeccion{
     }
 
     extrack_metod(array){
-        let auxarray = array.filter((item)=>{
-            return Array.isArray(item);
-        });
-        return auxarray[0];
+        try {
+            let auxarray = array.filter((item)=>{
+                return Array.isArray(item);
+            });
+            return auxarray[0];
+        } catch (error) {
+            return '';
+        }
+        
     }
 }

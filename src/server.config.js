@@ -47,7 +47,7 @@ app.get('/gmail', (req, res) => {
   res.send('enviado correctamente')
 })
 //* *** routers personalizados - ,verifyToken, */
-app.use('/api2', apiRv2.rooutes)
+app.use('/api/v1', apiRv2.rooutes)
 // controll de erroresº
 app.use(middelware.midellerror)
 

@@ -1,19 +1,19 @@
-const Bdusuario = require('../../src/model/bd_usuario')
-const objusuario = new Bdusuario()
+// const Bdusuario = require('../../src/model/bd_usuario')
+// const objusuario = new Bdusuario()
 // valida true si esque hay un error y es false si todo esta correcto
 
 module.exports = class Validator {
   // si da un error retornara un false
-  async validator_user (req, res, correo, pass) {
-    if (this.validator_mail(correo)) return false
-    if (this.validator_vacio(pass)) return false
-    const arrayreul = await objusuario.compro_logusser(req, res, correo, pass)
-    const cantiresul = arrayreul.length
-    if (parseInt(cantiresul) !== 0) {
-      return true
-    }
-    return false
-  }
+  // async validator_user (req, res, correo, pass) {
+  //   if (this.validator_mail(correo)) return false
+  //   if (this.validator_vacio(pass)) return false
+  //   const arrayreul = await objusuario.compro_logusser(req, res, correo, pass)
+  //   const cantiresul = arrayreul.length
+  //   if (parseInt(cantiresul) !== 0) {
+  //     return true
+  //   }
+  //   return false
+  // }
 
   validator_vacio (text = '') {
     // console.log(text)

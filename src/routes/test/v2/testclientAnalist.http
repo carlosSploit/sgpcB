@@ -1,0 +1,35 @@
+### LISTAR LOS  CLIENTE ANALISTA
+GET http://localhost:5001/api2/admi/%20 HTTP/1.1
+Authorization: banner eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5NjkyODAyNTUsIm5vbWJyZSI6ImJyYWRjYXIiLCJlbWFpbCI6InVjdjIwMjFAZW1haWwuY29tIn0sImlhdCI6MTY2MzY0Mzk2OH0.1LAb0CB-scWLhvfZlVOA7Q_rh4W2Ih9zR5GRmA_pPhY
+
+### LEER UN USUARIOS  CLIENTE ANALISTA
+GET http://localhost:5001/admi/read/1 HTTP/1.1
+
+### ELIMINAR UN  CLIENTE ANALISTA
+DELETE http://localhost:5000/admi/1 HTTP/1.1
+
+### INSERTAR UN CLIENTE ANALISTA
+POST http://localhost:5001/api/v1/clientAnalit/ HTTP/1.1 
+Content-Type: application/json
+
+{
+    "nombre" : "Carlos Arturo",
+    "apellidos": "Guerrero Castillo",
+    "telf" :  "969280255",
+    "correo" : "pedrna122@gmail.com",
+    "pass" : "Ca14654578",
+    "photo": "https://nyrevconnect.com/wp-content/uploads/2017/06/Placeholder_staff_photo-e1505825573317.png"
+}
+
+### ACTUALIZAR UN  CLIENTE ANALISTA
+PUT http://localhost:5001/api/v1/clientAnalit/7 HTTP/1.1 
+Content-Type: application/json
+
+{
+    "name" : "Andrea graciela",
+    "telf" : 985796307,
+    "correo" : "arturo20250@gmail.com",
+    "pass" : "Ca14654578",
+    "tipoadm": "Administrador",
+    "photo": "ajkdajldkajsdklasjdlaskjdk"
+}
