@@ -1,42 +1,31 @@
 const Validator = require('../../../config/complementos/validator')
 const objvalit = new Validator()
-const BdclienAnalit = require('../../model/v2/clienteAnalit.bd')
-const objclienAnalit = new BdclienAnalit()
-const Bdusuario = require('../../model/v2/usuario.bd')
-const objusuario = new Bdusuario()
+const Bdempresa = require('../../model/v2/empresa.bd')
+const objempresa = new Bdempresa()
 
 const Valideinsert = (req) => {
   const valida =
-    objvalit.validator_vacio(req.body.nombre) ||
-    objvalit.validator_vacio(req.body.apellidos) ||
-    objvalit.validator_celular(req.body.telf) ||
-    objvalit.validator_mail(req.body.correo) ||
-    objvalit.validator_vacio(req.body.pass) ||
-    objvalit.validator_url(req.body.photo)
+    objvalit.validator_vacio(req.body.nombreempresa) ||
+    objvalit.validator_vacio(req.body.ruc) ||
+    objvalit.validator_vacio(req.body.descripc) ||
+    objvalit.validator_vacio(req.body.telefono)
+
   const dataarray = [
     {
-      datacom: 'nombre',
-      valide: objvalit.validator_vacio(req.body.nombre)
+      datacom: 'nombreempresa',
+      valide: objvalit.validator_vacio(req.body.nombreempresa)
     },
     {
-      datacom: 'apellidos',
-      valide: objvalit.validator_vacio(req.body.apellidos)
+      datacom: 'ruc',
+      valide: objvalit.validator_vacio(req.body.ruc)
     },
     {
-      datacom: 'telf',
-      valide: objvalit.validator_celular(req.body.telf)
+      datacom: 'descripc',
+      valide: objvalit.validator_vacio(req.body.descripc)
     },
     {
-      datacom: 'correo',
-      valide: objvalit.validator_mail(req.body.correo)
-    },
-    {
-      datacom: 'pass',
-      valide: objvalit.validator_vacio(req.body.pass)
-    },
-    {
-      datacom: 'photo',
-      valide: objvalit.validator_url(req.body.photo)
+      datacom: 'telefono',
+      valide: objvalit.validator_vacio(req.body.telefono)
     }
   ]
 
@@ -45,78 +34,6 @@ const Valideinsert = (req) => {
   })
   console.log(auxvalidetdata)
   return { valida, auxvalidetdata }
-}
-
-const Valideupdate = (req) => {
-  const valida =
-    objvalit.validator_vacio(req.body.nombre) ||
-    objvalit.validator_vacio(req.body.apellidos) ||
-    objvalit.validator_celular(req.body.telf) ||
-    objvalit.validator_url(req.body.photo)
-  const dataarray = [
-    {
-      datacom: 'nombre',
-      valide: objvalit.validator_vacio(req.body.nombre)
-    },
-    {
-      datacom: 'apellidos',
-      valide: objvalit.validator_vacio(req.body.apellidos)
-    },
-    {
-      datacom: 'telf',
-      valide: objvalit.validator_celular(req.body.telf)
-    },
-    {
-      datacom: 'photo',
-      valide: objvalit.validator_url(req.body.photo)
-    }
-  ]
-
-  const auxvalidetdata = dataarray.filter((item) => {
-    return item.valide
-  })
-  console.log(auxvalidetdata)
-  return { valida, auxvalidetdata }
-}
-
-const ValideupdateInfoSecion = (req) => {
-  const valida =
-    objvalit.validator_mail(req.body.correo) ||
-    objvalit.validator_vacio(req.body.pass)
-  const dataarray = [
-    {
-      datacom: 'correo',
-      valide: objvalit.validator_vacio(req.body.correo)
-    },
-    {
-      datacom: 'pass',
-      valide: objvalit.validator_vacio(req.body.pass)
-    }
-  ]
-
-  const auxvalidetdata = dataarray.filter((item) => {
-    return item.valide
-  })
-  console.log(auxvalidetdata)
-  return { valida, auxvalidetdata }
-}
-
-const ValideCorreoandPass = async (req, res) => {
-  // se verifica si el usuario o la contraseña ya estan registrados o no
-  console.log(req.body.correo)
-  const valitusser = await objusuario.compruebe_correo(req, res, req.body.correo)
-  console.log(valitusser)
-  if (valitusser.length === 1 && valitusser[0].userEnlance > 0) {
-    // si ya existe un usuario con el mismo correo y contraseña
-    return {
-      status: 404,
-      typo: 'error',
-      messege: `Este correo electronico presenta ${valitusser[0].userEnlance} cuentas enlazadas`
-    }
-  }
-  return {
-    status: 200
-  }
 }
 
 // const ValideCorreoandPassUpdate = async (req, res) => {
@@ -136,7 +53,7 @@ const ValideCorreoandPass = async (req, res) => {
 // }
 
 module.exports = class ngclienAnalit {
-  async inser_clienAnalit (req, res) {
+  async inser_empresa (req, res) {
     // validar datos insertados
     const validado = Valideinsert(req)
 
@@ -144,42 +61,6 @@ module.exports = class ngclienAnalit {
       res.send({
         status: 404,
         typo: 'error',
-        messege: 'casillas mal ingresadas',
-        data: validado.auxvalidetdata
-      })
-      // eslint-disable-next-line no-useless-return
-      return
-    }
-
-    // validar si el usuario existe si se ingresa nuevos usuarios y contraseñas
-    const valideCorPass = await ValideCorreoandPass(req, res)
-    if (valideCorPass.status === 404) return res.send(valideCorPass)
-
-    // generar el username
-    const correo = req.body.correo
-    const listdatauser = correo.split('@')
-    req.body.username = '@' + listdatauser[0]
-
-    // si todo esta correcto retorna los datos
-    // let results = await conexibd.single_query(req, res,'CALL `insert_clienAnalit`(?,?,?,?,?,?);',[req.body.name, req.body.telf, req.body.correo, req.body.pass, req.body.tipoadm, req.body.photo])
-    // return (Array.isArray(results))?results:[];
-
-    const result = await objclienAnalit.inser_clienAnalit(req, res)
-    res.send({
-      status: 200,
-      typo: 'succes',
-      messege: result
-    })
-  }
-
-  async actuali_clienAnalit (req, res) {
-    // validar datos insertados
-    const validado = Valideupdate(req)
-
-    if (validado.valida) {
-      res.send({
-        status: 404,
-        typo: 'error',
         messege: 'Casillas mal ingresadas',
         data: validado.auxvalidetdata
       })
@@ -187,8 +68,7 @@ module.exports = class ngclienAnalit {
       return
     }
 
-    // si todo esta correcto, inserta los datos
-    const result = await objclienAnalit.actualise_clienAnalit(req, res)
+    const result = await objempresa.inser_empresa(req, res)
     res.send({
       status: 200,
       typo: 'succes',
@@ -196,45 +76,23 @@ module.exports = class ngclienAnalit {
     })
   }
 
-  async actuali_clienAnalitInfoUser (req, res) {
-    // validar datos insertados
-    const validado = ValideupdateInfoSecion(req)
+  // async actuali_clienAnalit (req, res) {
+  //   // validar datos insertados
+  //   const validado = Valideupdate(req)
 
-    if (validado.valida) {
-      res.send({
-        status: 404,
-        typo: 'error',
-        messege: 'Casillas mal ingresadas',
-        data: validado.auxvalidetdata
-      })
-      // eslint-disable-next-line no-useless-return
-      return
-    }
+  //   if (validado.valida) {
+  //     res.send({
+  //       status: 404,
+  //       typo: 'error',
+  //       messege: 'Casillas mal ingresadas',
+  //       data: validado.auxvalidetdata
+  //     })
+  //     // eslint-disable-next-line no-useless-return
+  //     return
+  //   }
 
-    // validar si el usuario existe si se ingresa nuevos usuarios y contraseñas
-    const valideCorPass = await ValideCorreoandPass(req, res)
-    if (valideCorPass.status === 404) return res.send(valideCorPass)
-
-    // generar el username
-    const correo = req.body.correo
-    const listdatauser = correo.split('@')
-    req.body.username = '@' + listdatauser[0]
-
-    // si todo esta correcto, inserta los datos
-    const result = await objclienAnalit.actuali_clienAnalitInfoUser(req, res)
-    res.send({
-      status: 200,
-      typo: 'succes',
-      messege: result
-    })
-  }
-  // async list_clienAnalit (req, res) {
-  //   const result = await objclienAnalit.list_clienAnalit(req, res)
-  //   res.json(result)
-  // }
-
-  // async delect_clienAnalit (req, res) {
-  //   const result = await objclienAnalit.delect_clienAnalit(req, res)
+  //   // si todo esta correcto, inserta los datos
+  //   const result = await objclienAnalit.actualise_clienAnalit(req, res)
   //   res.send({
   //     status: 200,
   //     typo: 'succes',
@@ -242,8 +100,42 @@ module.exports = class ngclienAnalit {
   //   })
   // }
 
-  async read_clienAnalit (req, res) {
-    const result = await objclienAnalit.read_clienAnalit(req, res)
-    res.json(result[0])
+  // async actuali_clienAnalitInfoUser (req, res) {
+  //   // validar datos insertados
+  //   const validado = ValideupdateInfoSecion(req)
+
+  //   if (validado.valida) {
+  //     res.send({
+  //       status: 404,
+  //       typo: 'error',
+  //       messege: 'Casillas mal ingresadas',
+  //       data: validado.auxvalidetdata
+  //     })
+  //     // eslint-disable-next-line no-useless-return
+  //     return
+  //   }
+
+  //   // validar si el usuario existe si se ingresa nuevos usuarios y contraseñas
+  //   const valideCorPass = await ValideCorreoandPass(req, res)
+  //   if (valideCorPass.status === 404) return res.send(valideCorPass)
+
+  //   // generar el username
+  //   const correo = req.body.correo
+  //   const listdatauser = correo.split('@')
+  //   req.body.username = '@' + listdatauser[0]
+
+  //   // si todo esta correcto, inserta los datos
+  //   const result = await objclienAnalit.actuali_clienAnalitInfoUser(req, res)
+  //   res.send({
+  //     status: 200,
+  //     typo: 'succes',
+  //     messege: result
+  //   })
+  
+  // }
+
+  async list_empresa (req, res) {
+    const result = await objempresa.list_empresa(req, res)
+    res.json(result)
   }
 }

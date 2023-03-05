@@ -1,27 +1,32 @@
 const express = require('express')
 const rooutes = express.Router()
-const NegAdmin = require('../../negocio/v2/clienAnalit.negocio')
-const objclienAnalit = new NegAdmin()
+const Negempresa = require('../../negocio/v2/empresa.negocio')
+const objempresa = new Negempresa()
 // ######################### rooutes ###################################
 
-// read
-rooutes.get('/read/:id_clienAnalit', async (req, res) => {
-  objclienAnalit.read_clienAnalit(req, res)
+// List
+rooutes.get('/:id_clienAnalit', async (req, res) => {
+  objempresa.list_empresa(req, res)
 })
+
+// read
+// rooutes.get('/read/:id_clienAnalit', async (req, res) => {
+//   objempresa.read_clienAnalit(req, res)
+// })
 
 // insertar
 rooutes.post('/', async (req, res) => {
-  objclienAnalit.inser_clienAnalit(req, res)
+  objempresa.inser_empresa(req, res)
 })
 
 // actualizar
-rooutes.put('/:id_clienAnalit', async (req, res) => {
-  objclienAnalit.actuali_clienAnalit(req, res)
-})
+// rooutes.put('/:id_clienAnalit', async (req, res) => {
+//   objempresa.actuali_clienAnalit(req, res)
+// })
 
 // actualizar
-rooutes.put('/infoCuenta/:id_clienAnalit', async (req, res) => {
-  objclienAnalit.actuali_clienAnalitInfoUser(req, res)
-})
+// rooutes.put('/infoCuenta/:id_clienAnalit', async (req, res) => {
+//   objempresa.actuali_clienAnalitInfoUser(req, res)
+// })
 
 module.exports = rooutes

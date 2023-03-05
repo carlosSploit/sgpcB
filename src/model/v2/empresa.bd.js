@@ -2,26 +2,27 @@ const Dbcone = require('../../../config/bd/connet_mysql')
 const conexibd = new Dbcone()
 // ######################### DbclientAnali ###################################
 module.exports = class DbclientAnali {
-  async inser_clienAnalit (req, res) {
+  async inser_empresa (req, res) {
     const results = await conexibd.single_query(
       req,
       res,
-      'CALL `insert_clientAnali`(?,?,?,?,?,?,?);',
+      'CALL `insert_empresa`(?,?,?,?,?,?,?,?);',
       [
-        req.body.nombre,
-        req.body.apellidos,
-        req.body.telf,
-        req.body.correo,
-        req.body.pass,
-        req.body.username,
-        req.body.photo
+        req.body.id_clienAnalit,
+        req.body.nombreempresa,
+        req.body.ruc,
+        req.body.descripc,
+        req.body.telefono,
+        req.body.rubroempresa,
+        req.body.misio,
+        req.body.vision
       ],
-      'Se inserto correctamente el cliente analista'
+      'Se inserto correctamente la empresa'
     )
     return results
   }
 
-  async actualise_clienAnalit (req, res) {
+  async actualise_empresa (req, res) {
     const results = await conexibd.single_query(
       req,
       res,
@@ -38,31 +39,15 @@ module.exports = class DbclientAnali {
     return results
   }
 
-  async actuali_clienAnalitInfoUser (req, res) {
+  async list_empresa (req, res) {
     const results = await conexibd.single_query(
       req,
       res,
-      'CALL `update_clienAnalitInfoUser`(?,?,?,?);',
-      [
-        req.body.correo,
-        req.body.username,
-        req.body.pass,
-        req.params.id_clienAnalit
-      ],
-      'Se actualizo el informacion de la cuenta correctamente el cliente analista'
+      'CALL `list_empresa`(?);',
+      [req.params.id_clienAnalit]
     )
-    return results
+    return Array.isArray(results) ? results : []
   }
-
-  // async list_admin (req, res) {
-  //   const results = await conexibd.single_query(
-  //     req,
-  //     res,
-  //     'CALL `list_admin`(?);',
-  //     [req.params.name == ' ' ? '' : req.params.name]
-  //   )
-  //   return Array.isArray(results) ? results : []
-  // }
 
   // async delect_admin (req, res) {
   //   const results = await conexibd.single_query(
