@@ -21,34 +21,34 @@ module.exports = class Dbproceempresa {
     return results
   }
 
-  async actualise_trabajempresa (req, res) {
+  async actualise_proceempresa (req, res) {
     const results = await conexibd.single_query(
       req,
       res,
-      'CALL `update_trabajempresa`(?,?,?,?,?,?,?);',
+      'CALL `update_proceempresa`(?,?,?,?,?,?,?);',
       [
-        req.body.nombre,
-        req.body.cargo,
-        req.body.descripc,
-        req.body.telefono,
-        req.body.correo,
-        req.body.codTrabajo,
-        req.params.id_trabajador
+        req.body.nombreProce,
+        req.body.descripccion,
+        req.body.id_gerarProc,
+        req.body.id_tipProce,
+        req.body.isDepProcPadre,
+        req.body.id_DepentProc,
+        req.params.id_proceso
       ],
-      'Se actualizo correctamente el empresa'
+      'Se actualizo correctamente el proceso de la empresa'
     )
     return results
   }
 
-  async eliminar_trabEmpresa (req, res) {
+  async eliminar_proceempresa (req, res) {
     const results = await conexibd.single_query(
       req,
       res,
-      'CALL `delete_trabajempresa`(?);',
+      'CALL `delete_proceempresa`(?);',
       [
-        req.params.id_trabajador
+        req.params.id_proceso
       ],
-      'Se elimino correctamente el empresa'
+      'Se elimino correctamente el proceso de la empresa'
     )
     return results
   }

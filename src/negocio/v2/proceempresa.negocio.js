@@ -76,7 +76,7 @@ module.exports = class ngproceempresa {
     })
   }
 
-  async actualise_trabajempresa (req, res) {
+  async actualise_proceempresa (req, res) {
     // validar datos insertados
     const validado = Valideinsert(req)
 
@@ -92,7 +92,7 @@ module.exports = class ngproceempresa {
     }
 
     // si todo esta correcto, inserta los datos
-    const result = await objproceempresa.actualise_trabajempresa(req, res)
+    const result = await objproceempresa.actualise_proceempresa(req, res)
     res.send({
       status: 200,
       typo: 'succes',
@@ -105,8 +105,8 @@ module.exports = class ngproceempresa {
     res.json(result)
   }
 
-  async eliminar_trabEmpresa (req, res) {
-    const result = await objproceempresa.eliminar_trabEmpresa(req, res)
+  async eliminar_proceempresa (req, res) {
+    const result = await objproceempresa.eliminar_proceempresa(req, res)
     res.json(result)
   }
 }

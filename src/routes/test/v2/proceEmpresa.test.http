@@ -1,16 +1,16 @@
 ### LISTAR LOS PROCESOS DE LA EMPRESA
 GET http://localhost:5001/api/v1/proceEmpresa/1 HTTP/1.1
 
-### ELIMINAR UN TRABAJADOR DE UNA EMPRESA
-DELETE http://localhost:5001/api/v1/trabEmpresa/4 HTTP/1.1
+### ELIMINAR UN PROCESO DE UNA EMPRESA
+DELETE http://localhost:5001/api/v1/proceEmpresa/3 HTTP/1.1
 
 ### INSERTAR UN PROCESO DE LA EMPRESA
 POST http://localhost:5001/api/v1/proceEmpresa/ HTTP/1.1 
 Content-Type: application/json
 
 {
-    "nombreProce" : "Proceso de dictado de cursos.",
-    "descripccion": "Proceso donde un procesor dicta el cursos en un sistema E-learning a un alumnos.",
+    "nombreProce" : "Proceso de Ingreso de cursos.",
+    "descripccion": "Proceso donde se sube un curso en el sistema E-learning  para posteriormente usarlo en el dictado de cursos..",
     "id_gerarProc": 2,
     "id_tipProce": 1,
     "isDepProcPadre": 0,
@@ -19,14 +19,14 @@ Content-Type: application/json
 }
 
 ### ACTUALIZAR UN TRABAJADOR DE UNA EMPRESA
-PUT http://localhost:5001/api/v1/trabEmpresa/4 HTTP/1.1 
+PUT http://localhost:5001/api/v1/proceEmpresa/2 HTTP/1.1 
 Content-Type: application/json
 
 {
-    "nombre" : "Luis enrique morocho",
-    "cargo": "Jefa de recursos humanos",
-    "descripc": "Encargado de monitorias a los trabajadores",
-    "telefono": "985796307",
-    "correo": "LuismorochoFebres@gmail.com",
-    "codTrabajo": "cod-23674382647"
+    "nombreProce" : "Proceso de dictado de cursos.",
+    "descripccion": "Proceso donde un procesor dicta el cursos en un sistema E-learning a un alumnos.",
+    "id_gerarProc": 3,
+    "id_tipProce": 2,
+    "isDepProcPadre": 1,
+    "id_DepentProc": 1
 }
