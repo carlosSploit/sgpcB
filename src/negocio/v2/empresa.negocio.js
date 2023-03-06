@@ -36,6 +36,20 @@ const Valideinsert = (req) => {
   return { valida, auxvalidetdata }
 }
 
+const valideInserEmpRepit = async (req, res) => {
+  try {
+    const idClienAnalit = req.body.id_clienAnalit
+    const idEmpresa = req.body.id_empresa
+    const resultCom = await objempresa.list_empresa(req, res, idClienAnalit)
+    const filterData = resultCom.filter((item) => {
+      return parseInt(item.id_empresa) === parseInt(idEmpresa)
+    })
+    return filterData.length > 0
+  } catch (error) {
+    return true
+  }
+}
+
 // const ValideCorreoandPassUpdate = async (req, res) => {
 //   // se verifica que que no hayan cambios
 //   const listinfoadmin = await objclienAnalit.read_admin(req, res)
@@ -54,6 +68,19 @@ const Valideinsert = (req) => {
 
 module.exports = class ngclienAnalit {
   async inser_empresa_enlace (req, res) {
+    // validar datos insertados
+    const resulValid = await valideInserEmpRepit(req, res)
+
+    if (resulValid) {
+      res.send({
+        status: 404,
+        typo: 'error',
+        messege: 'La empresa ya se te fue designado(a).',
+        data: []
+      })
+      return
+    }
+
     const result = await objempresa.inser_empresa_enlace(req, res)
     res.send({
       status: 200,

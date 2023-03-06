@@ -16,25 +16,25 @@ module.exports = class Dbareainterproce {
     return results
   }
 
-  // async eliminar_resposproce (req, res) {
-  //   const results = await conexibd.single_query(
-  //     req,
-  //     res,
-  //     'CALL `delete_resposproce`( ? );',
-  //     [
-  //       req.params.id_resposProce
-  //     ],
-  //     'Se elimino correctamente el empresa'
-  //   )
-  //   return results
-  // }
+  async eliminar_areainterproce (req, res) {
+    const results = await conexibd.single_query(
+      req,
+      res,
+      'CALL `delet_areainterproce`( ? );',
+      [
+        req.params.id_areaProce
+      ],
+      'Se elimino correctamente el empresa'
+    )
+    return results
+  }
 
-  async list_areainterproce (req, res) {
+  async list_areainterproce (req, res, idProceso = 0) {
     const results = await conexibd.single_query(
       req,
       res,
       'CALL `list_areainterproce`(?);',
-      [req.params.id_proceso]
+      [(parseInt(idProceso) === 0) ? req.params.id_proceso : idProceso]
     )
     return Array.isArray(results) ? results : []
   }

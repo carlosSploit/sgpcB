@@ -70,13 +70,23 @@ module.exports = class DbclientAnali {
     return results
   }
 
-  async list_empresa (req, res) {
+  async list_empresa (req, res, idClienAnalit = 0) {
     const results = await conexibd.single_query(
       req,
       res,
       'CALL `list_empresa`(?);',
-      [req.params.id_clienAnalit]
+      [(parseInt(idClienAnalit) === 0) ? req.params.id_clienAnalit : idClienAnalit]
     )
     return Array.isArray(results) ? results : []
   }
+
+  // async list_empresa (req, res) {
+  //   const results = await conexibd.single_query(
+  //     req,
+  //     res,
+  //     'CALL `list_empresa`(?);',
+  //     [req.params.id_clienAnalit]
+  //   )
+  //   return Array.isArray(results) ? results : []
+  // }
 }

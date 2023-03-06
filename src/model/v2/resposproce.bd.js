@@ -29,12 +29,12 @@ module.exports = class Dbresposproce {
     return results
   }
 
-  async list_resposproce (req, res) {
+  async list_resposproce (req, res, idProceso = 0) {
     const results = await conexibd.single_query(
       req,
       res,
       'CALL `list_resposproce`(?);',
-      [req.params.id_proceso]
+      [(parseInt(idProceso) === 0) ? req.params.id_proceso : idProceso]
     )
     return Array.isArray(results) ? results : []
   }
