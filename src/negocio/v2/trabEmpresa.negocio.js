@@ -86,7 +86,7 @@ module.exports = class ngtrabajempres {
     })
   }
 
-  async actualise_areasempresa (req, res) {
+  async actualise_trabajempresa (req, res) {
     // validar datos insertados
     const validado = Valideinsert(req)
 
@@ -102,7 +102,7 @@ module.exports = class ngtrabajempres {
     }
 
     // si todo esta correcto, inserta los datos
-    const result = await objtrabEmpresa.actualise_areasempresa(req, res)
+    const result = await objtrabEmpresa.actualise_trabajempresa(req, res)
     res.send({
       status: 200,
       typo: 'succes',
@@ -115,8 +115,8 @@ module.exports = class ngtrabajempres {
     res.json(result)
   }
 
-  async eliminar_areasempresa (req, res) {
-    const result = await objtrabEmpresa.eliminar_areasempresa(req, res)
+  async eliminar_trabEmpresa (req, res) {
+    const result = await objtrabEmpresa.eliminar_trabEmpresa(req, res)
     res.json(result)
   }
 }

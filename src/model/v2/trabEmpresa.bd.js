@@ -25,7 +25,7 @@ module.exports = class DbtrabEmpresa {
     const results = await conexibd.single_query(
       req,
       res,
-      'CALL `update_trabajempresa`(?,?,?);',
+      'CALL `update_trabajempresa`(?,?,?,?,?,?,?);',
       [
         req.body.nombre,
         req.body.cargo,
