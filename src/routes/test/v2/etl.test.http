@@ -1,0 +1,2 @@
+### EXTRAER DATOS DE CARGA
+GET http://localhost:5001/api/v1/etl/tipoActiv HTTP/1.1
