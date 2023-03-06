@@ -15,8 +15,8 @@ rooutes.post('/', async (req, res) => {
 })
 
 // delete
-// rooutes.delete('/:id_areempre', async (req, res) => {
-//   objareasempresa.eliminar_areasempresa(req, res)
-// })
+rooutes.delete('/:id_resposProce', async (req, res) => {
+  objresposproce.eliminar_resposproce(req, res)
+})
 
 module.exports = rooutes

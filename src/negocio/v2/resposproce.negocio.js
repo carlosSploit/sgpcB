@@ -34,8 +34,8 @@ module.exports = class ngclienAnalit {
     res.json(result)
   }
 
-  // async eliminar_areasempresa (req, res) {
-  //   const result = await objareasempresa.eliminar_areasempresa(req, res)
-  //   res.json(result)
-  // }
+  async eliminar_resposproce (req, res) {
+    const result = await objresposproce.eliminar_resposproce(req, res)
+    res.json(result)
+  }
 }
