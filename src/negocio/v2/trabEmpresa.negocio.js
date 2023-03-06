@@ -1,21 +1,41 @@
 const Validator = require('../../../config/complementos/validator')
 const objvalit = new Validator()
-const Bdareasempresa = require('../../model/v2/areasempresa.bd')
-const objareasempresa = new Bdareasempresa()
+const BdtrabEmpresa = require('../../model/v2/trabEmpresa.bd')
+const objtrabEmpresa = new BdtrabEmpresa()
 
 const Valideinsert = (req) => {
   const valida =
-    objvalit.validator_vacio(req.body.nombrearea) ||
-    objvalit.validator_vacio(req.body.descriparea)
+    objvalit.validator_vacio(req.body.nombre) ||
+    objvalit.validator_vacio(req.body.cargo) ||
+    objvalit.validator_vacio(req.body.descripc) ||
+    objvalit.validator_celular(req.body.telefono) ||
+    objvalit.validator_mail(req.body.correo) ||
+    objvalit.validator_vacio(req.body.codTrabajo)
 
   const dataarray = [
     {
-      datacom: 'nombrearea',
-      valide: objvalit.validator_vacio(req.body.nombrearea)
+      datacom: 'nombre',
+      valide: objvalit.validator_vacio(req.body.nombre)
     },
     {
-      datacom: 'descriparea',
-      valide: objvalit.validator_vacio(req.body.descriparea)
+      datacom: 'cargo',
+      valide: objvalit.validator_vacio(req.body.cargo)
+    },
+    {
+      datacom: 'descripc',
+      valide: objvalit.validator_vacio(req.body.descripc)
+    },
+    {
+      datacom: 'telefono',
+      valide: objvalit.validator_celular(req.body.telefono)
+    },
+    {
+      datacom: 'correo',
+      valide: objvalit.validator_mail(req.body.correo)
+    },
+    {
+      datacom: 'codTrabajo',
+      valide: objvalit.validator_vacio(req.body.codTrabajo)
     }
   ]
 
@@ -42,8 +62,8 @@ const Valideinsert = (req) => {
 //   }
 // }
 
-module.exports = class ngclienAnalit {
-  async inser_areasempresa (req, res) {
+module.exports = class ngtrabajempres {
+  async inser_trabajempresa (req, res) {
     // validar datos insertados
     const validado = Valideinsert(req)
 
@@ -58,7 +78,7 @@ module.exports = class ngclienAnalit {
       return
     }
 
-    const result = await objareasempresa.inser_areasempresa(req, res)
+    const result = await objtrabEmpresa.inser_trabajempresa(req, res)
     res.send({
       status: 200,
       typo: 'succes',
@@ -82,7 +102,7 @@ module.exports = class ngclienAnalit {
     }
 
     // si todo esta correcto, inserta los datos
-    const result = await objareasempresa.actualise_areasempresa(req, res)
+    const result = await objtrabEmpresa.actualise_areasempresa(req, res)
     res.send({
       status: 200,
       typo: 'succes',
@@ -90,13 +110,13 @@ module.exports = class ngclienAnalit {
     })
   }
 
-  async list_areasempresa (req, res) {
-    const result = await objareasempresa.list_areasempresa(req, res)
+  async list_trabEmpresa (req, res) {
+    const result = await objtrabEmpresa.list_trabEmpresa(req, res)
     res.json(result)
   }
 
   async eliminar_areasempresa (req, res) {
-    const result = await objareasempresa.eliminar_areasempresa(req, res)
+    const result = await objtrabEmpresa.eliminar_areasempresa(req, res)
     res.json(result)
   }
 }
