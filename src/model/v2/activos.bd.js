@@ -18,22 +18,21 @@ module.exports = class DbclientAnali {
     return results
   }
 
-  // async actualise_clienAnalit (req, res) {
-  //   const results = await conexibd.single_query(
-  //     req,
-  //     res,
-  //     'CALL `update_clientAnali`(?,?,?,?,?);',
-  //     [
-  //       req.body.nombre,
-  //       req.body.apellidos,
-  //       req.body.telf,
-  //       req.body.photo,
-  //       req.params.id_clienAnalit
-  //     ],
-  //     'Se actualizo correctamente el cliente analista'
-  //   )
-  //   return results
-  // }
+  async actualise_activos (req, res) {
+    const results = await conexibd.single_query(
+      req,
+      res,
+      'CALL `update_acivos`(?,?,?,?);',
+      [
+        req.body.nombre_Activo,
+        req.body.descripc,
+        req.body.id_tipoActiv,
+        req.params.id_activo
+      ],
+      'Se actualizo correctamente el activo'
+    )
+    return results
+  }
 
   // async actuali_clienAnalitInfoUser (req, res) {
   //   const results = await conexibd.single_query(
@@ -61,16 +60,16 @@ module.exports = class DbclientAnali {
     return Array.isArray(results) ? results : []
   }
 
-  // async delect_admin (req, res) {
-  //   const results = await conexibd.single_query(
-  //     req,
-  //     res,
-  //     'CALL `delect_admin`(?);',
-  //     [req.params.id_admin],
-  //     'Se elimino el administrador con exito.'
-  //   )
-  //   return results
-  // }
+  async delete_activos (req, res) {
+    const results = await conexibd.single_query(
+      req,
+      res,
+      'CALL `delete_activos`(?);',
+      [req.params.id_activo],
+      'Se elimino el activo con exito.'
+    )
+    return results
+  }
 
   // async read_clienAnalit (req, res) {
   //   const results = await conexibd.single_query(

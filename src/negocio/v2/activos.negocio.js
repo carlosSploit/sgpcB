@@ -50,37 +50,37 @@ module.exports = class ngactivo {
     })
   }
 
-  // async actualise_areasempresa (req, res) {
-  //   // validar datos insertados
-  //   const validado = Valideinsert(req)
+  async actualise_activos (req, res) {
+    // validar datos insertados
+    const validado = Valideinsert(req)
 
-  //   if (validado.valida) {
-  //     res.send({
-  //       status: 404,
-  //       typo: 'error',
-  //       messege: 'Casillas mal ingresadas',
-  //       data: validado.auxvalidetdata
-  //     })
-  //     // eslint-disable-next-line no-useless-return
-  //     return
-  //   }
+    if (validado.valida) {
+      res.send({
+        status: 404,
+        typo: 'error',
+        messege: 'Casillas mal ingresadas',
+        data: validado.auxvalidetdata
+      })
+      // eslint-disable-next-line no-useless-return
+      return
+    }
 
-  //   // si todo esta correcto, inserta los datos
-  //   const result = await objareasempresa.actualise_areasempresa(req, res)
-  //   res.send({
-  //     status: 200,
-  //     typo: 'succes',
-  //     messege: result
-  //   })
-  // }
+    // si todo esta correcto, inserta los datos
+    const result = await objactivos.actualise_activos(req, res)
+    res.send({
+      status: 200,
+      typo: 'succes',
+      messege: result
+    })
+  }
 
   async list_activos (req, res) {
     const result = await objactivos.list_activos(req, res)
     res.json(result)
   }
 
-  // async eliminar_areasempresa (req, res) {
-  //   const result = await objareasempresa.eliminar_areasempresa(req, res)
-  //   res.json(result)
-  // }
+  async eliminar_activos (req, res) {
+    const result = await objactivos.delete_activos(req, res)
+    res.json(result)
+  }
 }
