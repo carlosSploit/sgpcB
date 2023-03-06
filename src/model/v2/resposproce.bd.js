@@ -22,7 +22,7 @@ module.exports = class Dbresposproce {
       res,
       'CALL `delete_resposproce`( ? );',
       [
-        req.params.id_areempre
+        req.params.id_resposProce
       ],
       'Se elimino correctamente el empresa'
     )
