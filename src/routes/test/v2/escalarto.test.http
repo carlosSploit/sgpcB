@@ -1,0 +1,2 @@
+### LISTAR LOS ITEMS DE LA ESCALA DE VALORIZACION DE UN RTO
+GET http://localhost:5001/api/v1/escalarto/ HTTP/1.1
