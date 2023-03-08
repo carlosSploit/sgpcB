@@ -1,18 +1,10 @@
-### comprobar un pass y usuario
-POST http://localhost:5001/api/v1/usuar/compuser HTTP/1.1
-Content-Type: application/json
-
-{
-    "usser" : "arturoJOST@gmail.com",
-    "pass"  : "univerlucia"
-}
-
 ### INSERGAR UN LOG DE LOGEO
-POST http://localhost:5001/api/v1/usuar/insertSesLog HTTP/1.1
+POST http://localhost:5001/api/v1/usuar/loginUser HTTP/1.1
 Content-Type: application/json
 
 {
-    "id_usuario": 6
+    "user": "@pedrna122",
+    "pass": "Ca14654578"
 }
 
 ### Recuperar la contraseña
@@ -28,7 +20,7 @@ POST http://localhost:5001/api/v1/usuar/keyApiSession HTTP/1.1
 Content-Type: application/json
 
 {
-    "seccionkey" : "5ed9a551-150f-4818-ae3a-ee1dae15c813"
+    "seccionkey" : "8fce5e9d-713a-432e-82c4-71c21da174ed"
 }
 
 ### RETORNAR DATA
@@ -36,5 +28,5 @@ POST http://localhost:5001/api/v1/usuar/compDatalog HTTP/1.1
 Content-Type: application/json
 
 {
-    "seccionkey" : "605e8eea-c307-411e-b01c-dd947af9f440"
+    "seccionkey" : "8fce5e9d-713a-432e-82c4-71c21da174ed"
 }

@@ -94,7 +94,7 @@ rooutes.use('/versionanali', versionanali)
 // rooutes.use('/inspuntclas', verifyToken, insertpuntclas)
 // router ftp
 rooutes.use('/ftpgoogle', ftpgoogle) // subir archivos
-rooutes.use('/ftpclodyn', verifyToken, ftpclodyn) // subir archivos
+rooutes.use('/ftpclodyn', ftpclodyn) // subir archivos
 
 // --------------------------------------------------------------------------------- SOCKET IO
 // const SocketIo = (socket) => {

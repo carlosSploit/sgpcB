@@ -15,8 +15,8 @@ rooutes.post('/', async (req, res) => {
 })
 
 // delete
-// rooutes.delete('/:id_areaProce', async (req, res) => {
-//   objareainterproce.eliminar_areainterproce(req, res)
-// })
+rooutes.delete('/:id_versionAnali', async (req, res) => {
+  objversionanali.eliminar_versionanali(req, res)
+})
 
 module.exports = rooutes

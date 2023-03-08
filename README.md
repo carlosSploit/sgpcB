@@ -18,8 +18,9 @@ npx jest // ejecutar los test de la carpeta /test
 
 # mantenimeinto en una rama
 
-git branch [name] //insertar una rama
+git branch [name] // insertar una rama y clonar una rama
 git branch -m [new-name] //Cambiar nombre a una rama
+git branch -D [name-rame] // eliminar una rama
 git checkout [rama] // entrar o apuntar una rama
 git branch -v //listar las ramas locales
 git branch -r //listar las ramas remotas
@@ -27,6 +28,7 @@ git branch -a // lista todas las rutas en general
 
 # mantenimeinto en una rama locaal
 
+git init // inicializar un repocitorio
 git add. // agregar cambios a la rama
 git commit -m "comentario" // agregar un comentario a la rama
 

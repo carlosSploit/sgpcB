@@ -103,9 +103,7 @@ const ValideupdateInfoSecion = (req) => {
 
 const ValideCorreoandPass = async (req, res) => {
   // se verifica si el usuario o la contraseña ya estan registrados o no
-  console.log(req.body.correo)
   const valitusser = await objusuario.compruebe_correo(req, res, req.body.correo)
-  console.log(valitusser)
   if (valitusser.length === 1 && valitusser[0].userEnlance > 0) {
     // si ya existe un usuario con el mismo correo y contraseña
     return {
@@ -117,6 +115,16 @@ const ValideCorreoandPass = async (req, res) => {
   return {
     status: 200
   }
+}
+
+const ValideCompruebeCambioDatCorreo = async (req, res) => {
+  // se verifica si el usuario o la contraseña ya estan registrados o no
+  const valitusser = await objclienAnalit.read_clienAnalit(req, res)
+  if (valitusser.length === 0) return true
+  if (valitusser[0].correo === req.body.correo) {
+    return false
+  }
+  return true
 }
 
 // const ValideCorreoandPassUpdate = async (req, res) => {
@@ -213,7 +221,8 @@ module.exports = class ngclienAnalit {
 
     // validar si el usuario existe si se ingresa nuevos usuarios y contraseñas
     const valideCorPass = await ValideCorreoandPass(req, res)
-    if (valideCorPass.status === 404) return res.send(valideCorPass)
+    const valideComprCor = await ValideCompruebeCambioDatCorreo(req, res)
+    if (valideCorPass.status === 404 && valideComprCor) return res.send(valideCorPass)
 
     // generar el username
     const correo = req.body.correo

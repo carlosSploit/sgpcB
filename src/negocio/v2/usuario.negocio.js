@@ -67,11 +67,14 @@ module.exports = class ngusuario {
     // se comprueba el inicio de secion
     const result = await objusuario.compruebe_loginUserbd(req, res)
     if (result.length === 0) {
+      const resultError = await objusuario.compruebe_correo_logIn(req, res, req.body.user)
+      const dataErrot = (resultError.length === 0) ? {} : { ...resultError[0] }
+      console.log(resultError)
       res.send({
         status: 404,
         typo: 'error',
         messege: 'Parece que el usuario y contrasena no existe',
-        data: {}
+        data: dataErrot
       })
       return
     }

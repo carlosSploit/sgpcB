@@ -16,8 +16,8 @@ module.exports = class ngversionanali {
     res.json(result)
   }
 
-  // async eliminar_areainterproce (req, res) {
-  //   const result = await objareainterproce.eliminar_areainterproce(req, res)
-  //   res.json(result)
-  // }
+  async eliminar_versionanali (req, res) {
+    const result = await objversionanali.eliminar_versionanali(req, res)
+    res.json(result)
+  }
 }

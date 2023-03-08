@@ -1,30 +1,30 @@
-const dbcone = require("../../config/bd/connet_mysql");
-let conexibd = new dbcone();
-//######################### dbcurso ###################################
+const dbcone = require('../../../config/bd/connet_mysql')
+const conexibd = new dbcone()
+// ######################### dbcurso ###################################
 module.exports = class dbadmin {
-  async inser_admin(req, res) {
-    let results = await conexibd.single_query(
+  async inser_admin (req, res) {
+    const results = await conexibd.single_query(
       req,
       res,
-      "CALL `insert_admin`(?,?,?,?,?,?);",
+      'CALL `insert_admin`(?,?,?,?,?,?);',
       [
         req.body.name,
         req.body.telf,
         req.body.correo,
         req.body.pass,
         req.body.tipoadm,
-        req.body.photo,
+        req.body.photo
       ],
-      "Se inserto correctamente el administradr"
-    );
-    return results;
+      'Se inserto correctamente el administradr'
+    )
+    return results
   }
 
-  async actualise_admin(req, res) {
-    let results = await conexibd.single_query(
+  async actualise_admin (req, res) {
+    const results = await conexibd.single_query(
       req,
       res,
-      "CALL `update_admin`(?,?,?,?,?,?,?);",
+      'CALL `update_admin`(?,?,?,?,?,?,?);',
       [
         req.params.id_admin,
         req.body.name,
@@ -32,41 +32,41 @@ module.exports = class dbadmin {
         req.body.telf,
         req.body.pass,
         req.body.photo,
-        req.body.tipoadm,
+        req.body.tipoadm
       ],
-      "Se actualizo correctamente el administradr"
-    );
-    return results;
+      'Se actualizo correctamente el administradr'
+    )
+    return results
   }
 
-  async list_admin(req, res) {
-    let results = await conexibd.single_query(
+  async list_admin (req, res) {
+    const results = await conexibd.single_query(
       req,
       res,
-      "CALL `list_admin`(?);",
-      [req.params.name == " " ? "" : req.params.name]
-    );
-    return Array.isArray(results) ? results : [];
+      'CALL `list_admin`(?);',
+      [req.params.name == ' ' ? '' : req.params.name]
+    )
+    return Array.isArray(results) ? results : []
   }
 
-  async delect_admin(req, res) {
-    let results = await conexibd.single_query(
+  async delect_admin (req, res) {
+    const results = await conexibd.single_query(
       req,
       res,
-      "CALL `delect_admin`(?);",
+      'CALL `delect_admin`(?);',
       [req.params.id_admin],
-      "Se elimino el administrador con exito."
-    );
-    return results;
+      'Se elimino el administrador con exito.'
+    )
+    return results
   }
 
-  async read_admin(req, res) {
-    let results = await conexibd.single_query(
+  async read_admin (req, res) {
+    const results = await conexibd.single_query(
       req,
       res,
-      "CALL `read_admin`(?);",
+      'CALL `read_admin`(?);',
       [req.params.id_admin]
-    );
-    return Array.isArray(results) ? results : [];
+    )
+    return Array.isArray(results) ? results : []
   }
-};
+}

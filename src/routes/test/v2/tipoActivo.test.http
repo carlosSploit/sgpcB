@@ -1,5 +1,5 @@
 ### LISTAR LAS AREA QUE INTERVIENEN EN UN PROCESO  DE UNA EMPRESA
-GET http://localhost:5001/api/v1/tipoActivo/1 HTTP/1.1
+GET http://localhost:5001/api/v1/tipoActivo/7 HTTP/1.1
 
 ### INSERTAR AREA QUE INTERVIENE EN UN PROCESO DE UNA EMPRESA 
 POST http://localhost:5001/api/v1/tipoActivo HTTP/1.1 

@@ -1,5 +1,5 @@
-const enviarmess = require('../../config/smtp/nodemulter/nodemulter')
-const Bdusuario = require('../model/bd_usuario')
+const enviarmess = require('../../../config/smtp/nodemulter/nodemulter')
+const Bdusuario = require('../../model/bd_usuario')
 const objusuario = new Bdusuario()
 
 module.exports = class ngusuario {
