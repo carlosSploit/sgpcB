@@ -1,0 +1,13 @@
+### LISTAR LAS DEPENDENCIAS O EL ARBOL DE DEPENDENCIAS DE ACTIVOS
+GET http://localhost:5001/api/v1/depenActivArbol/0 HTTP/1.1
+
+### LISTAR LAS DEPENDENCIAS O EL ARBOL DE DEPENDENCIAS DE ACTIVOS
+GET http://localhost:5001/api/v1/depenActivArbol/2/SW.PC HTTP/1.1
+
+### INSERTAR DEPENDENCIA O ARBOL DE DEPENDENCIA DE ACTIVOS
+POST http://localhost:5001/api/v1/depenActivArbol HTTP/1.1 
+Content-Type: application/json
+
+{
+
+}

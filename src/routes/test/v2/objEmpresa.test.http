@@ -10,7 +10,7 @@ Content-Type: application/json
 
 {
     "id_empresa" : 1,
-    "nombreObje": "Ser una de las empresas del mundo"
+    "nombreObje": "Tener la maxima cantidad de ventas"
 }
 
 ### ACTUALIZAR UN AREA DE UNA EMPRESA

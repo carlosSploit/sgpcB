@@ -1,0 +1,13 @@
+id depenTipos;Id tipActivo;abrebTipActi;hijosDepenTipAct;abreHijosDepTipAct
+1;146;S;225;SW
+2;146;S;1;essential
+3;1;essential;225;SW
+4;225;SW;258;HW
+5;360;L;258;HW
+6;305;COM;258;HW
+7;344;AUX;258;HW
+8;373;P;1;essential
+9;69;arch;;
+10;110;D;;
+11;129;keys;;
+12;323;Media;;

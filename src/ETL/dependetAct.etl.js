@@ -1,12 +1,12 @@
 const fs = require('fs')
 
 // ######################### DbclientAnali ###################################
-module.exports = class DbtipoActiv {
+module.exports = class DbDependeciActivArbol {
   async Load () {
   }
 
   async Extrac () {
-    const LoadFilte = fs.readFileSync(require.resolve('./data/tipoActivo.csv'), { encoding: 'utf8' })
+    const LoadFilte = fs.readFileSync(require.resolve('./data/dependenciaActiv.csv'), { encoding: 'utf8' })
     const LoadData = LoadFilte.toString().split('\n')
     return LoadData
   }
@@ -27,7 +27,7 @@ module.exports = class DbtipoActiv {
     return consulte + ' ' + dataConsult
   }
 
-  // INSERT INTO `tipoactivo`(`id_tipoActivo`, `nombreTipoActivo`, `abrebiat`, `dependAbreb`, `isDependeTipoPad`, `id_dependeTipoPad`, `estade`) VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]','[value-6]','[value-7]')
+  // INSERT INTO `dependactivarbol`(`id_dependActivArbol`, `id_tipoActivo`, `id_ActiviDepent`, `estade`, `fechaEnlace`)')
 
   async Trasform (mintCapDatos = 2, limitInsert = 0) {
     const LoadDataCVS = await this.Extrac()
@@ -40,7 +40,7 @@ module.exports = class DbtipoActiv {
         return `${(correcItemDat === '') ? '0' : correcItemDat}`
       })
       if (dataTrasnforColumn.length < mintCapDatos) return []
-      const FormatoInserDatos = [dataTrasnforColumn[0], dataTrasnforColumn[3], dataTrasnforColumn[2], dataTrasnforColumn[1], (parseInt(dataTrasnforColumn[4]) === 0) ? '0' : '1', dataTrasnforColumn[4], '1']
+      const FormatoInserDatos = [dataTrasnforColumn[0], dataTrasnforColumn[1], dataTrasnforColumn[3], '1', 'now()']
       return FormatoInserDatos
     // eslint-disable-next-line eqeqeq
     }).filter(item => item.length > mintCapDatos).filter((item, index) => { return (limitInsert == 0) ? true : index < limitInsert })
