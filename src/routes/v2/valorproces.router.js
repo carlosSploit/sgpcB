@@ -5,7 +5,7 @@ const odjvalorproces = new Negvalorproces()
 // ######################### rooutes ###################################
 
 // leer
-rooutes.get('/:id_proceso', async (req, res) => {
+rooutes.get('/:id_versionAnali', async (req, res) => {
   odjvalorproces.read_valorproces(req, res)
 })
 

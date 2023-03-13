@@ -24,7 +24,7 @@ module.exports = class Dbproceempresa {
       res,
       'CALL `read_valorproces`(?);',
       [
-        req.params.id_proceso
+        req.params.id_versionAnali
       ]
     )
     return Array.isArray(results) ? results : []
