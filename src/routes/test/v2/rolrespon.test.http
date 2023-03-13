@@ -1,0 +1,2 @@
+### LISTAR LA GERARQUI DE PROCESOS
+GET http://localhost:5001/api/v1/gerarproc/ HTTP/1.1
