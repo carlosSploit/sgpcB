@@ -44,8 +44,8 @@ module.exports = class ngResponanalis {
     res.json(result)
   }
 
-  // async eliminar_resposproce (req, res) {
-  //   const result = await objresposproce.eliminar_resposproce(req, res)
-  //   res.json(result)
-  // }
+  async eliminar_responanalis (req, res) {
+    const result = await objresponAnalisis.eliminar_responanalis(req, res)
+    res.json(result)
+  }
 }

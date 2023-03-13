@@ -15,8 +15,8 @@ rooutes.post('/', async (req, res) => {
 })
 
 // delete
-// rooutes.delete('/:id_resposProce', async (req, res) => {
-//   objresponanalis.eliminar_resposproce(req, res)
-// })
+rooutes.delete('/:id_responAnalis', async (req, res) => {
+  objresponanalis.eliminar_responanalis(req, res)
+})
 
 module.exports = rooutes

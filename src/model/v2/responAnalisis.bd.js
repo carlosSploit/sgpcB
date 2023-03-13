@@ -12,23 +12,23 @@ module.exports = class Dbresponanalis {
         req.body.id_cliente,
         req.body.id_rolRespon
       ],
-      'Se inserto correctamente la empresa'
+      'Se inserto correctamente la Responsable del Analisis'
     )
     return results
   }
 
-  // async eliminar_resposproce (req, res) {
-  //   const results = await conexibd.single_query(
-  //     req,
-  //     res,
-  //     'CALL `delete_resposproce`( ? );',
-  //     [
-  //       req.params.id_resposProce
-  //     ],
-  //     'Se elimino correctamente el empresa'
-  //   )
-  //   return results
-  // }
+  async eliminar_responanalis (req, res) {
+    const results = await conexibd.single_query(
+      req,
+      res,
+      'CALL `delete_responanalis`( ? );',
+      [
+        req.params.id_responAnalis
+      ],
+      'Se elimino correctamente el Responsable del Analisis'
+    )
+    return results
+  }
 
   async list_responanalis (req, res, idVersionAnali = 0) {
     const results = await conexibd.single_query(
