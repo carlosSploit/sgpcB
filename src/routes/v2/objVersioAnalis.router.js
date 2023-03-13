@@ -5,7 +5,7 @@ const objVersioAnalis = new NegobjVersioAnalis()
 // ######################### rooutes ###################################
 
 // List
-rooutes.get('/:id_empresa', async (req, res) => {
+rooutes.get('/:id_versionAnali', async (req, res) => {
   objVersioAnalis.list_objVersioAnalis(req, res)
 })
 
@@ -15,12 +15,12 @@ rooutes.post('/', async (req, res) => {
 })
 
 // delete
-rooutes.delete('/:id_objEmpresa', async (req, res) => {
+rooutes.delete('/:id_objVersAnali', async (req, res) => {
   objVersioAnalis.eliminar_objempresa(req, res)
 })
 
 // actualizar
-rooutes.put('/:id_objEmpresa', async (req, res) => {
+rooutes.put('/:id_objVersAnali', async (req, res) => {
   objVersioAnalis.actualise_objempresa(req, res)
 })
 
