@@ -1,5 +1,5 @@
 ### LISTAR LAS AREA QUE INTERVIENEN EN UN PROCESO  DE UNA EMPRESA
-GET http://localhost:5001/api/v1/depentactiv/2 HTTP/1.1
+GET http://localhost:5001/api/v1/depentactiv/11 HTTP/1.1
 
 ### ELIMINAR UN AREA QUE INTERVIENE EN UN PROCESO DE UNA EMPRESA
 DELETE http://localhost:5001/api/v1/depentactiv/2 HTTP/1.1

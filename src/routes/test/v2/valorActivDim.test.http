@@ -1,0 +1,27 @@
+### LEER LA VALORIZACION DE UN ACTIVO
+GET http://localhost:5001/api/v1/valorActivDim/1 HTTP/1.1
+
+### APERTURA LA VALORIZACION DE UN ACTIVO PARA SU EDICION
+POST http://localhost:5001/api/v1/valorActivDim/ HTTP/1.1 
+Content-Type: application/json
+
+{
+    "id_valorActiv": 1,
+    "dataValor" : [
+        {
+            "id_dimension" : 1,
+            "valorAcivCualit" : 12,
+            "id_varlotActivCualit" : 0,
+            "tipValoActivDimen" : "N"
+        },
+        {
+            "id_dimension" : 3,
+            "valorAcivCualit" : 6,
+            "id_varlotActivCualit" : 14,
+            "tipValoActivDimen" : "C"
+        }
+    ]
+}
+
+### ACTUALIZAR LA VALORIZACION DE UN ACTIVO
+DELETE http://localhost:5001/api/v1/valorActivDim/1 HTTP/1.1 

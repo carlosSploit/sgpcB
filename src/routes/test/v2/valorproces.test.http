@@ -1,12 +1,12 @@
 ### LEER LA VALORIZACION DE UN PROCESO
-GET http://localhost:5001/api/v1/valorproces/4 HTTP/1.1
+GET http://localhost:5001/api/v1/valorproces/2 HTTP/1.1
 
 ### ACTUALIZAR LA VALORIZACION DE UN PROCESO
-PUT http://localhost:5001/api/v1/valorproces/1 HTTP/1.1 
+PUT http://localhost:5001/api/v1/valorproces/2 HTTP/1.1 
 Content-Type: application/json
 
 {
     "id_escalaRTO" : 2,
-    "id_escalaRPO": 2,
+    "id_escalaRPO": 4,
     "valorMDT" :  5
 }

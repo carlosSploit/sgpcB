@@ -20,8 +20,7 @@ PUT http://localhost:5001/api/v1/activos/1 HTTP/1.1
 Content-Type: application/json
 
 {
-    "nombre_Activo" : "Sistema E-learning",
+    "nombre_Activo" : "Sistema E-learning5",
     "descripc": "Sistema donde se realiza todos los procesos de enseñansa, control, monitoreo, registro de cursos.",
-    "id_tipoActiv": 1,
-    "id_empresa" :  1
+    "id_tipoActiv": 1
 }

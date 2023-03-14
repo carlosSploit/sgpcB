@@ -1,22 +1,22 @@
-### LISTAR LOS OBJEIVOS EMPRESARIALES DE UNA EMPRESA
-GET http://localhost:5001/api/v1/objVersioAnalis/1 HTTP/1.1
+### LISTAR LOS OBJETIVOS DE UNA VERSION DE AMALISIS
+GET http://localhost:5001/api/v1/objVersioAnalis/4 HTTP/1.1
 
-### ELIMINAR UN AREA DE UNA EMPRESA
+### ELIMINAR UN OBJETIVO DE UNA VERSION DE AMALISIS
 DELETE http://localhost:5001/api/v1/objVersioAnalis/11 HTTP/1.1
 
-### INSERTAR UN OBJETIVO EMPRESARIAL DE UNA EMPRESA EMPRESA
+### INSERTAR UN OBJETIVO DE UNA VERSION DE AMALISIS
 POST http://localhost:5001/api/v1/objVersioAnalis/ HTTP/1.1 
 Content-Type: application/json
 
 {
-    "id_versionAnali" : 1,
-    "nombreObje": "Tener la maxima cantidad de ventas"
+    "id_versionAnali" : 4,
+    "nombreObje": "Mitigar los riesgos de los activos alineados al proceso."
 }
 
-### ACTUALIZAR UN AREA DE UNA EMPRESA
-PUT http://localhost:5001/api/v1/objVersioAnalis/2 HTTP/1.1 
+### ACTUALIZAR UN OBJETIVO DE UNA VERSION DE AMALISIS
+PUT http://localhost:5001/api/v1/objVersioAnalis/1 HTTP/1.1 
 Content-Type: application/json
 
 {
-    "nombreObje": "Tener la maxima cantidad de ventas"
+    "nombreObje": "Solucionar todos los pronl"
 }
