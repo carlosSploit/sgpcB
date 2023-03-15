@@ -1,5 +1,5 @@
-// const Validator = require('../../../config/complementos/validator')
-// const objvalit = new Validator()
+const Validator = require('../../../config/complementos/validator')
+const objvalit = new Validator()
 const Bdafectaactiv = require('../../model/v2/afectaactiv.bd')
 const objafectaactiv = new Bdafectaactiv()
 const Bdactivprocesanali = require('../../model/v2/activprocesanali.bd')
@@ -8,6 +8,24 @@ const BdtipoActiv = require('../../model/v2/tipoActiv.bd')
 const objtipoActiv = new BdtipoActiv()
 const BdafectaTip = require('../../model/v2/afectaTip.bd')
 const objafectaTip = new BdafectaTip()
+
+const Valideinsert = (req) => {
+  const valida =
+    objvalit.validator_vacio(req.body.esenario)
+
+  const dataarray = [
+    {
+      datacom: 'esenario',
+      valide: objvalit.validator_vacio(req.body.esenario)
+    }
+  ]
+
+  const auxvalidetdata = dataarray.filter((item) => {
+    return item.valide
+  })
+  console.log(auxvalidetdata)
+  return { valida, auxvalidetdata }
+}
 
 const valideInserAreaRepit = async (req, res) => {
   try {
@@ -140,28 +158,28 @@ module.exports = class ngclienAnalit {
     })
   }
 
-  async actualise_areasempresa (req, res) {
+  async actualizar_afectaactiv (req, res) {
     // validar datos insertados
-    // const validado = Valideinsert(req)
+    const validado = Valideinsert(req)
 
-    // if (validado.valida) {
-    //   res.send({
-    //     status: 404,
-    //     typo: 'error',
-    //     messege: 'Casillas mal ingresadas',
-    //     data: validado.auxvalidetdata
-    //   })
-    //   // eslint-disable-next-line no-useless-return
-    //   return
-    // }
+    if (validado.valida) {
+      res.send({
+        status: 404,
+        typo: 'error',
+        messege: 'Casillas mal ingresadas',
+        data: validado.auxvalidetdata
+      })
+      // eslint-disable-next-line no-useless-return
+      return
+    }
 
     // si todo esta correcto, inserta los datos
-    // const result = await objareasempresa.actualise_areasempresa(req, res)
-    // res.send({
-    //   status: 200,
-    //   typo: 'succes',
-    //   messege: result
-    // })
+    const result = await objafectaactiv.actualizar_afectaactiv(req, res)
+    res.send({
+      status: 200,
+      typo: 'succes',
+      messege: result
+    })
   }
 
   async list_afectaactiv (req, res) {

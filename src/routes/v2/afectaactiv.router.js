@@ -19,9 +19,14 @@ rooutes.post('/generar/', async (req, res) => {
   objafectaactiv.cargarAmenazas(req, res)
 })
 
-// generar amenazas
+// insertar de forma manual una amenazas
 rooutes.post('/', async (req, res) => {
   objafectaactiv.inser_afectaactiv(req, res)
+})
+
+// actualizar el esenario de la amenaza
+rooutes.put('/:id_afectaActiv', async (req, res) => {
+  objafectaactiv.actualizar_afectaactiv(req, res)
 })
 
 // delete

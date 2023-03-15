@@ -21,6 +21,20 @@ module.exports = class Dbafectaactiv {
     return results
   }
 
+  async actualizar_afectaactiv (req, res) {
+    const results = await conexibd.single_query(
+      req,
+      res,
+      'CALL `update_afectaativ`(?,?);',
+      [
+        req.body.esenario,
+        req.params.id_afectaActiv
+      ],
+      'Se actualizo correctamente el esenario del enlace por la amenaza'
+    )
+    return results
+  }
+
   async delete_afectaactiv (req, res) {
     const results = await conexibd.single_query(
       req,
