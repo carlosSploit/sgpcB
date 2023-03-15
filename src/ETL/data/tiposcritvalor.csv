@@ -1,14 +1,14 @@
-id tipoCritValori;abrebiatura;nombre
-1;pi;Informaci髇 de car醕ter personal
-2;lpo;Obligaciones legales
-3;si;Seguridad
-4;cei;Intereses comerciales o econ髆icos
-5;da;Interrupci髇 del servicio
-6;po; Orden p鷅lico
-7;olm;Operaciones
-8;adm;Administraci髇 y gesti髇
-9;lg; P閞dida de confianza (reputaci髇)
-10;crm;Persecuci髇 de delitos 
-11;rto;Tiempo de recuperaci髇 del servicio
-12;lbl.nat; Informaci髇 clasificada (nacional) 
-13;lbl.ue; Informaci髇 clasificada (Uni髇 Europea) 
+id tipoCritValori,abrebiatura,nombre
+1,pi,Informaci贸n de car谩cter personal
+2,lpo,Obligaciones legales
+3,si,Seguridad
+4,cei,Intereses comerciales o econ贸micos
+5,da,Interrupci贸n del servicio
+6,po,Orden p煤blico
+7,olm,Operaciones
+8,adm,Administraci贸n y gesti贸n
+9,lg,P茅rdida de confianza (reputaci贸n)
+10,crm,Persecuci贸n de delitos
+11,rto,Tiempo de recuperaci贸n del servicio
+12,lbl.nat,Informaci贸n clasificada (nacional)
+13,lbl.ue,Informaci贸n clasificada (Uni贸n Europea)

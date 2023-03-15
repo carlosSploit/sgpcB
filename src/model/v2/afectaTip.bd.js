@@ -1,24 +1,24 @@
 const Dbcone = require('../../../config/bd/connet_mysql')
 const conexibd = new Dbcone()
-const ETLtipoActivo = require('../../ETL/tipoActiv.etl')
-const objEtlTipoActivo = new ETLtipoActivo()
+const ETLafectaTip = require('../../ETL/afectaTip.etl')
+const objEtlafectaTip = new ETLafectaTip()
 // ######################### DbclientAnali ###################################
 module.exports = class DbtipoActiv {
-  async inser_tipoActiv (req, res) {
+  async inser_afectatip (req, res) {
     // trubcar la tabla antes de insertar los datos
     await conexibd.single_query(
       req,
       res,
-      'TRUNCATE TABLE tipoactivo;',
+      'TRUNCATE TABLE afectatip;',
       [],
-      'Se migro correctamente los tipos de activos'
+      'Se trunco o limpio correctamente los tipos de activos afeactados por la amenaza'
     )
     const migrarDat = await conexibd.single_query(
       req,
       res,
-      await objEtlTipoActivo.formatMYSQL('INSERT INTO `tipoactivo`(`id_tipoActivo`, `nombreTipoActivo`, `abrebiat`, `dependAbreb`, `isDependeTipoPad`, `id_dependeTipoPad`, `estade`) VALUES'),
+      await objEtlafectaTip.formatMYSQL('INSERT INTO `afectatip`(`id_adectTip`, `id_amenazas`, `id_libreryAmen`, `id_tipoActivo`, `estade`) VALUES '),
       [],
-      'Se migro correctamente los tipos de activos'
+      'Se migro correctamente los tipos de activos afeactados por la amenaza'
     )
     return migrarDat
   }
@@ -36,12 +36,12 @@ module.exports = class DbtipoActiv {
   //   return results
   // }
 
-  async list_tipoActiv (req, res, codeabre = -1) {
+  async list_afectaTip (req, res, idLibreryAmen = 0) {
     const results = await conexibd.single_query(
       req,
       res,
-      'CALL `list_tipoActiv`(?);',
-      [(parseInt(codeabre) === -1) ? req.params.id_tipoActiv : codeabre]
+      'CALL `list_afectaTip`(?);',
+      [(parseInt(idLibreryAmen) === 0) ? req.params.id_libreryAmen : idLibreryAmen]
     )
     return Array.isArray(results) ? results : []
   }

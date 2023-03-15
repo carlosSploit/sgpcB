@@ -4,6 +4,8 @@ const BdvaloriActiv = require('../../model/v2/valoriActiv.bd')
 const objvaloriActiv = new BdvaloriActiv()
 const BdvaloriActivDim = require('../../model/v2/valoriActivDim.bd')
 const objvaloriActivDim = new BdvaloriActivDim()
+const Bdnivelvalor = require('../../model/v2/nivelvalor.bd')
+const objnivelvalor = new Bdnivelvalor()
 
 // const ValideCorreoandPassUpdate = async (req, res) => {
 //   // se verifica que que no hayan cambios
@@ -61,18 +63,40 @@ module.exports = class ngvaloriActiv {
     }
     // se realiza la insercion o actualizacion de cada una de las valorizaciones
     for (let index = 0; index < req.body.dataValor.length; index++) {
-      const element = req.body.dataValor[index]
-      await objvaloriActivDim.inser_valoriActivDimen(req, res, true, { id_valorActiv: req.body.id_valorActiv, ...element })
+      let element = req.body.dataValor[index]
+      // verifica si la insercion se dio por valorizacion o por insercion por escala
+      if (!(element.valorAcivCualit >= 0 && element.valorAcivCualit <= 10)) {
+        res.send({
+          status: 404,
+          typo: 'error',
+          messege: `La dimencion con codigo ${element.id_dimension} presenta una valorizacion esta fuera del rango`
+        })
+        return
+      }
+      // se le captura su nivel de valorizacion
+      const ObjnivelVal = await this.verifiEscalValori(req, res, element.valorAcivCualit)
+      element = { id_nivelCritec: ObjnivelVal.id_nivelValor, id_valorActiv: req.body.id_valorActiv, ...element }
+      await objvaloriActivDim.inser_valoriActivDimen(req, res, true, { ...element })
     }
 
     await objvaloriActiv.loadProm_valoractiv(req, res, req.body.id_valorActiv)
-
     // const result = await objvaloriActivDim.inser_valoriActivDimen(req, res)
     res.send({
       status: 200,
       typo: 'succes',
       messege: 'La actualizacion se realizo correctamente'
     })
+  }
+
+  async verifiEscalValori (req, res, valorAcivCualit = 0) {
+    const rangeValori = await objnivelvalor.list_nivelvalor(req, res)
+    const itemvalor = rangeValori.filter((item) => {
+      const filterRange = item.rangValid.split(' - ').map((item) => { return parseInt(item) })
+      // console.log(`${(filterRange[0] <= valorAcivCualit)} && ${(filterRange[1] >= valorAcivCualit)} = ${(filterRange[0] <= valorAcivCualit) && (filterRange[1] >= valorAcivCualit)}`)
+      // console.log(`${filterRange[0]} <= ${valorAcivCualit}  && ${filterRange[1]} >= ${valorAcivCualit} = ${(filterRange[0] <= valorAcivCualit) && (filterRange[1] >= valorAcivCualit)}`)
+      return (filterRange[0] <= valorAcivCualit) && (filterRange[1] >= valorAcivCualit)
+    })
+    return itemvalor[0]
   }
 
   // async actualizar_valoractiv (req, res) {

@@ -33,7 +33,7 @@ module.exports = class DbDependeciActivArbol {
     const LoadDataCVS = await this.Extrac()
     LoadDataCVS.shift()
     const dataConsult = LoadDataCVS.map((item, index) => {
-      const dataColums = item.split(';')
+      const dataColums = item.split(',')
       const dataTrasnforColumn = dataColums.map((item) => {
         // eslint-disable-next-line no-useless-escape, comma-spacing
         const correcItemDat = item.replace('\r' , '')

@@ -1,0 +1,5 @@
+Id TipoAmenaza,Abrebiatura,Nombre TipoAmenaza,Descripccion,Origen
+1,N,Desastres naturales,Sucesos que pueden ocurrir sin intervenci¢n de los seres humanos como causa directa o indirecta,Natural (accidental)
+2,I,De origen industrial,"Sucesos que pueden ocurrir de forma accidental, derivados de la actividad humana de tipo industrial. Estas amenazas puede darse de forma accidental o deliberada.",Desconocido
+3,E,Errores y fallos no intencionados,Fallos no intencionales causados por las personas.,Humano (accidental)
+4,A,Ataques intencionados,Fallos deliberados causados por las personas.,Humano (deliberado)

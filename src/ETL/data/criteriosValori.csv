@@ -1,99 +1,99 @@
-id critValori;id tipoCritValori;codigo;valorizacion;Descripccion del critero
-1;1;6.pi1;6;probablemente afecte gravemente a un grupo de individuos
-2;1;6.pi2;6;probablemente quebrante seriamente la ley o alg�n reglamento de protecci�n de informaci�n personal
-3;1;5.pi1;5;probablemente afecte gravemente a un individuo
-4;1;5.pi2;5;probablemente quebrante seriamente leyes o regulaciones
-5;1;4.pi1;4;probablemente afecte a un grupo de individuos
-6;1;4.pi2;4;probablemente quebrante leyes o regulaciones
-7;1;3.pi1;3;probablemente afecte a un individuo
-8;1;3.pi2;3;probablemente suponga el incumplimiento de una ley o regulaci�n
-9;1;2.pi1;2;pudiera causar molestias a un individuo
-10;1;2.pi2;2;pudiera quebrantar de forma leve leyes o regulaciones
-11;1;1.pi1;1;pudiera causar molestias a un individuo
-12;2;9.lro ;9;probablemente cause un incumplimiento excepcionalmente grave de una ley o regulaci�n
-13;2;7.lro ;7;probablemente cause un incumplimiento grave de una ley o regulaci�n
-14;2;5.lro;5;probablemente sea causa de incumplimiento de una ley o regulaci�n
-15;2;3.lro ;3;probablemente sea causa de incumplimiento leve o t�cnico de una ley o regulaci�n
-16;2;1.lro;1;pudiera causar el incumplimiento leve o t�cnico de una ley o regulaci�n
-17;3;10.si;10;probablemente sea causa de un incidente excepcionalmente serio de seguridad o dificulte la investigaci�n de incidentes excepcionalmente serios 
-18;3;9.si ;9;probablemente sea causa de un serio incidente de seguridad o dificulte la investigaci�n de incidentes serios
-19;3;7.si;7;probablemente sea causa de un grave incidente de seguridad o dificulte la investigaci�n de incidentes graves
-20;3;3.si;3;probablemente sea causa de una merma en la seguridad o dificulte la investigaci�n de un incidente 
-21;3;1.si;1;pudiera causar una merma en la seguridad o dificultar la investigaci�n de un incidente 
-22;4;9.cei.a;9;de enorme inter�s para la competencia 
-23;4;9.cei.b;9;de muy elevado valor comercial 
-24;4;9.cei.c;9;causa de p�rdidas econ�micas excepcionalmente elevadas 
-25;4;9.cei.d;9;causa de muy significativas ganancias o ventajas para individuos u organizaciones
-26;4;9.cei.e;9;constituye un incumplimiento excepcionalmente grave de las obligaciones contractuales relativas a la seguridad de la informaci�n proporcionada por terceros 
-27;4;7.cei.a;7;de alto inter�s para la competencia 
-28;4;7.cei.b;7;de elevado valor comercial 
-29;4;7.cei.c;7;causa de graves p�rdidas econ�micas 
-30;4;7.cei.d;7;proporciona ganancias o ventajas desmedidas a individuos u organizaciones
-31;4;7.cei.e;7;constituye un serio incumplimiento de obligaciones contractuales relativas a la seguridad de la informaci�n proporcionada por terceros 
-32;4;3.cei.a;3;de cierto inter�s para la competencia
-33;4;3.cei.b;3;de cierto valor comercia
-34;4;3.cei.c;3;"causa de p�rdidas financieras o merma de ingresos
-35;4;3.cei.d;3;facilita ventajas desproporcionadas a individuos u organizaciones 
-36;4;3.cei.e;3;constituye un incumplimiento leve de obligaciones contractuales para mantener la seguridad de la informaci�n proporcionada por terceros "
-37;4;2.cei.a;2;de bajo inter�s para la competencia 
-38;4;2.cei.b;2;de bajo valor comercial
-39;4;1.cei.a;1;de peque�o inter�s para la competencia
-40;4;1.cei.b;1;de peque�o valor comercial 
-41;4;0.3;0;supondr�a p�rdidas econ�micas m�nimas
-42;5;9.da;9;Probablemente cause una interrupci�n excepcionalmente seria de las actividades propias de la Organizaci�n con un serio impacto en otras organizaciones"
-43;5;9.da2;9;Probablemente tenga un serio impacto en otras organizaciones
-44;5;7.da;7;Probablemente cause una interrupci�n seria de las actividades propias de la Organizaci�n con un impacto significativo en otras organizaciones
-45;5;7.da2;7;Probablemente tenga un gran impacto en otras organizaciones 
-46;5;5.da;5;Probablemente cause la interrupci�n de actividades propias de la Organizaci�n con impacto en otras organizaciones
-47;5;5.da2;5;Probablemente cause la interrupci�n de actividades propias de la Organizaci�n 
-48;5;3.da;3;Probablemente cause la interrupci�n de actividades propias de la Organizaci�n 
-49;5;1.da;1;Pudiera causar la interrupci�n de actividades propias de la Organizaci�n 
-50;6;9.po;9;alteraci�n seria del orden p�blico 
-51;6;6.po;6;probablemente cause manifestaciones, o presiones significativas 
-52;6;3.po;3;causa de protestas puntuales 
-53;6;1.po;1;pudiera causar protestas puntuales
-54;7;10.olm;10;Probablemente cause un da�o excepcionalmente serio a la eficacia o seguridad de la misi�n operativa o log�stica
-55;7;9..olm;9;Probablemente cause un da�o serio a la eficacia o seguridad de la misi�n operativa o log�stica
-56;7;7..olm;7;Probablemente perjudique la eficacia o seguridad de la misi�n operativa o log�stica
-57;7;5..olm;5;Probablemente merme la eficacia o seguridad de la misi�n operativa o log�stica m�s all� del �mbito local
-58;7;3..olm;3;Probablemente merme la eficacia o seguridad de la misi�n operativa o log�stica (alcance local)
-59;7;1..olm;1;Pudiera mermar la eficacia o seguridad de la misi�n operativa o log�stica (alcance local)
-60;8;9..adm;9;probablemente impedir�a seriamente la operaci�n efectiva de la Organizaci�n, pudiendo llegar a su cierre
-61;8;7.adm;7;probablemente impedir�a la operaci�n efectiva de la Organizaci�n
-62;8;5.adm;5;probablemente impedir�a la operaci�n efectiva de m�s de una parte de la Organizaci�n
-63;8;3.adm;3;probablemente impedir�a la operaci�n efectiva de una parte de la Organizaci�n
-64;8;1.adm;1;pudiera impedir la operaci�n efectiva de una parte de la Organizaci�n
-65;9;9.lg.a;9;Probablemente causar�a una publicidad negativa generalizada por afectar de forma excepcionalmente grave a las relaciones a las relaciones con otras organizaciones
-66;9;9.lg.b;9;Probablemente causar�a una publicidad negativa generalizada por afectar de forma excepcionalmente grave a las relaciones a las relaciones con el p�blico en general 
-67;9;7.lg.a;7;Probablemente causar�a una publicidad negativa generalizada por afectar gravemente a las relaciones con otras organizaciones 
-68;9;7.lg.b;7;Probablemente causar�a una publicidad negativa generalizada por afectar gravemente a las relaciones con el p�blico en general 
-69;9;5.lg.a;5;Probablemente sea causa una cierta publicidad negativa por afectar negativamente a las relaciones con otras organizaciones 
-70;9;5.lg.b;5;Probablemente sea causa una cierta publicidad negativa por afectar negativamente a las relaciones con el p�blico 
-71;9;3.lg;3;Probablemente afecte negativamente a las relaciones internas de la Organizaci�n
-72;9;2.lg;2;Probablemente cause una p�rdida menor de la confianza dentro de la Organizaci�n
-73;9;1.lg;1;Pudiera causar una p�rdida menor de la confianza dentro de la Organizaci�n
-74;9;0.4;0;no supondr�a da�o a la reputaci�n o buena imagen de las personas u organizaciones 
-75;10;8.crm;8;Impida la investigaci�n de delitos graves o facilite su comisi�n 
-76;10;4.crm;4;Dificulte la investigaci�n o facilite la comisi�n de delitos
-77;11;7.rto;7;RTO < 4 horas
-78;11;4.rto;4;4 horas < RTO < 1 d�a
-79;11;1.rto;1;1 d�a < RTO < 5 d�as
-80;11;0.rto;0;5 d�as < RTO
-81;12;10.lbl;10;Secreto
-82;12;9.lbl;9;Reservado 
-83;12;8.lbl;8;Confidencial
-84;12;7.lbl;7;Confidencial
-85;12;6.lbl;6;Difusi�n limitada
-86;12;5.lbl;5;Difusi�n limitada
-87;12;4.lbl;4;Difusi�n limitada
-88;12;3.lbl;3;Difusi�n limitada
-89;12;2.lbl;2;Sin clasificar
-90;12;1.lbl;1;Sin clasificar
-91;13;10.ue;10;TRES SECRET UE
-92;13;9.ue;9;SECRET UE
-93;13;8.ue;8;CONFIDENTIEL UE
-94;13;7.ue;7;CONFIDENTIEL UE
-95;13;6.ue;6;RESTREINT UE
-96;13;5.ue;5;RESTREINT UE
-97;13;4.ue;4;RESTREINT UE
-98;13;3.ue;3;RESTREINT UE
+id critValori,id tipoCritValori,codigo,valorizacion,Descripccion del critero
+1,1,6.pi1,6,probablemente afecte gravemente a un grupo de individuos
+2,1,6.pi2,6,probablemente quebrante seriamente la ley o algún reglamento de protección de información personal
+3,1,5.pi1,5,probablemente afecte gravemente a un individuo
+4,1,5.pi2,5,probablemente quebrante seriamente leyes o regulaciones
+5,1,4.pi1,4,probablemente afecte a un grupo de individuos
+6,1,4.pi2,4,probablemente quebrante leyes o regulaciones
+7,1,3.pi1,3,probablemente afecte a un individuo
+8,1,3.pi2,3,probablemente suponga el incumplimiento de una ley o regulación
+9,1,2.pi1,2,pudiera causar molestias a un individuo
+10,1,2.pi2,2,pudiera quebrantar de forma leve leyes o regulaciones
+11,1,1.pi1,1,pudiera causar molestias a un individuo
+12,2,9.lro,9,probablemente cause un incumplimiento excepcionalmente grave de una ley o regulación
+13,2,7.lro,7,probablemente cause un incumplimiento grave de una ley o regulación
+14,2,5.lro,5,probablemente sea causa de incumplimiento de una ley o regulación
+15,2,3.lro,3,probablemente sea causa de incumplimiento leve o técnico de una ley o regulación
+16,2,1.lro,1,pudiera causar el incumplimiento leve o técnico de una ley o regulación
+17,3,10.si,10,probablemente sea causa de un incidente excepcionalmente serio de seguridad o dificulte la investigación de incidentes excepcionalmente serios
+18,3,9.si,9,probablemente sea causa de un serio incidente de seguridad o dificulte la investigación de incidentes serios
+19,3,7.si,7,probablemente sea causa de un grave incidente de seguridad o dificulte la investigación de incidentes graves
+20,3,3.si,3,probablemente sea causa de una merma en la seguridad o dificulte la investigación de un incidente
+21,3,1.si,1,pudiera causar una merma en la seguridad o dificultar la investigación de un incidente
+22,4,9.cei.a,9,de enorme interés para la competencia
+23,4,9.cei.b,9,de muy elevado valor comercial
+24,4,9.cei.c,9,causa de pérdidas económicas excepcionalmente elevadas
+25,4,9.cei.d,9,causa de muy significativas ganancias o ventajas para individuos u organizaciones
+26,4,9.cei.e,9,constituye un incumplimiento excepcionalmente grave de las obligaciones contractuales relativas a la seguridad de la información proporcionada por terceros
+27,4,7.cei.a,7,de alto interés para la competencia
+28,4,7.cei.b,7,de elevado valor comercial
+29,4,7.cei.c,7,causa de graves pérdidas económicas
+30,4,7.cei.d,7,proporciona ganancias o ventajas desmedidas a individuos u organizaciones
+31,4,7.cei.e,7,constituye un serio incumplimiento de obligaciones contractuales relativas a la seguridad de la información proporcionada por terceros
+32,4,3.cei.a,3,de cierto interés para la competencia
+33,4,3.cei.b,3,de cierto valor comercia
+34,4,3.cei.c,3,causa de pérdidas financieras o merma de ingresos
+35,4,3.cei.d,3,facilita ventajas desproporcionadas a individuos u organizaciones
+36,4,3.cei.e,3,constituye un incumplimiento leve de obligaciones contractuales para mantener la seguridad de la información proporcionada por terceros
+37,4,2.cei.a,2,de bajo interés para la competencia
+38,4,2.cei.b,2,de bajo valor comercial
+39,4,1.cei.a,1,de pequeño interés para la competencia
+40,4,1.cei.b,1,de pequeño valor comercial
+41,4,0.3,0,supondría pérdidas económicas mínimas
+42,5,9.da,9,Probablemente cause una interrupción excepcionalmente seria de las actividades propias de la Organización con un serio impacto en otras organizaciones
+43,5,9.da2,9,Probablemente tenga un serio impacto en otras organizaciones
+44,5,7.da,7,Probablemente cause una interrupción seria de las actividades propias de la Organización con un impacto significativo en otras organizaciones
+45,5,7.da2,7,Probablemente tenga un gran impacto en otras organizaciones
+46,5,5.da,5,Probablemente cause la interrupción de actividades propias de la Organización con impacto en otras organizaciones
+47,5,5.da2,5,Probablemente cause la interrupción de actividades propias de la Organización
+48,5,3.da,3,Probablemente cause la interrupción de actividades propias de la Organización
+49,5,1.da,1,Pudiera causar la interrupción de actividades propias de la Organización
+50,6,9.po,9,alteración seria del orden público
+51,6,6.po,6,"probablemente cause manifestaciones, o presiones significativas"
+52,6,3.po,3,causa de protestas puntuales
+53,6,1.po,1,pudiera causar protestas puntuales
+54,7,10.olm,10,Probablemente cause un daño excepcionalmente serio a la eficacia o seguridad de la misión operativa o logística
+55,7,9..olm,9,Probablemente cause un daño serio a la eficacia o seguridad de la misión operativa o logística
+56,7,7..olm,7,Probablemente perjudique la eficacia o seguridad de la misión operativa o logística
+57,7,5..olm,5,Probablemente merme la eficacia o seguridad de la misión operativa o logística más allá del ámbito local
+58,7,3..olm,3,Probablemente merme la eficacia o seguridad de la misión operativa o logística (alcance local)
+59,7,1..olm,1,Pudiera mermar la eficacia o seguridad de la misión operativa o logística (alcance local)
+60,8,9..adm,9,"probablemente impediría seriamente la operación efectiva de la Organización, pudiendo llegar a su cierre"
+61,8,7.adm,7,probablemente impediría la operación efectiva de la Organización
+62,8,5.adm,5,probablemente impediría la operación efectiva de más de una parte de la Organización
+63,8,3.adm,3,probablemente impediría la operación efectiva de una parte de la Organización
+64,8,1.adm,1,pudiera impedir la operación efectiva de una parte de la Organización
+65,9,9.lg.a,9,Probablemente causaría una publicidad negativa generalizada por afectar de forma excepcionalmente grave a las relaciones a las relaciones con otras organizaciones
+66,9,9.lg.b,9,Probablemente causaría una publicidad negativa generalizada por afectar de forma excepcionalmente grave a las relaciones a las relaciones con el público en general
+67,9,7.lg.a,7,Probablemente causaría una publicidad negativa generalizada por afectar gravemente a las relaciones con otras organizaciones
+68,9,7.lg.b,7,Probablemente causaría una publicidad negativa generalizada por afectar gravemente a las relaciones con el público en general
+69,9,5.lg.a,5,Probablemente sea causa una cierta publicidad negativa por afectar negativamente a las relaciones con otras organizaciones
+70,9,5.lg.b,5,Probablemente sea causa una cierta publicidad negativa por afectar negativamente a las relaciones con el público
+71,9,3.lg,3,Probablemente afecte negativamente a las relaciones internas de la Organización
+72,9,2.lg,2,Probablemente cause una pérdida menor de la confianza dentro de la Organización
+73,9,1.lg,1,Pudiera causar una pérdida menor de la confianza dentro de la Organización
+74,9,0.4,0,no supondría daño a la reputación o buena imagen de las personas u organizaciones
+75,10,8.crm,8,Impida la investigación de delitos graves o facilite su comisión
+76,10,4.crm,4,Dificulte la investigación o facilite la comisión de delitos
+77,11,7.rto,7,RTO < 4 horas
+78,11,4.rto,4,4 horas < RTO < 1 día
+79,11,1.rto,1,1 día < RTO < 5 días
+80,11,0.rto,0,5 días < RTO
+81,12,10.lbl,10,Secreto
+82,12,9.lbl,9,Reservado
+83,12,8.lbl,8,Confidencial
+84,12,7.lbl,7,Confidencial
+85,12,6.lbl,6,Difusión limitada
+86,12,5.lbl,5,Difusión limitada
+87,12,4.lbl,4,Difusión limitada
+88,12,3.lbl,3,Difusión limitada
+89,12,2.lbl,2,Sin clasificar
+90,12,1.lbl,1,Sin clasificar
+91,13,10.ue,10,TRES SECRET UE
+92,13,9.ue,9,SECRET UE
+93,13,8.ue,8,CONFIDENTIEL UE
+94,13,7.ue,7,CONFIDENTIEL UE
+95,13,6.ue,6,RESTREINT UE
+96,13,5.ue,5,RESTREINT UE
+97,13,4.ue,4,RESTREINT UE
+98,13,3.ue,3,RESTREINT UE

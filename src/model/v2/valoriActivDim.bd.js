@@ -12,20 +12,22 @@ module.exports = class DbvaloriActivDimen {
     const results = await conexibd.single_query(
       req,
       res,
-      'CALL `insert_valoriActivDimen`(?,?,?,?,?);',
+      'CALL `insert_valoriActivDimen`(?,?,?,?,?,?);',
       // eslint-disable-next-line multiline-ternary
       (isObjJson) ? [
         ObjJson.id_valorActiv,
         ObjJson.id_dimension,
         ObjJson.valorAcivCualit,
         ObjJson.id_varlotActivCualit,
-        ObjJson.tipValoActivDimen
+        ObjJson.tipValoActivDimen,
+        ObjJson.id_nivelCritec
       ] : [
         req.body.id_valorActiv,
         req.body.id_dimension,
         req.body.valorAcivCualit,
         req.body.id_varlotActivCualit,
-        req.body.tipValoActivDimen
+        req.body.tipValoActivDimen,
+        req.body.id_nivelCritec
       ],
       'Se inserto correctamente la empresa'
     )

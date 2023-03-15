@@ -10,14 +10,20 @@ Content-Type: application/json
     "dataValor" : [
         {
             "id_dimension" : 1,
-            "valorAcivCualit" : 12,
+            "valorAcivCualit" : 5,
             "id_varlotActivCualit" : 0,
             "tipValoActivDimen" : "N"
         },
         {
-            "id_dimension" : 3,
+            "id_dimension" : 2,
+            "valorAcivCualit" : 4,
+            "id_varlotActivCualit" : 12,
+            "tipValoActivDimen" : "C"
+        },
+        {
+            "id_dimension" : 4,
             "valorAcivCualit" : 6,
-            "id_varlotActivCualit" : 14,
+            "id_varlotActivCualit" : 12,
             "tipValoActivDimen" : "C"
         }
     ]

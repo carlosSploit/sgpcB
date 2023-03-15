@@ -1,12 +1,12 @@
 const fs = require('fs')
 
 // ######################### DbclientAnali ###################################
-module.exports = class Dbtiposcritvalor {
+module.exports = class ETLtipoAmenas {
   async Load () {
   }
 
   async Extrac () {
-    const LoadFilte = fs.readFileSync(require.resolve('./data/tiposcritvalor.csv'), { encoding: 'utf8' })
+    const LoadFilte = fs.readFileSync(require.resolve('./data/tipoAmenas.csv'), { encoding: 'utf8' })
     const LoadData = LoadFilte.toString().split('\n')
     return LoadData
   }
@@ -27,7 +27,7 @@ module.exports = class Dbtiposcritvalor {
     return consulte + ' ' + dataConsult
   }
 
-  // INSERT INTO `tipocritervalor`(`id_tipoCriterValor`, `abreb`, `nombreTipCrit`, `estade`) VALUES
+  // INSERT INTO `tipoamen`(`id_tipoActiv`, `nombreTipoActiv`, `abreb`, `descripc`, `estade`) VALUES
 
   async Trasform (mintCapDatos = 2, limitInsert = 0) {
     const LoadDataCVS = await this.Extrac()
@@ -40,7 +40,7 @@ module.exports = class Dbtiposcritvalor {
         return `${(correcItemDat === '') ? '0' : correcItemDat}`
       })
       if (dataTrasnforColumn.length < mintCapDatos) return []
-      const FormatoInserDatos = [dataTrasnforColumn[0], dataTrasnforColumn[1], dataTrasnforColumn[2], '1']
+      const FormatoInserDatos = [dataTrasnforColumn[0], dataTrasnforColumn[2], dataTrasnforColumn[1], dataTrasnforColumn[3], '1']
       return FormatoInserDatos
     // eslint-disable-next-line eqeqeq
     }).filter(item => item.length > mintCapDatos).filter((item, index) => { return (limitInsert == 0) ? true : index < limitInsert })

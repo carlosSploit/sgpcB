@@ -1,386 +1,386 @@
-Id tipo de activo;Dependecia Abreb;Abrebiatura;Traducido;dependencia
-1;essential;essential;Activos esenciales;
-2;essential.info;info;InformaciÛn;1
-3;essential.info.biz;biz;InformaciÛn Empresa;2
-4;essential.info.com;com;InformaciÛn Comercial;2
-5;essential.info.adm;adm;Datos de interÈs para la administraciÛn de p˙blica;2
-6;essential.info.vr;vr;Datos Vitales (Registros de la OrganizaciÛn);2
-7;essential.info.per;per;datos de car·cter personal;2
-8;essential.info.per.normal;normal;datos de persona normal;7
-9;essential.info.per.normal.1;1;[Datos de identificaciÛn (nombre y apellido, ID, direcciÛn postal, direcciÛn de correo electrÛnico, telÈfono, ...);8
-10;essential.info.per.normal.2;2;CaracterÌsticas personales (estado civil, fecha y lugar de nacimiento, edad, sexo, nacionalidad, ...);8
-11;essential.info.per.normal.3;3;datos acadÈmicos;8
-12;essential.info.per.normal.4;4;datos profesionales;8
-13;essential.info.per.normal.5;5;datos bancarios;8
-14;essential.info.per.regular;regular;Datos personales regulares;7
-15;essential.info.per.regular.1;1;econÛmico;14
-16;essential.info.per.regular.2;2;identidad cultural;14
-17;essential.info.per.regular.3;3;idemtidad social;14
-18;essential.info.per.regular.4;4;identidad en lÌnea;14
-19;essential.info.per.regular.5;5;ubicaciÛn;14
-20;essential.info.per.pseudonymous;pseudonymous;Datos seudÛnimos (Art. 4, 6, 25, 32, 40, 89);7
-21;essential.info.per.sensitive;sensitive;Datos personales confidenciales (Art. 9);7
-22;essential.info.per.sensitive.1;1;racial;21
-23;essential.info.per.sensitive.2;2;origen Ètnico;21
-24;essential.info.per.sensitive.3;3;opiniones polÌticas;21
-25;essential.info.per.sensitive.4;4;creencias de religiones;21
-26;essential.info.per.sensitive.5;5;creencias filosÛficas;21
-27;essential.info.per.sensitive.6;6;membresÌa de uniÛn comercial;21
-28;essential.info.per.sensitive.7;7;salud;21
-29;essential.info.per.sensitive.7.1;1;fÌsico;28
-30;essential.info.per.sensitive.7.2;2;fisiolÛgico;28
-31;essential.info.per.sensitive.7.3;3;mental;28
-32;essential.info.per.sensitive.7.4;4;servicios de atenciÛn mÈdica;28
-33;essential.info.per.sensitive.7.5;5;Estado de salud;28
-34;essential.info.per.sensitive.8;8;vida sexual;21
-35;essential.info.per.sensitive.9;9;orientaciÛn sexual;21
-36;essential.info.per.sensitive.10;10;datos genÈticos;21
-37;essential.info.per.sensitive.11;11;InformaciÛn biomÈtrica;21
-38;essential.info.per.children;children;niÒos;7
-39;essential.info.per.criminal;criminal;Derecho penal (Art. 10);7
-40;essential.info.per.criminal.1;1;ofensas criminales;39
-41;essential.info.per.criminal.2;2;convicciÛn;39
-42;essential.info.per.A;A;Alto de Nivel;7
-43;essential.info.per.M;M;nivel medio;7
-44;essential.info.per.B;B;Nivel Bajo;7
-45;essential.info.classified;classified;datos Clasificados;2
-46;essential.info.classified.TS;TS;ULTRA SECRETO;45
-47;essential.info.classified.S;S;SECRETO;45
-48;essential.info.classified.C;C;Nivel Confidencial;45
-49;essential.info.classified.R;R;difusiÛn limitada;45
-50;essential.info.classified.UC;UC;Sin Clasificar;45
-51;essential.info.classified.pub;pub;De Car·cter P˙blico;45
-52;essential.service;service;servicio;1
-53;essential.service.operations;operations;operaciones;52
-54;essential.service.logistics;logistics;logÌstica;52
-55;essential.service.intelligence;intelligence;inteligencia;52
-56;essential.service.personnel;personnel;personal;52
-57;essential.service.financial;financial;financiero;52
-58;essential.service.administrative;administrative;administrativo;52
-59;essential.service.programme;programme;programa;52
-60;essential.service.project;project;proyecto;52
-61;essential.bp;bp;procesos de negocio;1
-62;essential.ppd;pdd;Procesamiento de datos personales;1
-63;essential.ppd.1;1;Hacer o analizar perfiles;62
-64;essential.ppd.2;2;Anuncio y prospecciÛn comercial masiva a clientes potenciales;62
-65;essential.ppd.3;3;ProvisiÛn de servicios para la operaciÛn de redes p˙blicas o servicios de comunicaciÛn electrÛnica (proveedor de servicios de Internet);62
-66;essential.ppd.4;4;Gestionar asociados o miembros de partidos polÌticos, sindicatos, iglesias, confesiones o comunidades religiosas, fundaciones y otras entidades sin fines de lucro, cuyo propÛsito es polÌtico, filosÛfico, religioso o sindicato;62
-67;essential.ppd.5;5;GestiÛn, control sanitario o venta de medicamentos;62
-68;essential.ppd.6;6;Historial clÌnico o de salud;62
-69;arch;arch;Arquitectura del sistema;
-70;arch.sap;sap;punto de [acceso al] servicio;69
-71;arch.ip;ip;punto de interconexiÛn;69
-72;arch.ip.0;0;ninguno;71
-73;arch.ip.pkt;pkt;Filtro de paquetes (nivel 3);71
-74;arch.ip.firewall;firewall;Firewall (control de sesiÛn);71
-75;arch.ip.proxy;proxy;Monitoreo de la aplicaciÛn (nivel 7);71
-76;arch.ip.r2p;r2p;1 firewall (2 puertos) + proxy;71
-77;arch.ip.r3p;r3p;1 firewall (3 puertos) + proxy;71
-78;arch.ip.dmz;dmz;2 firewalls + DMZ + proxy;71
-79;arch.ip.gtwy;gtwy;puerta de enlace (cambio de protocolo);71
-80;arch.ip.diode;diode;diodo (dispositivo unidireccional);71
-81;arch.ip.gap;gap;espacio de aire (pared de aire);71
-82;arch.pps;pps;Sistema de protecciÛn del perÌmetro fÌsico;69
-83;arch.tempest;tempest;ProtecciÛn contra emanaciones electromagnÈticas;69
-84;arch.tempest.0;0;Zona 0: Efectivo si el atacante est· muy cerca;83
-85;arch.tempest.1;1;Zona 1: Efectivo si el atacante est· a 20 m de distancia;83
-86;arch.tempest.2;2;Zona 2: Efectivo si el atacante est· a 100 metros de distancia;83
-87;arch.tempest.3;3;Zona 3: Efectivo si el atacante est· a 500 m de distancia;83
-88;arch.alternativas;or;alternativa;69
-89;qualifier;qualifier;CaracterÌsticas;
-90;qualifier.independent;independent;independiente (sin valor heredado del dominio);89
-91;qualifier.no_data;no_data;no almacena datos;89
-92;qualifier.no_threats;no threats;Sin amenazas;89
-93;qualifier.dead;dead;Fuera de servicio;89
-94;qualifier.not_exists;not_exists;no existe;89
-95;qualifier.invisible;invisible;invisible;89
-96;qualifier.black;black;negro (informaciÛn cifrada);89
-97;qualifier.availability;availability;Disponibilidad;89
-98;qualifier.availability.easy;easy;F·cil de reemplazar;97
-99;qualifier.availability.none;none;Sin problemas de disponibilidad;97
-100;qualifier.evaluated;evaluated;Productos o servicios evaluados;89
-101;qualifier.evaluated.certified;certified;certificado (evaluado por un tercero);100
-102;qualifier.evaluated.accredited;accredited;acreditado (evaluado por un tercero);100
-103;qualifier.unsupported;unsupported;sin apoyo (sin mantenimiento del fabricante);89
-104;qualifier.tempest;tempest;ZonificaciÛn de equipos (tempestad);89
-105;qualifier.tempest.A;A;GarantÌa m·xima;104
-106;qualifier.tempest.B;B;GarantÌa media;104
-107;qualifier.tempest.C;C;GarantÌa mÌnima;104
-108;qualifier.tempest.D;D;Sin garantÌa;104
-109;arch.ext;ext;proporciado por terceros;69
-110;D;D;Datos / informaciÛn;
-111;D.files;files;ficheros;110
-112;D.e-files;e-files;archivos de datos cifrados;110
-113;D.records;records;registros de organizaciÛn;110
-114;D.msg;msg;Mensajes (enviados a lo largo de canales de comunicaciÛn);110
-115;D.e-msg;e-msg;mensajes cifrados;110
-116;D.backup;backup;Copias de Respaldo;110
-117;D.conf;conf;Datos de configuraciÛn;110
-118;D.int;int;Datos de GestiÛnÛn;110
-119;D.password;password;credenciales (EJ. ContraseÒas);110
-120;D.auth;auth;Datos de Validacia de Credenciales;110
-121;D.acl;acl;datos de control de access;110
-122;D.log;log;Registro de actividad;110
-123;D.voice;voice;voz;110
-124;D.multimedia;multimedia;multimedia;110
-125;D.source;source;cÛdigo fuente;110
-126;D.exe;exe;cÛdigo ejecutable;110
-127;D.test;test;datos de prueba;110
-128;D.other ...;other;otro;110
-129;keys;keys;Claves criptogr·ficas;
-130;keys.info;info;protecciÛn de la informaciÛn;129
-131;keys.info.encrypt;encrypt;claves de cifra;130
-132;keys.info.encrypt.shared_secret;shared_secret;secreto compartido (clave simÈtrica);131
-133;keys.info.encrypt.public_encryption;public_encryption;clave p˙blica de cifra;131
-134;keys.info.encrypt.public_decryption;public_decryption;clave privada de descifrado;131
-135;keys.info.sign;sign;claves de firma;130
-136;keys.info.sign.shared_secret;shared_secret;secreto compartido (clave simÈtrica);135
-137;keys.info.sign.public_signature;public_signature;clave privada de firma;135
-138;keys.info.sign.public_verification;public_verification;clave p˙blica de verificaciÛn de firma;135
-139;keys.com;com;protecciÛn de las comunicaciones;129
-140;keys.com.channel;channel;claves de cifrado del canal;139
-141;keys.com.authentication;authentication;claves de autenticaciÛn;139
-142;keys.com.verification;verification;claves de verificaciÛn de autenticaciÛn;139
-143;keys.disk;disk;cifrado de soportes de informaciÛn;129
-144;keys.disk.encrypt;encrypt;claves de cifra;143
-145;keys.x509;x509;certificados de clave p˙blica;129
-146;S;S;Servicios;
-147;S.client;client;Usado por nosotros;146
-148;S.client.email;email;correo electrÛnico;147
-149;S.client.www;www;buscando en la web;147
-150;S.client.telework;telework;teletrabajo;147
-151;S.prov;prov;proporcionado por nosotros;146
-152;S.prov.sysadm;sysadm;administracion del sistema;151
-153;S.prov.anon;anon;AnÛnimo (sin identificaciÛn);151
-154;S.prov.pub;pub;Abierto al p˙blico (sin contrato);151
-155;S.prov.ext;ext;Usuarios externos (bajo contrato);151
-156;S.prov.int;int;interno (los usuarios y los medios pertenecen a la organizaciÛn);151
-157;S.prov.www;www;World Wide Web;151
-158;S.prov.remote_access;remote_access;acceso remoto;151
-159;S.prov.email;email;correo electrÛnico;151
-160;S.prov.voip;voip;voz sobre IP;151
-161;S.prov.file;file;Servicio de archivo (almacenamiento);151
-162;S.prov.print;print;servicio de impresiÛn;151
-163;S.prov.ft;ft;transferencia de archivos;151
-164;S.prov.backup;backup;servicio de respaldo;151
-165;S.prov.time;time;servicio de tiempo;151
-166;S.prov.edi;edi;EDI - Intercambio electrÛnico de datos;151
-167;S.prov.dir;dir;directorio de Servicios;151
-168;S.prov.dns;dns;servidor de nombres de dominio;151
-169;S.prov.idm;idm;gestiÛn de identidad;151
-170;S.prov.ipm;ipm;gestiÛn de privilegios;151
-171;S.prov.log;log;registro de actividades;151
-172;S.prov.crypto;crypto;servicios criptogr·ficos;151
-173;S.prov.crypto.key_gen;.key_gen;generaciÛn de claves;172
-174;S.prov.crypto.integrity;integrity;protecciÛn contra la integridad;172
-175;S.prov.crypto.encryption;encryption;encriptaciÛn;172
-176;S.prov.crypto.auth;auth;autenticaciÛn;172
-177;S.prov.crypto.sign;sign;firma electronica;172
-178;S.prov.crypto.time;time;servicio de estampado de tiempo;172
-179;S.prov.pki;pki;PKI - Infraestructura de clave p˙blica;151
-180;S.prov.pki.ca;ca;autoridad de certificaciÛn;179
-181;S.prov.pki.ra;ra;Autoridad de Registro;179
-182;S.prov.pki.va;va;autoridad de validaciÛn;179
-183;S.prov.pki.tsa;tsa;autoridad de estampado de tiempo;179
-184;S.prov.pki.aa;aa;autoridad de atributo;179
-185;S.prov.other;other ...;otro ...;151
-186;S.3rd;3rd;proporcionado por una fiesta externa;146
-187;S.3rd.ISP;ISP;Proveedor de servicios de Internet;186
-188;S.3rd.comms;comms;Transporte / Comunicaciones;186
-189;S.3rd.proc;proc;proveedor de procesamiento;186
-190;S.3rd.file;file;almacenamiento;186
-191;S.3rd.backup;backup;respaldo;186
-192;S.3rd.id;id;identidad;186
-193;S.3rd.ca;ca;CertificaciÛn (PKI);186
-194;S.3rd.aa;aa;Atributos (PKI);186
-195;S.3rd.va;va;ValidaciÛn (PKI);186
-196;S.3rd.tsa;tsa;Marcando la hora;186
-197;S.3rd.dir;dir;Directorio (LDAP, DNS, ...);186
-198;S.3rd.print;print;impresiÛn;186
-199;S.3rd.email;email;correo electrÛnico;186
-200;S.3rd.www;www;alojamiento de servidor web;186
-201;S.3rd.hosting;hosting;alojamiento;186
-202;S.3rd.housing housing;housing;alojamiento;186
-203;S.3rd.cloud;cloud;nube;186
-204;S.3rd.cloud.SaaS;SaaS;Software como servicio;203
-205;S.3rd.cloud.PaaS;PaaS;Plataforma como servicio;203
-206;S.3rd.cloud.IaaS;IaaS;Infraestructura como un servicio;203
-207;S.3rd.log;log;registro de actividades;186
-208;S.3rd.care;care;mantenimiento;186
-209;S.3rd.power;power;proveedor de energÌa;186
-210;S.3rd.other;other;otro ...;186
-211;S.anon;anon;anÛnimo (sin requerir identificaciÛn del usuario);146
-212;S.pub;pub;al p˙blico en general (sin relaciÛn contractual);146
-213;S.ext;ext;a usuarios externos (bajo una relaciÛn contractual);146
-214;S.int;int;interno (a usuarios de la propia organizaciÛn);146
-215;S.www;www;world wide web;146
-216;S.telnet;telnet;acceso remoto a cuenta local;146
-217;S.email;email;correo electrÛnico;146
-218;S.file;file;almacenamiento de ficheros;146
-219;S.ftp;ftp;almacenamiento de ficheros;146
-220;S.edi;edi;intercambio electrÛnico de datos;146
-221;S.dir;dir;servicio de directorio;146
-222;S.idm;idm;gestiÛn de identidades;146
-223;S.ipm;ipm;gestiÛn de privilegios;146
-224;S.pki;pki;PKI - infraestructura de clave p˙blica;146
-225;SW;SW;Aplicaciones (software);
-226;SW.prp;prp;Desarrollo Propio (en casa);225
-227;SW.sub;sub;Desarrollo a Medida (subcontratado);225
-228;SW.std;std;Est·ndar (en el estante);225
-229;SW.std.browser;browser;Web Navegador;228
-230;SW.std.www;www;servidor de presente;228
-231;SW.std.app;app;Servidor de Aplicaciones;228
-232;SW.std.email_client;email_client;Cliente de Correo ElectrÛnico;228
-233;SW.std.email_server;email_server;Servidor de Correo ElectrÛnico;228
-234;SW.std.directory;directry;servidor de directorio;228
-235;SW.std.file;file;servidor de ficheros;228
-236;SW.std.dbms;dbms;Sistema de GestiÛn de Bases de Datos;228
-237;SW.std.tm;tm;monitorear transaccional;228
-238;SW.std.office;office;Ofim·tica;228
-239;SW.std.av;av;anti virus;228
-240;SW.std.os;os;Sistema operativo;228
-241;SW.std.os.windows;windows;Windows;240
-242;SW.std.os.solaris;solaris;solaris;240
-243;SW.std.os.linux;linux;Linux;240
-244;SW.std.os.macosx;macosx;Mac OS X;240
-245;SW.std.os.other;other;otro ...;240
-246;SW.std.hypervisor;hypervisor;Gestor de M·quinas Virtuales;228
-247;SW.std.hypervisor.type1;type1;Hypervisor Tipo 1 (Bare-Metal | Nativo);246
-248;SW.std.hypervisor.type2;type2;Hypervisor tipo 2 (alojado);246
-249;SW.std.ts;ts;servidor de terminales;228
-250;SW.std.backup;backup;Sistema de respaldo;228
-251;SW.std.other;other;otro ...;228
-252;SW.sec;sec;herramientas de seguridad;225
-253;SW.sec.av;av;anti virus;252
-254;SW.sec.ids;ids;IDS / IPS (detecciÛn / prevenciÛn de intrusos);252
-255;SW.sec.dlp;dip;prevenciÛn de pÈrdida de datos;252
-256;SW.sec.traf;traf;An·lisis de tr·fico;252
-257;SW.sec.hp;hp;tarro de miel;252
-258;HW;HW;Equipos inform·tica (hardware);
-259;HW.host;host;Grandes equipos;258
-260;HW.mid;mid;equipos medios;258
-261;HW.pc;pc;inform·tica personal;258
-262;HW.mobile;mobile;inform·tica mÛvil;258
-263;HW.hand-held;hand-held;dispositivos de mano;258
-264;HW.pda;pda;agendas elect·licas;258
-265;HW.vhost;vhost;Equipo virtual;258
-266;HW.cluster;cluster;grupo;258
-267;HW.backup;backup;Equipamiento de Respaldo;258
-268;HW.data;data;Datos de almacenamiento;258
-269;HW.peripheral;peripheral;perifÈricos;258
-270;HW.peripheral.print;print;medios de impresiÛn;269
-271;HW.peripheral.scan;scan;esc·lenes;269
-272;HW.peripheral.crypto;crypto;Dispositivos Criptogrrafos;269
-273;HW.peripheral.other;other;otro ...;269
-274;HW.bp;bp;Dispositivo de Frontera;258
-275;HW.robot;robot;robots;258
-276;HW.robot.tape;tape;cinta ...;275
-277;HW.robot.disk;disk;disco ...;275
-278;HW.network;network;Soporte de la Red;258
-279;HW.network.modem;modem;mÛdems;278
-280;HW.network.hub;hub;concentradoras;278
-281;HW.network.switch;switch;conmutadores;278
-282;HW.network.router;router;encaminadores;278
-283;HW.network.bridge;bridge;pasarelas;278
-284;HW.network.firewall;firewall;cortafuegos;278
-285;HW.network.wap;wap;punto de acceso inal·mbrico;278
-286;HW.network.other;other;otro ...;278
-287;HW.pabx;pabx;Centralita TelefÛnica;258
-288;HW.ipphone;ipphone;TelÈfono IP;258
-289;HW.other;other;otro ...;258
-290;HW.ics;ics;Sistemas de control industrial;258
-291;HW.ics.rtu;rtu;RTU - Unidad de terminal remoto;290
-292;HW.ics.plc;plc;PLC - Controlador lÛgico programable;290
-293;HW.ics.pac;pac;PAC - Controlador de automatizaciÛn programable;290
-294;HW.ics.ied;ied;IED - Dispositivo electrÛnico inteligente;290
-295;HW.ics.meter;meter;Metro;290
-296;HW.ics.bridge;bridge;Puente;290
-297;HW.ics.hmi;hmi;HMI - Interfaz de m·quina humana;290
-298;HW.ics.server;server;Servidor;290
-299;HW.ics.historian;historian;Historiador;290
-300;HW.ics.telemetry;telemetry;TelemetrÌa;290
-301;HW.ics.ems;ems;EMS - Sistema de gestiÛn de energÌa;290
-302;HW.ics.dms;dms;DMS - Sistema de gestiÛn de distribuciÛn;290
-303;HW.ics.home;home;Red de control domÈstico;290
-304;HW.ics.hvac;hvac;HVAC - CalefacciÛn, ventilaciÛn y aire acondicionado;290
-305;COM;COM;Redes de comunicaciones;
-306;COM.PSTN;PSTN;red telefÛnica;305
-307;COM.ISDN;ISDN;RDSI (Red Digital);305
-308;COM.X25;X25;X25 (Red de datos);305
-309;COM.ADSL;ADSL;ADSL;305
-310;COM.pp;pp;PUNTO A PUNTO;305
-311;COM.radio;radio;radio de comunicaciones;305
-312;COM.wifi;wifi;inalmbrica rojo;305
-313;COM.mobile;mobile;telefonÌa mÛvil;305
-314;COM.sat;sat;por satÈlita;305
-315;COM.LAN;LAN;local rojo;305
-316;COM.VLAN;VLAN;LAN virtual;305
-317;COM.MAN;MAN;red metropolitana;305
-318;COM.WAN;WAN;red de ·rea amplia;305
-319;COM.vpn;vpn;canal cifrado (red privada virtual);305
-320;COM.backup;backup;Comunicaciones de respaldo;305
-321;COM.other;other;otro ...;305
-322;COM.Internet;Internet;Internet;305
-323;Media;Media;Soportes de informaciÛn;
-324;Media.electronic;electronic;electrÛnicos;323
-325;Media.electronic.disk;disk;discos;324
-326;Media.electronic.vdisk;vdisk;discos virtuales;324
-327;Media.electronic.san;san;almacenamiento en red;324
-328;Media.electronic.disquette;disquette;disquetes;324
-329;Media.electronic.cd;cd;cederrÛn (CD-ROM);324
-330;Media.electronic.usb;usb;memorias USB;324
-331;Media.electronic.dvd;dvd;DVD;324
-332;Media.electronic.tape;tape;cinta magnÈtica;324
-333;Media.electronic.mc;mc;tarjetas de memoria;324
-334;Media.electronic.ic;ic;tarjetas inteligentes;324
-335;Media.electronic.volatile;volatile;memoria vol·til (por ejemplo, RAM);324
-336;Media.electronic.non-volatile;non-volatile;Memoria no vol·til (por ejemplo, EPROM);324
-337;Media.electronic.other;other;otro ...;324
-338;Media.non_electronic;non_electronic;No electrÛnicos;323
-339;Media.non_electronic.printed;printed;incremento de material;338
-340;Media.non_electronic.tape;tape;Cinta de Papel;338
-341;Media.non_electronic.film;film;microfilm;338
-342;Media.non_electronic.cards;cards;Tarjetas perforadas;338
-343;Media.non_electronic.other;other;otro ...;338
-344;AUX;AUX;Equipamiento auxiliar;
-345;AUX.power;power;Fuentes de AlimentaciÛn;344
-346;AUX.ups;ups;sistemas de alimentaciÛn ininterrumpida;344
-347;AUX.gen;gen;generadores elÈctricos;344
-348;AUX.ac;ac;equipos de climatizaciÛn;344
-349;AUX.cabling;cabling;cableado;344
-350;AUX.cabling.wire;wire;cable ElÈctrico;349
-351;AUX.cabling.fiber;fiber;fibra Ûptica;349
-352;AUX.robot;robot;robots;344
-353;AUX.robot.tape;tape;de cintas;352
-354;AUX.robot.disk;disk;de discos;352
-355;AUX.supply;supply;Suministros esenciales;344
-356;AUX.destroy;destroy;Equipos de DestruciÛn de Soportes de InformaciÛn;344
-357;AUX.furniture;furniture;Mobiliario: armario, etc.;344
-358;AUX.safe;safe;Cajas Fuertes;344
-359;AUX.other;other;otro ...;344
-360;L;L;Instalaciones;
-361;L.site;site;recinto;360
-362;L.building;building;edificio;360
-363;L.local;local;cuarto;360
-364;L.mobile;mobile;local;360
-365;L.mobile.car;car;vehÌculo terrestre: coche, camiÛn, etc.;364
-366;L.mobile.plane;plane;vehÌculo aÈreo: aviÛn, etc;364
-367;L.mobile.ship;ship;vehÌculo marÌtimo: buque, lancha, etc.;364
-368;L.mobile.shelter;shelter;contenedores;364
-369;L.tunnel;tunnel;t˙nel;364
-370;L.channel;channel;canalizaciÛn;360
-371;L.backup;backup;instalaciones de respaldo;360
-372;L.other;other;otro ...;360
-373;P;P;Personal;
-374;P.ue;ue;usuarios externos;373
-375;P.ui;ui;usuarios internos;373
-376;P.op;op;operadores;373
-377;P.adm;adm;administradores de sistemas;373
-378;P.com;com;administradores de comunicaciones;373
-379;P.dba;dba;administradores de BBDD;373
-380;P.sec;sec;administradores de seguridad;373
-381;P.dev;dev;desarrolladores / programadores;373
-382;P.sub;sub;subcontratas;373
-383;P.prov;prov;proveedores;373
-384;P.other;other;otro ...;373
-385;other;other;Otras clases;
+Id tipo de activo,Dependecia Abreb,Abrebiatura,Traducido,dependencia
+1,essential,essential,Activos esenciales,
+2,essential.info,info,Informaci√≥n,1
+3,essential.info.biz,biz,Informaci√≥n Empresa,2
+4,essential.info.com,com,Informaci√≥n Comercial,2
+5,essential.info.adm,adm,Datos de inter√©s para la administraci√≥n de p√∫blica,2
+6,essential.info.vr,vr,Datos Vitales (Registros de la Organizaci√≥n),2
+7,essential.info.per,per,datos de car√°cter personal,2
+8,essential.info.per.normal,normal,datos de persona normal,7
+9,essential.info.per.normal.1,1,"[Datos de identificaci√≥n (nombre y apellido, ID, direcci√≥n postal, direcci√≥n de correo electr√≥nico, tel√©fono, ...)",8
+10,essential.info.per.normal.2,2,"Caracter√≠sticas personales (estado civil, fecha y lugar de nacimiento, edad, sexo, nacionalidad, ...)",8
+11,essential.info.per.normal.3,3,datos acad√©micos,8
+12,essential.info.per.normal.4,4,datos profesionales,8
+13,essential.info.per.normal.5,5,datos bancarios,8
+14,essential.info.per.regular,regular,Datos personales regulares,7
+15,essential.info.per.regular.1,1,econ√≥mico,14
+16,essential.info.per.regular.2,2,identidad cultural,14
+17,essential.info.per.regular.3,3,idemtidad social,14
+18,essential.info.per.regular.4,4,identidad en l√≠nea,14
+19,essential.info.per.regular.5,5,ubicaci√≥n,14
+20,essential.info.per.pseudonymous,pseudonymous,"Datos seud√≥nimos (Art. 4, 6, 25, 32, 40, 89)",7
+21,essential.info.per.sensitive,sensitive,Datos personales confidenciales (Art. 9),7
+22,essential.info.per.sensitive.1,1,racial,21
+23,essential.info.per.sensitive.2,2,origen √©tnico,21
+24,essential.info.per.sensitive.3,3,opiniones pol√≠ticas,21
+25,essential.info.per.sensitive.4,4,creencias de religiones,21
+26,essential.info.per.sensitive.5,5,creencias filos√≥ficas,21
+27,essential.info.per.sensitive.6,6,membres√≠a de uni√≥n comercial,21
+28,essential.info.per.sensitive.7,7,salud,21
+29,essential.info.per.sensitive.7.1,1,f√≠sico,28
+30,essential.info.per.sensitive.7.2,2,fisiol√≥gico,28
+31,essential.info.per.sensitive.7.3,3,mental,28
+32,essential.info.per.sensitive.7.4,4,servicios de atenci√≥n m√©dica,28
+33,essential.info.per.sensitive.7.5,5,Estado de salud,28
+34,essential.info.per.sensitive.8,8,vida sexual,21
+35,essential.info.per.sensitive.9,9,orientaci√≥n sexual,21
+36,essential.info.per.sensitive.10,10,datos gen√©ticos,21
+37,essential.info.per.sensitive.11,11,Informaci√≥n biom√©trica,21
+38,essential.info.per.children,children,ni√±os,7
+39,essential.info.per.criminal,criminal,Derecho penal (Art. 10),7
+40,essential.info.per.criminal.1,1,ofensas criminales,39
+41,essential.info.per.criminal.2,2,convicci√≥n,39
+42,essential.info.per.A,A,Alto de Nivel,7
+43,essential.info.per.M,M,nivel medio,7
+44,essential.info.per.B,B,Nivel Bajo,7
+45,essential.info.classified,classified,datos Clasificados,2
+46,essential.info.classified.TS,TS,ULTRA SECRETO,45
+47,essential.info.classified.S,S,SECRETO,45
+48,essential.info.classified.C,C,Nivel Confidencial,45
+49,essential.info.classified.R,R,difusi√≥n limitada,45
+50,essential.info.classified.UC,UC,Sin Clasificar,45
+51,essential.info.classified.pub,pub,De Car√°cter P√∫blico,45
+52,essential.service,service,servicio,1
+53,essential.service.operations,operations,operaciones,52
+54,essential.service.logistics,logistics,log√≠stica,52
+55,essential.service.intelligence,intelligence,inteligencia,52
+56,essential.service.personnel,personnel,personal,52
+57,essential.service.financial,financial,financiero,52
+58,essential.service.administrative,administrative,administrativo,52
+59,essential.service.programme,programme,programa,52
+60,essential.service.project,project,proyecto,52
+61,essential.bp,bp,procesos de negocio,1
+62,essential.ppd,pdd,Procesamiento de datos personales,1
+63,essential.ppd.1,1,Hacer o analizar perfiles,62
+64,essential.ppd.2,2,Anuncio y prospecci√≥n comercial masiva a clientes potenciales,62
+65,essential.ppd.3,3,Provisi√≥n de servicios para la operaci√≥n de redes p√∫blicas o servicios de comunicaci√≥n electr√≥nica (proveedor de servicios de Internet),62
+66,essential.ppd.4,4,"Gestionar asociados o miembros de partidos pol√≠ticos, sindicatos, iglesias, confesiones o comunidades religiosas, fundaciones y otras entidades sin fines de lucro, cuyo prop√≥sito es pol√≠tico, filos√≥fico, religioso o sindicato",62
+67,essential.ppd.5,5,"Gesti√≥n, control sanitario o venta de medicamentos",62
+68,essential.ppd.6,6,Historial cl√≠nico o de salud,62
+69,arch,arch,Arquitectura del sistema,
+70,arch.sap,sap,punto de [acceso al] servicio,69
+71,arch.ip,ip,punto de interconexi√≥n,69
+72,arch.ip.0,0,ninguno,71
+73,arch.ip.pkt,pkt,Filtro de paquetes (nivel 3),71
+74,arch.ip.firewall,firewall,Firewall (control de sesi√≥n),71
+75,arch.ip.proxy,proxy,Monitoreo de la aplicaci√≥n (nivel 7),71
+76,arch.ip.r2p,r2p,1 firewall (2 puertos) + proxy,71
+77,arch.ip.r3p,r3p,1 firewall (3 puertos) + proxy,71
+78,arch.ip.dmz,dmz,2 firewalls + DMZ + proxy,71
+79,arch.ip.gtwy,gtwy,puerta de enlace (cambio de protocolo),71
+80,arch.ip.diode,diode,diodo (dispositivo unidireccional),71
+81,arch.ip.gap,gap,espacio de aire (pared de aire),71
+82,arch.pps,pps,Sistema de protecci√≥n del per√≠metro f√≠sico,69
+83,arch.tempest,tempest,Protecci√≥n contra emanaciones electromagn√©ticas,69
+84,arch.tempest.0,0,Zona 0: Efectivo si el atacante est√° muy cerca,83
+85,arch.tempest.1,1,Zona 1: Efectivo si el atacante est√° a 20 m de distancia,83
+86,arch.tempest.2,2,Zona 2: Efectivo si el atacante est√° a 100 metros de distancia,83
+87,arch.tempest.3,3,Zona 3: Efectivo si el atacante est√° a 500 m de distancia,83
+88,arch.alternativas,or,alternativa,69
+89,qualifier,qualifier,Caracter√≠sticas,
+90,qualifier.independent,independent,independiente (sin valor heredado del dominio),89
+91,qualifier.no_data,no_data,no almacena datos,89
+92,qualifier.no_threats,no threats,Sin amenazas,89
+93,qualifier.dead,dead,Fuera de servicio,89
+94,qualifier.not_exists,not_exists,no existe,89
+95,qualifier.invisible,invisible,invisible,89
+96,qualifier.black,black,negro (informaci√≥n cifrada),89
+97,qualifier.availability,availability,Disponibilidad,89
+98,qualifier.availability.easy,easy,F√°cil de reemplazar,97
+99,qualifier.availability.none,none,Sin problemas de disponibilidad,97
+100,qualifier.evaluated,evaluated,Productos o servicios evaluados,89
+101,qualifier.evaluated.certified,certified,certificado (evaluado por un tercero),100
+102,qualifier.evaluated.accredited,accredited,acreditado (evaluado por un tercero),100
+103,qualifier.unsupported,unsupported,sin apoyo (sin mantenimiento del fabricante),89
+104,qualifier.tempest,tempest,Zonificaci√≥n de equipos (tempestad),89
+105,qualifier.tempest.A,A,Garant√≠a m√°xima,104
+106,qualifier.tempest.B,B,Garant√≠a media,104
+107,qualifier.tempest.C,C,Garant√≠a m√≠nima,104
+108,qualifier.tempest.D,D,Sin garant√≠a,104
+109,arch.ext,ext,proporciado por terceros,69
+110,D,D,Datos / informaci√≥n,
+111,D.files,files,ficheros,110
+112,D.e-files,e-files,archivos de datos cifrados,110
+113,D.records,records,registros de organizaci√≥n,110
+114,D.msg,msg,Mensajes (enviados a lo largo de canales de comunicaci√≥n),110
+115,D.e-msg,e-msg,mensajes cifrados,110
+116,D.backup,backup,Copias de Respaldo,110
+117,D.conf,conf,Datos de configuraci√≥n,110
+118,D.int,int,Datos de Gesti√≥n√≥n,110
+119,D.password,password,credenciales (EJ. Contrase√±as),110
+120,D.auth,auth,Datos de Validacia de Credenciales,110
+121,D.acl,acl,datos de control de access,110
+122,D.log,log,Registro de actividad,110
+123,D.voice,voice,voz,110
+124,D.multimedia,multimedia,multimedia,110
+125,D.source,source,c√≥digo fuente,110
+126,D.exe,exe,c√≥digo ejecutable,110
+127,D.test,test,datos de prueba,110
+128,D.other ...,other,otro,110
+129,keys,keys,Claves criptogr√°ficas,
+130,keys.info,info,protecci√≥n de la informaci√≥n,129
+131,keys.info.encrypt,encrypt,claves de cifra,130
+132,keys.info.encrypt.shared_secret,shared_secret,secreto compartido (clave sim√©trica),131
+133,keys.info.encrypt.public_encryption,public_encryption,clave p√∫blica de cifra,131
+134,keys.info.encrypt.public_decryption,public_decryption,clave privada de descifrado,131
+135,keys.info.sign,sign,claves de firma,130
+136,keys.info.sign.shared_secret,shared_secret,secreto compartido (clave sim√©trica),135
+137,keys.info.sign.public_signature,public_signature,clave privada de firma,135
+138,keys.info.sign.public_verification,public_verification,clave p√∫blica de verificaci√≥n de firma,135
+139,keys.com,com,protecci√≥n de las comunicaciones,129
+140,keys.com.channel,channel,claves de cifrado del canal,139
+141,keys.com.authentication,authentication,claves de autenticaci√≥n,139
+142,keys.com.verification,verification,claves de verificaci√≥n de autenticaci√≥n,139
+143,keys.disk,disk,cifrado de soportes de informaci√≥n,129
+144,keys.disk.encrypt,encrypt,claves de cifra,143
+145,keys.x509,x509,certificados de clave p√∫blica,129
+146,S,S,Servicios,
+147,S.client,client,Usado por nosotros,146
+148,S.client.email,email,correo electr√≥nico,147
+149,S.client.www,www,buscando en la web,147
+150,S.client.telework,telework,teletrabajo,147
+151,S.prov,prov,proporcionado por nosotros,146
+152,S.prov.sysadm,sysadm,administracion del sistema,151
+153,S.prov.anon,anon,An√≥nimo (sin identificaci√≥n),151
+154,S.prov.pub,pub,Abierto al p√∫blico (sin contrato),151
+155,S.prov.ext,ext,Usuarios externos (bajo contrato),151
+156,S.prov.int,int,interno (los usuarios y los medios pertenecen a la organizaci√≥n),151
+157,S.prov.www,www,World Wide Web,151
+158,S.prov.remote_access,remote_access,acceso remoto,151
+159,S.prov.email,email,correo electr√≥nico,151
+160,S.prov.voip,voip,voz sobre IP,151
+161,S.prov.file,file,Servicio de archivo (almacenamiento),151
+162,S.prov.print,print,servicio de impresi√≥n,151
+163,S.prov.ft,ft,transferencia de archivos,151
+164,S.prov.backup,backup,servicio de respaldo,151
+165,S.prov.time,time,servicio de tiempo,151
+166,S.prov.edi,edi,EDI - Intercambio electr√≥nico de datos,151
+167,S.prov.dir,dir,directorio de Servicios,151
+168,S.prov.dns,dns,servidor de nombres de dominio,151
+169,S.prov.idm,idm,gesti√≥n de identidad,151
+170,S.prov.ipm,ipm,gesti√≥n de privilegios,151
+171,S.prov.log,log,registro de actividades,151
+172,S.prov.crypto,crypto,servicios criptogr√°ficos,151
+173,S.prov.crypto.key_gen,.key_gen,generaci√≥n de claves,172
+174,S.prov.crypto.integrity,integrity,protecci√≥n contra la integridad,172
+175,S.prov.crypto.encryption,encryption,encriptaci√≥n,172
+176,S.prov.crypto.auth,auth,autenticaci√≥n,172
+177,S.prov.crypto.sign,sign,firma electronica,172
+178,S.prov.crypto.time,time,servicio de estampado de tiempo,172
+179,S.prov.pki,pki,PKI - Infraestructura de clave p√∫blica,151
+180,S.prov.pki.ca,ca,autoridad de certificaci√≥n,179
+181,S.prov.pki.ra,ra,Autoridad de Registro,179
+182,S.prov.pki.va,va,autoridad de validaci√≥n,179
+183,S.prov.pki.tsa,tsa,autoridad de estampado de tiempo,179
+184,S.prov.pki.aa,aa,autoridad de atributo,179
+185,S.prov.other,other ...,otro ...,151
+186,S.3rd,3rd,proporcionado por una fiesta externa,146
+187,S.3rd.ISP,ISP,Proveedor de servicios de Internet,186
+188,S.3rd.comms,comms,Transporte / Comunicaciones,186
+189,S.3rd.proc,proc,proveedor de procesamiento,186
+190,S.3rd.file,file,almacenamiento,186
+191,S.3rd.backup,backup,respaldo,186
+192,S.3rd.id,id,identidad,186
+193,S.3rd.ca,ca,Certificaci√≥n (PKI),186
+194,S.3rd.aa,aa,Atributos (PKI),186
+195,S.3rd.va,va,Validaci√≥n (PKI),186
+196,S.3rd.tsa,tsa,Marcando la hora,186
+197,S.3rd.dir,dir,"Directorio (LDAP, DNS, ...)",186
+198,S.3rd.print,print,impresi√≥n,186
+199,S.3rd.email,email,correo electr√≥nico,186
+200,S.3rd.www,www,alojamiento de servidor web,186
+201,S.3rd.hosting,hosting,alojamiento,186
+202,S.3rd.housing housing,housing,alojamiento,186
+203,S.3rd.cloud,cloud,nube,186
+204,S.3rd.cloud.SaaS,SaaS,Software como servicio,203
+205,S.3rd.cloud.PaaS,PaaS,Plataforma como servicio,203
+206,S.3rd.cloud.IaaS,IaaS,Infraestructura como un servicio,203
+207,S.3rd.log,log,registro de actividades,186
+208,S.3rd.care,care,mantenimiento,186
+209,S.3rd.power,power,proveedor de energ√≠a,186
+210,S.3rd.other,other,otro ...,186
+211,S.anon,anon,an√≥nimo (sin requerir identificaci√≥n del usuario),146
+212,S.pub,pub,al p√∫blico en general (sin relaci√≥n contractual),146
+213,S.ext,ext,a usuarios externos (bajo una relaci√≥n contractual),146
+214,S.int,int,interno (a usuarios de la propia organizaci√≥n),146
+215,S.www,www,world wide web,146
+216,S.telnet,telnet,acceso remoto a cuenta local,146
+217,S.email,email,correo electr√≥nico,146
+218,S.file,file,almacenamiento de ficheros,146
+219,S.ftp,ftp,almacenamiento de ficheros,146
+220,S.edi,edi,intercambio electr√≥nico de datos,146
+221,S.dir,dir,servicio de directorio,146
+222,S.idm,idm,gesti√≥n de identidades,146
+223,S.ipm,ipm,gesti√≥n de privilegios,146
+224,S.pki,pki,PKI - infraestructura de clave p√∫blica,146
+225,SW,SW,Aplicaciones (software),
+226,SW.prp,prp,Desarrollo Propio (en casa),225
+227,SW.sub,sub,Desarrollo a Medida (subcontratado),225
+228,SW.std,std,Est√°ndar (en el estante),225
+229,SW.std.browser,browser,Web Navegador,228
+230,SW.std.www,www,servidor de presente,228
+231,SW.std.app,app,Servidor de Aplicaciones,228
+232,SW.std.email_client,email_client,Cliente de Correo Electr√≥nico,228
+233,SW.std.email_server,email_server,Servidor de Correo Electr√≥nico,228
+234,SW.std.directory,directry,servidor de directorio,228
+235,SW.std.file,file,servidor de ficheros,228
+236,SW.std.dbms,dbms,Sistema de Gesti√≥n de Bases de Datos,228
+237,SW.std.tm,tm,monitorear transaccional,228
+238,SW.std.office,office,Ofim√°tica,228
+239,SW.std.av,av,anti virus,228
+240,SW.std.os,os,Sistema operativo,228
+241,SW.std.os.windows,windows,Windows,240
+242,SW.std.os.solaris,solaris,solaris,240
+243,SW.std.os.linux,linux,Linux,240
+244,SW.std.os.macosx,macosx,Mac OS X,240
+245,SW.std.os.other,other,otro ...,240
+246,SW.std.hypervisor,hypervisor,Gestor de M√°quinas Virtuales,228
+247,SW.std.hypervisor.type1,type1,Hypervisor Tipo 1 (Bare-Metal | Nativo),246
+248,SW.std.hypervisor.type2,type2,Hypervisor tipo 2 (alojado),246
+249,SW.std.ts,ts,servidor de terminales,228
+250,SW.std.backup,backup,Sistema de respaldo,228
+251,SW.std.other,other,otro ...,228
+252,SW.sec,sec,herramientas de seguridad,225
+253,SW.sec.av,av,anti virus,252
+254,SW.sec.ids,ids,IDS / IPS (detecci√≥n / prevenci√≥n de intrusos),252
+255,SW.sec.dlp,dip,prevenci√≥n de p√©rdida de datos,252
+256,SW.sec.traf,traf,An√°lisis de tr√°fico,252
+257,SW.sec.hp,hp,tarro de miel,252
+258,HW,HW,Equipos inform√°tica (hardware),
+259,HW.host,host,Grandes equipos,258
+260,HW.mid,mid,equipos medios,258
+261,HW.pc,pc,inform√°tica personal,258
+262,HW.mobile,mobile,inform√°tica m√≥vil,258
+263,HW.hand-held,hand-held,dispositivos de mano,258
+264,HW.pda,pda,agendas elect√°licas,258
+265,HW.vhost,vhost,Equipo virtual,258
+266,HW.cluster,cluster,grupo,258
+267,HW.backup,backup,Equipamiento de Respaldo,258
+268,HW.data,data,Datos de almacenamiento,258
+269,HW.peripheral,peripheral,perif√©ricos,258
+270,HW.peripheral.print,print,medios de impresi√≥n,269
+271,HW.peripheral.scan,scan,esc√°lenes,269
+272,HW.peripheral.crypto,crypto,Dispositivos Criptogrrafos,269
+273,HW.peripheral.other,other,otro ...,269
+274,HW.bp,bp,Dispositivo de Frontera,258
+275,HW.robot,robot,robots,258
+276,HW.robot.tape,tape,cinta ...,275
+277,HW.robot.disk,disk,disco ...,275
+278,HW.network,network,Soporte de la Red,258
+279,HW.network.modem,modem,m√≥dems,278
+280,HW.network.hub,hub,concentradoras,278
+281,HW.network.switch,switch,conmutadores,278
+282,HW.network.router,router,encaminadores,278
+283,HW.network.bridge,bridge,pasarelas,278
+284,HW.network.firewall,firewall,cortafuegos,278
+285,HW.network.wap,wap,punto de acceso inal√°mbrico,278
+286,HW.network.other,other,otro ...,278
+287,HW.pabx,pabx,Centralita Telef√≥nica,258
+288,HW.ipphone,ipphone,Tel√©fono IP,258
+289,HW.other,other,otro ...,258
+290,HW.ics,ics,Sistemas de control industrial,258
+291,HW.ics.rtu,rtu,RTU - Unidad de terminal remoto,290
+292,HW.ics.plc,plc,PLC - Controlador l√≥gico programable,290
+293,HW.ics.pac,pac,PAC - Controlador de automatizaci√≥n programable,290
+294,HW.ics.ied,ied,IED - Dispositivo electr√≥nico inteligente,290
+295,HW.ics.meter,meter,Metro,290
+296,HW.ics.bridge,bridge,Puente,290
+297,HW.ics.hmi,hmi,HMI - Interfaz de m√°quina humana,290
+298,HW.ics.server,server,Servidor,290
+299,HW.ics.historian,historian,Historiador,290
+300,HW.ics.telemetry,telemetry,Telemetr√≠a,290
+301,HW.ics.ems,ems,EMS - Sistema de gesti√≥n de energ√≠a,290
+302,HW.ics.dms,dms,DMS - Sistema de gesti√≥n de distribuci√≥n,290
+303,HW.ics.home,home,Red de control dom√©stico,290
+304,HW.ics.hvac,hvac,"HVAC - Calefacci√≥n, ventilaci√≥n y aire acondicionado",290
+305,COM,COM,Redes de comunicaciones,
+306,COM.PSTN,PSTN,red telef√≥nica,305
+307,COM.ISDN,ISDN,RDSI (Red Digital),305
+308,COM.X25,X25,X25 (Red de datos),305
+309,COM.ADSL,ADSL,ADSL,305
+310,COM.pp,pp,PUNTO A PUNTO,305
+311,COM.radio,radio,radio de comunicaciones,305
+312,COM.wifi,wifi,inalmbrica rojo,305
+313,COM.mobile,mobile,telefon√≠a m√≥vil,305
+314,COM.sat,sat,por sat√©lita,305
+315,COM.LAN,LAN,local rojo,305
+316,COM.VLAN,VLAN,LAN virtual,305
+317,COM.MAN,MAN,red metropolitana,305
+318,COM.WAN,WAN,red de √°rea amplia,305
+319,COM.vpn,vpn,canal cifrado (red privada virtual),305
+320,COM.backup,backup,Comunicaciones de respaldo,305
+321,COM.other,other,otro ...,305
+322,COM.Internet,Internet,Internet,305
+323,Media,Media,Soportes de informaci√≥n,
+324,Media.electronic,electronic,electr√≥nicos,323
+325,Media.electronic.disk,disk,discos,324
+326,Media.electronic.vdisk,vdisk,discos virtuales,324
+327,Media.electronic.san,san,almacenamiento en red,324
+328,Media.electronic.disquette,disquette,disquetes,324
+329,Media.electronic.cd,cd,cederr√≥n (CD-ROM),324
+330,Media.electronic.usb,usb,memorias USB,324
+331,Media.electronic.dvd,dvd,DVD,324
+332,Media.electronic.tape,tape,cinta magn√©tica,324
+333,Media.electronic.mc,mc,tarjetas de memoria,324
+334,Media.electronic.ic,ic,tarjetas inteligentes,324
+335,Media.electronic.volatile,volatile,"memoria vol√°til (por ejemplo, RAM)",324
+336,Media.electronic.non-volatile,non-volatile,"Memoria no vol√°til (por ejemplo, EPROM)",324
+337,Media.electronic.other,other,otro ...,324
+338,Media.non_electronic,non_electronic,No electr√≥nicos,323
+339,Media.non_electronic.printed,printed,incremento de material,338
+340,Media.non_electronic.tape,tape,Cinta de Papel,338
+341,Media.non_electronic.film,film,microfilm,338
+342,Media.non_electronic.cards,cards,Tarjetas perforadas,338
+343,Media.non_electronic.other,other,otro ...,338
+344,AUX,AUX,Equipamiento auxiliar,
+345,AUX.power,power,Fuentes de Alimentaci√≥n,344
+346,AUX.ups,ups,sistemas de alimentaci√≥n ininterrumpida,344
+347,AUX.gen,gen,generadores el√©ctricos,344
+348,AUX.ac,ac,equipos de climatizaci√≥n,344
+349,AUX.cabling,cabling,cableado,344
+350,AUX.cabling.wire,wire,cable El√©ctrico,349
+351,AUX.cabling.fiber,fiber,fibra √≥ptica,349
+352,AUX.robot,robot,robots,344
+353,AUX.robot.tape,tape,de cintas,352
+354,AUX.robot.disk,disk,de discos,352
+355,AUX.supply,supply,Suministros esenciales,344
+356,AUX.destroy,destroy,Equipos de Destruci√≥n de Soportes de Informaci√≥n,344
+357,AUX.furniture,furniture,"Mobiliario: armario, etc.",344
+358,AUX.safe,safe,Cajas Fuertes,344
+359,AUX.other,other,otro ...,344
+360,L,L,Instalaciones,
+361,L.site,site,recinto,360
+362,L.building,building,edificio,360
+363,L.local,local,cuarto,360
+364,L.mobile,mobile,local,360
+365,L.mobile.car,car,"veh√≠culo terrestre: coche, cami√≥n, etc.",364
+366,L.mobile.plane,plane,"veh√≠culo a√©reo: avi√≥n, etc",364
+367,L.mobile.ship,ship,"veh√≠culo mar√≠timo: buque, lancha, etc.",364
+368,L.mobile.shelter,shelter,contenedores,364
+369,L.tunnel,tunnel,t√∫nel,364
+370,L.channel,channel,canalizaci√≥n,360
+371,L.backup,backup,instalaciones de respaldo,360
+372,L.other,other,otro ...,360
+373,P,P,Personal,
+374,P.ue,ue,usuarios externos,373
+375,P.ui,ui,usuarios internos,373
+376,P.op,op,operadores,373
+377,P.adm,adm,administradores de sistemas,373
+378,P.com,com,administradores de comunicaciones,373
+379,P.dba,dba,administradores de BBDD,373
+380,P.sec,sec,administradores de seguridad,373
+381,P.dev,dev,desarrolladores / programadores,373
+382,P.sub,sub,subcontratas,373
+383,P.prov,prov,proveedores,373
+384,P.other,other,otro ...,373
+385,other,other,Otras clases,
