@@ -5,6 +5,11 @@ const objclienAnalit = new NegAdmin()
 // ######################### rooutes ###################################
 
 // read
+rooutes.get('/', async (req, res) => {
+  objclienAnalit.list_clienAnalit(req, res)
+})
+
+// read
 rooutes.get('/read/:id_clienAnalit', async (req, res) => {
   objclienAnalit.read_clienAnalit(req, res)
 })

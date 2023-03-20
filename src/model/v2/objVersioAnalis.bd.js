@@ -20,7 +20,7 @@ module.exports = class DbobjVersioAnalis {
     const results = await conexibd.single_query(
       req,
       res,
-      'CALL `update_objempresa`(?,?);',
+      'CALL `update_objversanali`(?,?);',
       [
         req.body.nombreObje,
         req.params.id_objVersAnali
@@ -34,7 +34,7 @@ module.exports = class DbobjVersioAnalis {
     const results = await conexibd.single_query(
       req,
       res,
-      'CALL `delete_objempresa`( ? );',
+      'CALL `delete_objversanali`( ? );',
       [
         req.params.id_objVersAnali
       ],

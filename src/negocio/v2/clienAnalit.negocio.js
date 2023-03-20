@@ -237,10 +237,11 @@ module.exports = class ngclienAnalit {
       messege: result
     })
   }
-  // async list_clienAnalit (req, res) {
-  //   const result = await objclienAnalit.list_clienAnalit(req, res)
-  //   res.json(result)
-  // }
+
+  async list_clienAnalit (req, res) {
+    const result = await objclienAnalit.list_clienAnalit(req, res)
+    res.json(result)
+  }
 
   // async delect_clienAnalit (req, res) {
   //   const result = await objclienAnalit.delect_clienAnalit(req, res)

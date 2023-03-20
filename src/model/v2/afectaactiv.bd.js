@@ -57,4 +57,14 @@ module.exports = class Dbafectaactiv {
     )
     return Array.isArray(results) ? results : []
   }
+
+  async read_afectaactiv (req, res, idAfectaActiv = 0) {
+    const results = await conexibd.single_query(
+      req,
+      res,
+      'CALL `read_afectaactiv`(?);',
+      [(parseInt(idAfectaActiv) === 0) ? req.params.id_afectaActiv : idAfectaActiv]
+    )
+    return Array.isArray(results) ? results : []
+  }
 }

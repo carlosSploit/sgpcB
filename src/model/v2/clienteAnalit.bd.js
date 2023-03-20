@@ -54,15 +54,15 @@ module.exports = class DbclientAnali {
     return results
   }
 
-  // async list_admin (req, res) {
-  //   const results = await conexibd.single_query(
-  //     req,
-  //     res,
-  //     'CALL `list_admin`(?);',
-  //     [req.params.name == ' ' ? '' : req.params.name]
-  //   )
-  //   return Array.isArray(results) ? results : []
-  // }
+  async list_clienAnalit (req, res) {
+    const results = await conexibd.single_query(
+      req,
+      res,
+      'CALL `list_clienAnalit`();',
+      []
+    )
+    return Array.isArray(results) ? results : []
+  }
 
   // async delect_admin (req, res) {
   //   const results = await conexibd.single_query(

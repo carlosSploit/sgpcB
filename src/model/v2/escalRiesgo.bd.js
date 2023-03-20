@@ -1,24 +1,24 @@
 const Dbcone = require('../../../config/bd/connet_mysql')
 const conexibd = new Dbcone()
-const ETLescalDegrad = require('../../ETL/escalFrecuen.etl')
-const objescalDegrad = new ETLescalDegrad()
+const ETLescalRiesgo = require('../../ETL/escalRiesgo.etl')
+const objescalRiesgo = new ETLescalRiesgo()
 // ######################### DbclientAnali ###################################
-module.exports = class DbescalDegrad {
-  async inser_escalDegrad (req, res) {
+module.exports = class Dbescalaimpacto {
+  async inser_escalRiesgo (req, res) {
     // trubcar la tabla antes de insertar los datos
     await conexibd.single_query(
       req,
       res,
-      'TRUNCATE TABLE escaladegrad;',
+      'TRUNCATE TABLE escalariesgo;',
       [],
       'Se trunco o limpio correctamente las escalas de degradacion'
     )
     const migrarDat = await conexibd.single_query(
       req,
       res,
-      await objescalDegrad.formatMYSQL('INSERT INTO `escaladegrad`(`id_escalDegrad`, `nombreEscalDreg`, `abreb`, `rangeValid`, `estade`) VALUES '),
+      await objescalRiesgo.formatMYSQL('INSERT INTO `escalariesgo`(`id_escalRiesgo`, `nombreEscalRiesgo`, `abreb`, `valor`, `rangeValid`, `estade`) VALUES '),
       [],
-      'Se migro correctamente las escalas de degradacion'
+      'Se migro correctamente las escalas de impacto'
     )
     return migrarDat
   }
@@ -36,11 +36,11 @@ module.exports = class DbescalDegrad {
   //   return results
   // }
 
-  async list_escaladegrad (req, res) {
+  async list_escalRiesgo (req, res) {
     const results = await conexibd.single_query(
       req,
       res,
-      'CALL `list_escaladegrad`();',
+      'CALL `list_escalariesgo`();',
       []
     )
     return Array.isArray(results) ? results : []

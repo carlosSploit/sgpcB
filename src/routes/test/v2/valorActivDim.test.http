@@ -6,7 +6,7 @@ POST http://localhost:5001/api/v1/valorActivDim/ HTTP/1.1
 Content-Type: application/json
 
 {
-    "id_valorActiv": 1,
+    "id_valorActiv": 3,
     "dataValor" : [
         {
             "id_dimension" : 1,

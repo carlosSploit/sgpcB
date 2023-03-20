@@ -1,0 +1,6 @@
+key,abreb,nombre,Descripccion,Frecuencia / valor,valorFrecuen
+1,CS,Muy frecuente,A diario,100,5
+2,MA,Frecuente,Semanal,10,4
+3,P,Posible,Mensual,1,3
+4,PP,Poco frecuente,Anual,0.1,2
+5,MB,Muy poco frecuente,Varios Años,0.01,1

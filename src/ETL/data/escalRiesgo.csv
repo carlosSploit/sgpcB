@@ -1,0 +1,6 @@
+key,abreb,nombre,Valor point,valor
+1,C,Controlable,0 - 0,1
+2,A,Aceptable,1 - 5,2
+3,T,Tolerable,6 - 16,3
+4,I,Intolerable,17 - 30,4
+5,E,Extremo,31 - 50,5

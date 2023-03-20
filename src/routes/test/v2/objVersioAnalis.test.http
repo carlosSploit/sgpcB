@@ -2,7 +2,7 @@
 GET http://localhost:5001/api/v1/objVersioAnalis/4 HTTP/1.1
 
 ### ELIMINAR UN OBJETIVO DE UNA VERSION DE AMALISIS
-DELETE http://localhost:5001/api/v1/objVersioAnalis/11 HTTP/1.1
+DELETE http://localhost:5001/api/v1/objVersioAnalis/4 HTTP/1.1
 
 ### INSERTAR UN OBJETIVO DE UNA VERSION DE AMALISIS
 POST http://localhost:5001/api/v1/objVersioAnalis/ HTTP/1.1 

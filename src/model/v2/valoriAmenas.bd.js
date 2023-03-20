@@ -2,7 +2,8 @@ const Dbcone = require('../../../config/bd/connet_mysql')
 const conexibd = new Dbcone()
 // ######################### DbclientAnali ###################################
 module.exports = class DbclientAnali {
-  async inser_valoriActiv (req, res) {
+  // aperturar una valorizacion
+  async insert_valorafectamen (req, res) {
     const results = await conexibd.single_query(
       req,
       res,
@@ -16,26 +17,26 @@ module.exports = class DbclientAnali {
     return results
   }
 
-  async actualizar_valoractiv (req, res) {
+  async actualizar_valorafectamen (req, res) {
     const results = await conexibd.single_query(
       req,
       res,
-      'CALL `updateid_escalaFrecuen`(?,?);',
+      'CALL `update_valorafectamen`(?,?);',
       [
-        req.params.id_valorActiv,
-        req.body.valorActivCuanti
+        req.params.id_valorAfectAmen,
+        req.body.id_escalaFrecuen
       ],
       'Se actualizo correctamente el empresa'
     )
     return results
   }
 
-  async loadProm_valoractiv (req, res, idValorActiv = 0) {
+  async loadProm_valorAfectAmen (req, res, idValorAfectAmen = 0) {
     const results = await conexibd.single_query(
       req,
       res,
-      'CALL `loadProm_valoractiv`( ? );',
-      [idValorActiv],
+      'CALL `loadProm_valorAfectAmen`( ? );',
+      [idValorAfectAmen],
       'Se actualizo correctamente el empresa'
     )
     return results
@@ -55,12 +56,22 @@ module.exports = class DbclientAnali {
   //   return results
   // }
 
-  async list_valoractiv (req, res, idActivProsVerAnali = 0) {
+  async list_valorafectamen (req, res, idAfectaActiv = 0) {
     const results = await conexibd.single_query(
       req,
       res,
-      'CALL `list_valoractiv`(?);',
-      [(parseInt(idActivProsVerAnali) === 0) ? req.params.id_activProsVerAnali : idActivProsVerAnali]
+      'CALL `list_valorafectamen`(?);',
+      [(parseInt(idAfectaActiv) === 0) ? req.params.id_afectaActiv : idAfectaActiv]
+    )
+    return Array.isArray(results) ? results : []
+  }
+
+  async read_valorafectamen (req, res, idValorAfectAmen = 0) {
+    const results = await conexibd.single_query(
+      req,
+      res,
+      'CALL `read_valorafectamen`(?);',
+      [(parseInt(idValorAfectAmen) === 0) ? req.params.id_valorAfectAmen : idValorAfectAmen]
     )
     return Array.isArray(results) ? results : []
   }

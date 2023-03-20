@@ -16,6 +16,7 @@ rooutes.get('/:id_activProsVerAnali', async (req, res) => {
 
 // generar amenazas
 rooutes.post('/generar/', async (req, res) => {
+  console.log(req.body)
   objafectaactiv.cargarAmenazas(req, res)
 })
 

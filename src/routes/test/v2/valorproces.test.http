@@ -1,5 +1,5 @@
 ### LEER LA VALORIZACION DE UN PROCESO
-GET http://localhost:5001/api/v1/valorproces/2 HTTP/1.1
+GET http://localhost:5001/api/v1/valorproces/8 HTTP/1.1
 
 ### ACTUALIZAR LA VALORIZACION DE UN PROCESO
 PUT http://localhost:5001/api/v1/valorproces/2 HTTP/1.1 

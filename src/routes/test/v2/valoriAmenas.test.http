@@ -1,0 +1,19 @@
+### LEER LA VALORIZACION DE UN ACTIVO
+GET http://localhost:5001/api/v1/valorafectamen/8 HTTP/1.1
+
+### APERTURA LA VALORIZACION DE UN ACTIVO PARA SU EDICION - INICIALIZAR O APERTURAR LA OPCCION DE VALORIZACION
+POST http://localhost:5001/api/v1/valorafectamen/ HTTP/1.1 
+Content-Type: application/json
+
+{
+    "id_afectaActiv" : 8,
+    "id_escalaFrecuen": 1
+}
+
+### ACTUALIZAR LA VALORIZACION DE UN ACTIVO
+PUT http://localhost:5001/api/v1/valorafectamen/7 HTTP/1.1 
+Content-Type: application/json
+
+{
+    "id_escalaFrecuen" : 2
+}

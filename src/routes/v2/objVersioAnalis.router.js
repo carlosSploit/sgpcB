@@ -16,12 +16,12 @@ rooutes.post('/', async (req, res) => {
 
 // delete
 rooutes.delete('/:id_objVersAnali', async (req, res) => {
-  objVersioAnalis.eliminar_objempresa(req, res)
+  objVersioAnalis.eliminar_objVersioAnalis(req, res)
 })
 
 // actualizar
 rooutes.put('/:id_objVersAnali', async (req, res) => {
-  objVersioAnalis.actualise_objempresa(req, res)
+  objVersioAnalis.actualise_objVersioAnalis(req, res)
 })
 
 module.exports = rooutes
