@@ -1,5 +1,5 @@
 ### LEER LA VALORIZACION DE UN ACTIVO
-GET http://localhost:5001/api/v1/valorActivDim/1 HTTP/1.1
+GET http://localhost:5001/api/v1/valorActivDim/3 HTTP/1.1
 
 ### APERTURA LA VALORIZACION DE UN ACTIVO PARA SU EDICION
 POST http://localhost:5001/api/v1/valorActivDim/ HTTP/1.1 

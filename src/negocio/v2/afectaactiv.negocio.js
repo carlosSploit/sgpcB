@@ -8,6 +8,8 @@ const BdtipoActiv = require('../../model/v2/tipoActiv.bd')
 const objtipoActiv = new BdtipoActiv()
 const BdafectaTip = require('../../model/v2/afectaTip.bd')
 const objafectaTip = new BdafectaTip()
+const BdvaloriAmenasDim = require('./valoriAmenasDim.negocio')
+const objvaloriAmenasDim = new BdvaloriAmenasDim()
 
 const Valideinsert = (req) => {
   const valida =
@@ -184,7 +186,18 @@ module.exports = class ngclienAnalit {
 
   async list_afectaactiv (req, res) {
     const result = await objafectaactiv.list_afectaactiv(req, res)
-    res.json(result)
+    // varificar que los datos sean correctos
+    const CompruResul = result.filter((item) => {
+      return (item.id_valorAfectAmen != null) && (item.id_Frecuencia != null) && (item.id_DegradCualit != null)
+    })
+    // cargar la informacion de cada valorizacion de la dimension
+    for (let index = 0; index < CompruResul.length; index++) {
+      const element = CompruResul[index]
+      req.body.id_valorAfectAmen = element.id_valorAfectAmen
+      await objvaloriAmenasDim.cargar_valorizacionRiesgo(req, res)
+    }
+    const listResult = await objafectaactiv.list_afectaactiv(req, res)
+    res.json(listResult)
   }
 
   async delete_afectaactiv (req, res) {

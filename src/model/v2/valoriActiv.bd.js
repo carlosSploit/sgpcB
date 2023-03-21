@@ -6,10 +6,10 @@ module.exports = class DbclientAnali {
     const results = await conexibd.single_query(
       req,
       res,
-      'CALL `insert_valorafectamen`(?,?);',
+      'CALL `insert_valoractiv`(?,?);',
       [
-        req.body.id_afectaActiv,
-        req.body.id_escalaFrecuen
+        req.body.id_activProsVerAnali,
+        req.body.valorActivCuanti
       ],
       'Se inserto correctamente la frecuencia de la amenaza'
     )
@@ -20,7 +20,7 @@ module.exports = class DbclientAnali {
     const results = await conexibd.single_query(
       req,
       res,
-      'CALL `updateid_escalaFrecuen`(?,?);',
+      'CALL `update_valoractiv`(?,?);',
       [
         req.params.id_valorActiv,
         req.body.valorActivCuanti

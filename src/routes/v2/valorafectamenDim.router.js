@@ -1,6 +1,6 @@
 const express = require('express')
 const rooutes = express.Router()
-const NegvalorafectamenDim = require('../../negocio/v2/valorafectamenDim.negocio')
+const NegvalorafectamenDim = require('../../negocio/v2/valoriAmenasDim.negocio')
 const objvalorafectamenDim = new NegvalorafectamenDim()
 // ######################### rooutes ###################################
 
@@ -23,7 +23,8 @@ rooutes.get('/listDimension/:id_valorAfectAmen', async (req, res) => {
 
 // Cargar la valorizacion de manera generalizada
 rooutes.post('/cargRiesgo/', async (req, res) => {
-  objvalorafectamenDim.cargar_valorizacionRiesgo(req, res)
+  const result = await objvalorafectamenDim.cargar_valorizacionRiesgo(req, res)
+  res.send(result)
 })
 
 // actualizar
