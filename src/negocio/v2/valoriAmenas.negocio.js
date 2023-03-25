@@ -1,45 +1,38 @@
-// const Validator = require('../../../config/complementos/validator')
-// const objvalit = new Validator()
 const BdvaloriAmenas = require('../../model/v2/valoriAmenas.bd')
 const objvaloriAmenas = new BdvaloriAmenas()
+const NegvaloriAmenasDim = require('./valoriAmenasDim.negocio')
+const objvaloriAmenasDim = new NegvaloriAmenasDim()
 
-// const Valideinsert = (req) => {
-//   const valida =
-//     objvalit.validator_integer(req.body.valorActivCuanti)
-
-//   const dataarray = [
-//     {
-//       datacom: 'valorActivCuanti',
-//       valide: objvalit.validator_integer(req.body.valorActivCuanti)
-//     }
-//   ]
-
-//   const auxvalidetdata = dataarray.filter((item) => {
-//     return item.valide
-//   })
-//   return { valida, auxvalidetdata }
-// }
-
-// const ValideCorreoandPassUpdate = async (req, res) => {
-//   // se verifica que que no hayan cambios
-//   const listinfoadmin = await objclienAnalit.read_admin(req, res)
-//   const datainfoadmin = listinfoadmin[0]
-//   console.log(datainfoadmin)
-//   if (!(((datainfoadmin.correo + '') === (req.body.correo + '')) && ((datainfoadmin.pass + '') === (req.body.pass + '')))) {
-//     const valideCorAndPass = await ValideCorreoandPass(req, res)
-//     // si ya existe un usuario con el mismo correo y contraseña
-//     if (valideCorAndPass.status === 404) return valideCorAndPass
-//   }
-//   // si no existe el usuario con el correo y contraseña
-//   return {
-//     status: 200
-//   }
-// }
+async function validarValoriAmenaz (req, res, idAfectaActiv) {
+  // comprobar la informacion de la valoriazion de la amenaza
+  const listResult = await objvaloriAmenas.list_valorafectamen(req, res, idAfectaActiv)
+  if (parseInt(listResult.length) === 0) return false
+  const objResul = listResult[0]
+  // comprobar la valorizacion final
+  const resulComprueb = await objvaloriAmenasDim.compruebeExistenValori(req, res, objResul.id_valorAfectAmen)
+  return resulComprueb.data
+}
 
 module.exports = class ngvaloriActiv {
-  async insert_valorafectamen (req, res) {
-    // validar datos insertados
+  async compruebeExistenValori (req, res) {
+    const result = await validarValoriAmenaz(req, res, req.body.id_afectaActiv)
+    // // eslint-disable-next-line no-useless-return
+    return {
+      status: (result) ? 200 : 404,
+      typo: (result) ? 'succes' : 'error',
+      messege: (result) ? 'La valorizacion de la amenaza puede ser ingresado.' : 'La valorizacion no puede ser insertada',
+      data: result
+    }
+  }
 
+  async insert_valorafectamen (req, res) {
+    // validar si se inserto los datos de la valorizacion del activo
+    const resultData = await this.compruebeExistenValori(req, res, req.body.id_afectaActiv)
+    if (!resultData.data) {
+      res.send(resultData)
+      return
+    }
+    // se realiza la insercion de la valorizacion de forma generica
     const result = await objvaloriAmenas.insert_valorafectamen(req, res)
     res.send({
       status: 200,
@@ -50,7 +43,6 @@ module.exports = class ngvaloriActiv {
 
   async actualizar_valorafectamen (req, res) {
     // validar datos insertados
-
     // si todo esta correcto, inserta los datos
     const result = await objvaloriAmenas.actualizar_valorafectamen(req, res)
     res.send({

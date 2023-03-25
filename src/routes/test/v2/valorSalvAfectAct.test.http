@@ -1,0 +1,15 @@
+### LEER LA VALORIZACION DE UNA SALVAGUARDA (id_salvAfectAct)
+GET http://localhost:5001/api/v1/valorSalvAfectAct/5 HTTP/1.1
+
+### LEER LA VALORIZACION DE UNA SALVAGUARDA (id_salvAfectAct)
+GET http://localhost:5001/api/v1/valorSalvAfectAct/comprobar/5 HTTP/1.1
+
+### ACTUALIZAR LA VALORIZACION DE UNA SALVAGUARDA (id_salvAfectAct)
+PUT http://localhost:5001/api/v1/valorSalvAfectAct/5 HTTP/1.1 
+Content-Type: application/json
+
+{
+    "valEficDegr": 90,
+    "valEficFrec":  90,
+    "valEficImpac": 90
+}

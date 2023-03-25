@@ -1,0 +1,10 @@
+### LISTAR LOS CONTROLES
+GET http://localhost:5001/api/v1/controles/0 HTTP/1.1
+
+### INSERTAR O MIGRAR LOS DATOS DE LOS CONTROLES
+POST http://localhost:5001/api/v1/controles HTTP/1.1 
+Content-Type: application/json
+
+{
+
+}

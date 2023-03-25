@@ -22,7 +22,15 @@ Content-Type: application/json
     ]
 }
 
-### APERTURA LA VALORIZACION DE UN ACTIVO PARA SU EDICION
+### APERTURA LA VALORIZACION DE UN AMENAZA PARA SU EDICION
+POST http://localhost:5001/api/v1/valorafectamenDim/compruebe/ HTTP/1.1 
+Content-Type: application/json
+
+{
+    "id_valorAfectAmen": 2
+}
+
+### APERTURA LA VALORIZACION DE UN AMENAZA PARA SU EDICION
 POST http://localhost:5001/api/v1/valorafectamenDim/cargRiesgo/ HTTP/1.1 
 Content-Type: application/json
 

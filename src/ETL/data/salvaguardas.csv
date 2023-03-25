@@ -1,0 +1,116 @@
+id Salvaguarda,id tipoSalva,abrebiatura,Descripccion del critero
+1,1,H,Protecciones Generales 
+2,1,H.IA,Identificación y autenticación
+3,1,H.AC,Control de acceso lógico 
+4,1,H.ST,Segregación de tareas
+5,1,H.IR,Gestión de incidencias
+6,1,H.tools,Herramientas de seguridad
+7,1,H.tools.AV,Herramienta contra código dañino 
+8,1,H.tools.IDS,IDS/IPS: Herramienta de detección / prevención de intrusión
+9,1,H.tools.CC ,Herramienta de chequeo de configuración 
+10,1,H.tools.VA ,Herramienta de análisis de vulnerabilidades
+11,1,H.tools.TM,Herramienta de monitorización de tráfico
+12,1,H.tools.DLP,DLP: Herramienta de monitorización de contenidos
+13,1,H.tools.LA ,Herramienta para análisis de logs
+14,1,H.tools.HP,Honey net / honey pot
+15,1,H.tools.SFV,Verificación de las funciones de seguridad 
+16,1,H.VM,Gestión de vulnerabilidades
+17,1,H.AU,Registro y auditoría
+18,2,D,Protección de la Información
+19,2,D.A,Copias de seguridad de los datos (backup) 
+20,2,D.I,Aseguramiento de la integridad 
+21,2,D.C,Cifrado de la información
+22,2,D.DS,Uso de firmas electrónicas
+23,2,D.TS,Uso de servicios de fechado electrónico (time stamping)
+24,3,K ,Gestión de claves criptográficas 
+25,3,K.IC,Gestión de claves de cifra de información
+26,3,K.DS,Gestión de claves de firma de información
+27,3,K.disk,Gestión de claves para contenedores criptográficos 
+28,3,K.comms,Gestión de claves de comunicaciones
+29,3,K.509,Gestión de certificados
+30,4,S ,Protección de los Servicios 
+31,4,S.A,Aseguramiento de la disponibilidad
+32,4,S.start,Aceptación y puesta en operación
+33,4,S.SC,Se aplican perfiles de seguridad 
+34,4,S.op ,Explotación
+35,4,S.CM,Gestión de cambios (mejoras y sustituciones)
+36,4,S.end,Terminación
+37,4,S.www ,Protección de servicios y aplicaciones web 
+38,4,S.email ,Protección del correo electrónico 
+39,4,S.dir,Protección del directorio
+40,4,S.dns,Protección del servidor de nombres de dominio (DNS)
+41,4,S.TW ,Teletrabajo
+42,4,S.voip,Voz sobre IP 
+43,5,SW,Protección de las Aplicaciones Informáticas
+44,5,SW.A,Copias de seguridad (backup)
+45,5,SW.start,Puesta en producción
+46,5,SW.SC,Se aplican perfiles de seguridad 
+47,5,SW.op,Explotación / Producción 
+48,5,SW.CM,Cambios (actualizaciones y mantenimiento) 
+49,5,SW.end,Terminación
+50,6,HW,Protección de los Equipos Informáticos
+51,6,HW.start,Puesta en producción
+52,6,HW.SC,Se aplican perfiles de seguridad
+53,6,HW.A,Aseguramiento de la disponibilidad
+54,6,HW.op ,Operación
+55,6,HW.CM,Cambios (actualizaciones y mantenimiento)
+56,6,HW.end,Terminación
+57,6,HW.PCD,Informática móvil 
+58,6,HW.print,Reproducción de documentos 
+59,6,HW.pabx,Protección de la centralita telefónica (PABX) 
+60,7,COM ,Protección de las Comunicaciones 
+61,7,COM.star,Entrada en servicio 
+62,7,COM.SC ,Se aplican perfiles de seguridad 
+63,7,COM.A ,Aseguramiento de la disponibilidad 
+64,7,COM.aut ,Autenticación del canal
+65,7,COM.I ,Protección de la integridad de los datos intercambiados
+66,7,COM.C,Protección criptográfica de la confidencialidad de los datos intercambiados 
+67,7,COM.op ,Operación
+68,7,COM.CM,Cambios (actualizaciones y mantenimiento)
+69,7,COM.end,Terminación
+70,7,COM.internet ,Internet: uso de ? acceso a 
+71,7,COM.wifi,Seguridad Wireless (WiFi) 
+72,7,COM.mobile,Telefonía móvil
+73,7,COM.DS,Segregación de las redes en dominios
+74,8,IP ,Puntos de interconexión: conexiones entre zonas de confianza 
+75,8,IP.SPP,Sistema de protección perimetral
+76,8,IP.BS ,Protección de los equipos de frontera
+77,9,MP,Protección de los Soportes de Información
+78,9,MP.A ,Aseguramiento de la disponibilidad
+79,9,MP.IC,Protección criptográfica del contenido
+80,9,MP.clean,Limpieza de contenidos
+81,9,MP.end,Destrucción de soportes
+82,10,AUX,Elementos Auxiliares
+83,10,AUX.A,Aseguramiento de la disponibilidad
+84,10,AUX.start ,Instalación
+85,10,AUX.power ,Suministro eléctrico
+86,10,AUX.AC,Climatización
+87,10,AUX.wires,Protección del cableado
+88,11,L,Protección de las Instalaciones
+89,11,L.design,Diseño
+90,11,L.depth,"Defensa en profundidad
+91,11,L.AC,Control de los accesos físicos
+92,11,L.A,Aseguramiento de la disponibilidad 
+93,11,L.end,Terminación
+94,12,PS ,Gestión del Personal
+95,12,PS.AT,Formación y concienciación
+96,12,PS.A,Aseguramiento de la disponibilidad 
+97,13,G,Organización
+98,13,G.RM,Gestión de riesgos 
+99,13,G.plan,Planificación de la seguridad
+100,13,G.exam,Inspecciones de seguridad 
+101,14,BC ,Continuidad del negocio
+102,14,BC.BIA,Aseguramiento de la disponibilidad 
+103,14,BC.DRP,Plan de Recuperación de Desastres (DRP) 
+104,15,E ,Relaciones Externas
+105,15,E.1,Acuerdos para intercambio de información y software 
+106,15,E.2 ,Acceso externo
+107,15,E.3 ,Servicios proporcionados por otras organizaciones 
+108,15,E.4 ,Personal subcontratado
+109,16,NEW,Adquisición / desarrollo
+110,16,NEW.S,Servicios: Adquisición o desarrollo
+111,16,NEW.SW,Aplicaciones: Adquisición o desarrollo 
+112,16,NEW.HW ,Equipos: Adquisición o desarrollo
+113,16,NEW.COM,Comunicaciones: Adquisición o contratación
+114,16,NEW.MP,Soportes de Información: Adquisición 
+115,16,NEW.C,Productos certificados o acreditados

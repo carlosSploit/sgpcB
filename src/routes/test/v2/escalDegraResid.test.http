@@ -1,0 +1,10 @@
+### LISTAR LA ESCALA DE LA DEGRADACION RESIDUAL
+GET http://localhost:5001/api/v1/escalDegraResid/ HTTP/1.1
+
+### INSERTAR ESCALA DE LA DEGRADACION RESIDUAL
+POST http://localhost:5001/api/v1/escalDegraResid/ HTTP/1.1 
+Content-Type: application/json
+
+{
+    
+}

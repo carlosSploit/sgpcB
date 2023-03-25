@@ -1,0 +1,25 @@
+### LISTAR UNA EMPRESA
+GET http://localhost:5001/api/v1/salvafectact/1 HTTP/1.1
+
+### ELIMINAR UNA EMPRESA
+DELETE http://localhost:5001/api/v1/salvafectact/1 HTTP/1.1
+
+### INSERTAR UNA EMPRESA
+POST http://localhost:5001/api/v1/salvafectact/ HTTP/1.1 
+Content-Type: application/json
+
+{
+    "id_afectaActiv" : 17,
+    "id_control": 1,
+    "id_salvaguarda" :  1,
+    "extrategia": "Ser una empresa que brinda entretenimiento y aprendisaje a niños, basados en tecnicas de gamificacion, con el fin de que los niños puedan aprender y entretenerce en sus tiempos de ocio, dado desde un entorno virtual,"
+}
+
+### ACTUALIZAR UNA EMPRESA
+PUT http://localhost:5001/api/v1/salvafectact/3 HTTP/1.1 
+Content-Type: application/json
+
+{
+    "id_control": 2,
+    "extrategia" :  "Se una empresa muy madafaker"
+}

@@ -1,0 +1,17 @@
+tipoSalva,nombre
+1,Protecciones generales u horizontales
+2,Protección de los datos / información
+3,Protección de las claves criptograficas
+4,Protección de los servicios
+5,Protección de las aplicaciones (software) 
+6,Protección de los equipos (hardware)
+7,Protección de las comunicaciones 
+8,Protección en los puntos de interconexión con otros sistemas 
+9,Protección de los soportes de información
+10,Protección de los elementos auxiliares
+11,Seguridad física – Protección de las instalaciones 
+12,Salvaguardas relativas al personal
+13,Salvaguardas de tipo organizativo 
+14,Continuidad de operaciones
+15,Externalización 
+16,Adquisición y desarrollo 

@@ -14,6 +14,11 @@ rooutes.post('/', async (req, res) => {
   objvaloriAmenas.insert_valorafectamen(req, res)
 })
 
+// comprobar
+rooutes.post('/comprobar/', async (req, res) => {
+  objvaloriAmenas.compruebeExistenValori(req, res)
+})
+
 // actualizar
 rooutes.put('/:id_valorAfectAmen', async (req, res) => {
   objvaloriAmenas.actualizar_valorafectamen(req, res)

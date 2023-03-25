@@ -1,15 +1,9 @@
-// const Validator = require('../../../config/complementos/validator')
-// const objvalit = new Validator()
 const Bdafectaactiv = require('../../model/v2/afectaactiv.bd')
 const objafectaactiv = new Bdafectaactiv()
 const BdvaloriActiv = require('../../model/v2/valoriActiv.bd')
 const objvaloriActiv = new BdvaloriActiv()
 const BdvaloriActivDim = require('../../model/v2/valoriActivDim.bd')
 const objvaloriActivDim = new BdvaloriActivDim()
-// const Bdactivprocesanali = require('../../model/v2/activprocesanali.bd')
-// const objactivprocesanali = new Bdactivprocesanali()
-// const BdtipoActiv = require('../../model/v2/tipoActiv.bd')
-// const objtipoActiv = new BdtipoActiv()
 const BdvaloriAmenas = require('../../model/v2/valoriAmenas.bd')
 const objvaloriAmenas = new BdvaloriAmenas()
 const BdvaloriAmenasDim = require('../../model/v2/valoriAmenasDim.bd')
@@ -25,7 +19,25 @@ const objescalImpac = new BdescalImpac()
 const BdescalRiesgo = require('../../model/v2/escalRiesgo.bd')
 const objescalRiesgo = new BdescalRiesgo()
 
-module.exports = class ngclienAnalit {
+async function validarValoriActivo (req, res, idValorAfectAmen = 0) {
+  // extraer la informacion de la afectacion de la amenaza
+  const listAmenasActiv = await objvaloriAmenas.read_valorafectamen(req, res, idValorAfectAmen)
+  if (listAmenasActiv.length === 0) { return false }
+  const idAmenaza = listAmenasActiv[0]
+  // extraer informacion de la amenaza
+  const listAmenas = await objafectaactiv.read_afectaactiv(req, res, idAmenaza.id_afectaActiv)
+  if (listAmenas.length === 0) { return false }
+  const objAmen = listAmenas[0]
+  // cargar la valorizacion de los activos
+  const listValoriActiv = await objvaloriActiv.list_valoractiv(req, res, objAmen.id_activProsVerAnali)
+  if (listValoriActiv.length === 0) { return false }
+  const objActivValori = listValoriActiv[0]
+  // validar si realizan una valorizacion
+  if ((parseInt(objActivValori.valorActivCuanti) === 0) && (parseInt(objActivValori.promValorCuanti) === 0)) return false
+  return true
+}
+
+module.exports = class NegValoriAmenDim {
   // si da una respuesta [] es porque no afercta a ninguna dimension
   async extracDimensionAmenaza (req, res) {
     // extraer la informacion de la afectacion de la amenaza
@@ -42,6 +54,17 @@ module.exports = class ngclienAnalit {
     return listDimens
   }
 
+  async compruebeExistenValori (req, res, idValorAfectAmen = 0) {
+    const resul = await validarValoriActivo(req, res, (parseInt(idValorAfectAmen) === 0) ? req.body.id_valorAfectAmen : idValorAfectAmen)
+    // eslint-disable-next-line no-useless-return
+    return {
+      status: (resul) ? 200 : 404,
+      typo: (resul) ? 'succes' : 'error',
+      messege: (resul) ? 'La valorizacion de la amenaza puede ser ingresado.' : 'La valorizacion no puede ser insertada',
+      data: resul
+    }
+  }
+
   async ValorizarAmenazasDegrad (req, res) {
     // se comprueba si se an enviado las dimenciones valorizadas
     if (req.body.dataValor.length === 0) {
@@ -49,6 +72,18 @@ module.exports = class ngclienAnalit {
         status: 404,
         typo: 'error',
         messege: 'No presenta una valorizacion de dimensiones, Ingresar dimensiones porfavor.',
+        data: []
+      })
+      // eslint-disable-next-line no-useless-return
+      return
+    }
+    // se comprueba si ya se realizo una valorizacion al activo
+    const resul = await this.compruebeExistenValori(req, res, req.body.id_valorAfectAmen)
+    if (resul.data) {
+      res.send({
+        status: 404,
+        typo: 'error',
+        messege: 'Error, no se a valizado al activo, lo cual puede suceder comflicto.',
         data: []
       })
       // eslint-disable-next-line no-useless-return

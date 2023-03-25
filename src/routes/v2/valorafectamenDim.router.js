@@ -14,6 +14,11 @@ rooutes.post('/', async (req, res) => {
   objvalorafectamenDim.ValorizarAmenazasDegrad(req, res)
 })
 
+// compruebe
+rooutes.post('/compruebe/', async (req, res) => {
+  objvalorafectamenDim.compruebeExistenValori(req, res)
+})
+
 // List Dimension Data
 rooutes.get('/listDimension/:id_valorAfectAmen', async (req, res) => {
   req.body.id_valorAfectAmen = req.params.id_valorAfectAmen
