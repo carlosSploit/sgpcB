@@ -10,7 +10,7 @@ Content-Type: application/json
     "id_escalaFrecuen": 1
 }
 
-### APERTURA LA VALORIZACION DE UN ACTIVO PARA SU EDICION - INICIALIZAR O APERTURAR LA OPCCION DE VALORIZACION
+### COMPROBAR SI HAY UNA VALORIZACION DE UN ACTIVO
 POST http://localhost:5001/api/v1/valorafectamen/comprobar/ HTTP/1.1 
 Content-Type: application/json
 

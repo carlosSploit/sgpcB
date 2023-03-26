@@ -37,7 +37,7 @@ module.exports = class ngcontroles {
         return parseInt(itemAux.id_classControl) === parseInt(item.id_classControl)
       })
       const itemData = {
-        id_control: item.abrebClassControl * 2000,
+        id_control: item.id_classControl * 2000,
         id_classControl: 0,
         codigo: item.abrebClassControl,
         codeDepende: item.abrebClassControl,
@@ -46,8 +46,18 @@ module.exports = class ngcontroles {
         id_depencontrol: 0,
         estade: 1
       }
-      return [itemData, ...listFilter]
+      const listFilterFinal = listFilter.map((itemAux) => {
+        const ObjAux = { ...itemAux }
+        ObjAux.id_depencontrol = (parseInt(ObjAux.id_depencontrol) === 0) ? item.id_classControl * 2000 : ObjAux.id_depencontrol
+        return ObjAux
+      })
+      return [itemData, ...listFilterFinal]
     })
-    res.json(listDataFinal)
+    const finalArray = listDataFinal.reduce((prev, curre) => {
+      const listAux = [...prev]
+      const listAuxF = listAux.concat(curre)
+      return listAuxF
+    }, [])
+    res.json(finalArray)
   }
 }
