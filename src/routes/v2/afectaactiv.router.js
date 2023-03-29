@@ -6,7 +6,8 @@ const objafectaactiv = new Negafectaactiv()
 
 // List
 rooutes.get('/:id_activProsVerAnali', async (req, res) => {
-  objafectaactiv.list_afectaactiv(req, res)
+  const objData = await objafectaactiv.list_afectaactiv(req, res)
+  res.send(objData)
 })
 
 // Read

@@ -1,5 +1,5 @@
 ### LISTAR UNA EMPRESA
-GET http://localhost:5001/api/v1/salvafectact/1 HTTP/1.1
+GET http://localhost:5001/api/v1/salvafectact/20 HTTP/1.1
 
 ### ELIMINAR UNA EMPRESA
 DELETE http://localhost:5001/api/v1/salvafectact/1 HTTP/1.1

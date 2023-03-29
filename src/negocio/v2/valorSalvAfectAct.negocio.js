@@ -185,7 +185,6 @@ module.exports = class ngclienAnalit {
       // IR = NR * (ROUND(DR *10) * 10)
       // (ROUND(DR *10) * 10) es una normalizacion que se hace con la degradacion residual
       // Round(0,15 * 10) = 2 => 2 * 10 = 20
-
       const NormaliceDegradResid = (Math.round(valEscalDegradResid * 10) * 10) / 100
       const valEscalImpResid = parseFloat(((item.valorCualiRiesg) * (NormaliceDegradResid)).toFixed(2))
       ObjDimen.valEscalImpaResid = valEscalImpResid

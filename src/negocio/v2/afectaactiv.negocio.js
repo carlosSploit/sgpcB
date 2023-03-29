@@ -190,14 +190,28 @@ module.exports = class ngclienAnalit {
     const CompruResul = result.filter((item) => {
       return (item.id_valorAfectAmen != null) && (item.id_Frecuencia != null) && (item.id_DegradCualit != null)
     })
-    // cargar la informacion de cada valorizacion de la dimension
-    for (let index = 0; index < CompruResul.length; index++) {
-      const element = CompruResul[index]
-      req.body.id_valorAfectAmen = element.id_valorAfectAmen
-      await objvaloriAmenasDim.cargar_valorizacionRiesgo(req, res)
+    if (CompruResul.length !== 0) {
+      // cargar la informacion de cada valorizacion de la dimension
+      for (let index = 0; index < CompruResul.length; index++) {
+        const element = CompruResul[index]
+        req.body.id_valorAfectAmen = element.id_valorAfectAmen
+        await objvaloriAmenasDim.cargar_valorizacionRiesgo(req, res)
+      }
+      // recargar la informacion
+      const listResult = await objafectaactiv.list_afectaactiv(req, res)
+      const listResultAux = listResult.map((item) => {
+        const objJson = { ...item }
+        if ((item.id_valorAfectAmen == null) && (item.id_Frecuencia == null) && (item.id_DegradCualit == null)) return item
+        const valImpacCualit = Math.round(parseInt(item.valoriActivCualiti) * (parseInt(item.valDegradCualit) / 100))
+        // console.log(Math.round(parseInt(item.valoriActivCualiti) * (parseInt(item.valDegradCualit) / 100)))
+        objJson.valImpacCualit = valImpacCualit
+        objJson.valRiesgoCualit = (parseInt(valImpacCualit) * parseInt(item.valorFrecuenCuali))
+        // console.log(objJson)
+        return objJson
+      })
+      return listResultAux
     }
-    const listResult = await objafectaactiv.list_afectaactiv(req, res)
-    res.json(listResult)
+    return result
   }
 
   async delete_afectaactiv (req, res) {

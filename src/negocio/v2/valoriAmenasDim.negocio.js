@@ -33,6 +33,7 @@ async function validarValoriActivo (req, res, idValorAfectAmen = 0) {
   if (listValoriActiv.length === 0) { return false }
   const objActivValori = listValoriActiv[0]
   // validar si realizan una valorizacion
+  console.log(objActivValori)
   if ((parseInt(objActivValori.valorActivCuanti) === 0) && (parseInt(objActivValori.promValorCuanti) === 0)) return false
   return true
 }
@@ -66,6 +67,7 @@ module.exports = class NegValoriAmenDim {
   }
 
   async ValorizarAmenazasDegrad (req, res) {
+    console.log(req.body)
     // se comprueba si se an enviado las dimenciones valorizadas
     if (req.body.dataValor.length === 0) {
       res.send({
@@ -79,7 +81,7 @@ module.exports = class NegValoriAmenDim {
     }
     // se comprueba si ya se realizo una valorizacion al activo
     const resul = await this.compruebeExistenValori(req, res, req.body.id_valorAfectAmen)
-    if (resul.data) {
+    if (!resul.data) {
       res.send({
         status: 404,
         typo: 'error',
@@ -147,12 +149,13 @@ module.exports = class NegValoriAmenDim {
       await objvaloriAmenasDim.insert_valorAfectAmenDim(req, res, true, { ...element })
     }
 
-    await this.cargar_valorizacionRiesgo(req, res)
+    const loadValori = await this.cargar_valorizacionRiesgo(req, res)
+    console.log(loadValori)
 
     res.send({
       status: 200,
       typo: 'succes',
-      messege: 'La valorizacion de la degradacion es un exito se dio con exito.'
+      messege: 'La valorizacion de la degradacion por dimension es un exito se dio con exito.'
     })
     // eslint-disable-next-line no-useless-return
     return
@@ -256,7 +259,7 @@ module.exports = class NegValoriAmenDim {
         const objValori = listValori[0]
         // calcular el impacto
         // console.log(objValori)
-        const valorImpact = Math.round(parseInt(parseInt(objValori.valorAcivCualit) * (parseInt(item.valorDegrad) / 100)))
+        const valorImpact = Math.round(parseInt(objValori.valorAcivCualit) * (parseInt(item.valorDegrad) / 100))
         objItems.valorImpacto = valorImpact
         objItems.id_escaleImpac = this.extraer_key_impacto(listkeyImpact, valorImpact).id_escaleImpac
         return objItems
@@ -286,6 +289,7 @@ module.exports = class NegValoriAmenDim {
     // -------------------------------------------------------------------------------------------- Insertar/actualiza a la base de datos
     for (let index = 0; index < calcuRiesgo.length; index++) {
       const element = calcuRiesgo[index]
+      // console.log(element)
       // console.log(element)
       await objvaloriAmenasDim.loadProm_valorAfectAmenDim(req, res, true, element)
     }
