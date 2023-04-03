@@ -29,12 +29,12 @@ module.exports = class Dbactivproces {
     return results
   }
 
-  async list_activproces (req, res, idProceso = 0) {
+  async list_activproces (req, res, idProceso = -1) {
     const results = await conexibd.single_query(
       req,
       res,
       'CALL `list_activproces`(?);',
-      [(parseInt(idProceso) === 0) ? req.params.id_proceso : idProceso]
+      [(parseInt(idProceso) === -1) ? req.params.id_proceso : idProceso]
     )
     return Array.isArray(results) ? results : []
   }

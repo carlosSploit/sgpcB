@@ -10,6 +10,11 @@ rooutes.get('/:id_activProsVerAnali', async (req, res) => {
   res.send(objData)
 })
 
+rooutes.get('/insiden/:id_activProsVerAnali/:id_amenazas', async (req, res) => {
+  const objData = await objafectaactiv.list_afectaactiv_insidencia(req, res)
+  res.send(objData)
+})
+
 // Read
 // rooutes.get('/read/:id_activProsVerAnali', async (req, res) => {
 //   objactivprocesanali.read_activprosveranali(req, res)

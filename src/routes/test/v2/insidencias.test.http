@@ -1,0 +1,28 @@
+### LISTAR LAS INSIDENCIAS DE UN PROBLEMA EN UN PROCESO
+GET http://localhost:5001/api/v1/insidencias/2 HTTP/1.1
+
+### ELIMINAR UN LA INSIDENCIA DE UN PROBLEMA EN UN PROCESO
+DELETE http://localhost:5001/api/v1/insidencias/2 HTTP/1.1
+
+### INSERTAR UNA INSIDENCIA DE UN PROBLEMA EN UN PROCESO
+POST http://localhost:5001/api/v1/insidencias/ HTTP/1.1 
+Content-Type: application/json
+
+{
+    "nombreInsid" : "Se quemo un discoduro",
+    "descrpInsid": "Sistema donde se realiza todos los procesos de enseñansa, control, monitoreo, registro de cursos.",
+    "id_activProc": 1,
+    "id_amenaza" :  1
+}
+
+### ACTUALIZAR UN LA INSIDENCIA DE UN PROBLEMA EN UN PROCESO
+PUT http://localhost:5001/api/v1/insidencias/1 HTTP/1.1 
+Content-Type: application/json
+
+{
+    "nombreInsid" : "Se quemo un discoduro",
+    "descrpInsid": "Sistema donde se realiza todos los procesos de enseñansa, control, monitoreo, registro de cursos.",
+    "id_activProc": 1,
+    "id_amenaza" :  1
+
+}

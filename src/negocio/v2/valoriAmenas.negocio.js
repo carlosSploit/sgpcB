@@ -6,10 +6,12 @@ const objvaloriAmenasDim = new NegvaloriAmenasDim()
 async function validarValoriAmenaz (req, res, idAfectaActiv) {
   // comprobar la informacion de la valoriazion de la amenaza
   const listResult = await objvaloriAmenas.list_valorafectamen(req, res, idAfectaActiv)
+  console.log(listResult)
   if (parseInt(listResult.length) === 0) return false
   const objResul = listResult[0]
   // comprobar la valorizacion final
   const resulComprueb = await objvaloriAmenasDim.compruebeExistenValori(req, res, objResul.id_valorAfectAmen)
+  console.log(resulComprueb)
   return resulComprueb.data
 }
 
@@ -28,7 +30,7 @@ module.exports = class ngvaloriActiv {
   async insert_valorafectamen (req, res) {
     // validar si se inserto los datos de la valorizacion del activo
     const resultData = await this.compruebeExistenValori(req, res, req.body.id_afectaActiv)
-    if (!resultData.data) {
+    if (resultData.data) {
       res.send(resultData)
       return
     }
