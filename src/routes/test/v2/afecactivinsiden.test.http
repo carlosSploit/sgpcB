@@ -1,0 +1,14 @@
+### LISTAR LOS ACTIVOS DE UNA EMPRESA
+GET http://localhost:5001/api/v1/afecactivinsiden/0 HTTP/1.1
+
+### ELIMINAR ACTIVO DE UNA EMPRESA
+DELETE http://localhost:5001/api/v1/afecactivinsiden/6 HTTP/1.1
+
+### INSERTAR ACTIVO DE UNA EMPRESA
+POST http://localhost:5001/api/v1/afecactivinsiden/ HTTP/1.1 
+Content-Type: application/json
+
+{
+    "id_afectaActiv" : 1,
+    "id_insidencia": 1
+}
