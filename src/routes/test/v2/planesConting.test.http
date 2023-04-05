@@ -1,0 +1,2 @@
+### LISTAR LOS ACTIVOS DE UNA EMPRESA
+GET http://localhost:5001/api/v1/planesconting/inforproces/8 HTTP/1.1
