@@ -9,6 +9,10 @@ rooutes.get('/inforproces/:id_versionAnalitic', async (req, res) => {
   objplanesContingencia.informationProces(req, res)
 })
 
+rooutes.get('/inforamenaz/:id_activProsVerAnali/:id_afectaActiv', async (req, res) => {
+  objplanesContingencia.imformationAmenaz(req, res)
+})
+
 // // insertar
 // rooutes.post('/', async (req, res) => {
 //   objactivos.inser_activo(req, res)

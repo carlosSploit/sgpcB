@@ -47,12 +47,12 @@ module.exports = class DbobjVersioAnalis {
     return results
   }
 
-  async list_recurSalvAfectAct (req, res) {
+  async list_recurSalvAfectAct (req, res, idSalvAfectAct = 0) {
     const results = await conexibd.single_query(
       req,
       res,
       'CALL `list_recurSalvAfectAct`(?);',
-      [req.params.id_salvAfectAct]
+      [(parseInt(idSalvAfectAct) === 0) ? req.params.id_salvAfectAct : idSalvAfectAct]
     )
     return Array.isArray(results) ? results : []
   }

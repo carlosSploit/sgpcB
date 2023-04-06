@@ -267,8 +267,8 @@ module.exports = class ngclienAnalit {
     })
   }
 
-  async list_afectaactiv (req, res) {
-    const result = await objafectaactiv.list_afectaactiv(req, res)
+  async list_afectaactiv (req, res, idActivProsVerAnali = 0) {
+    const result = await objafectaactiv.list_afectaactiv(req, res, (parseInt(idActivProsVerAnali) === 0) ? req.params.id_activProsVerAnali : idActivProsVerAnali)
     // varificar que los datos sean correctos
     const CompruResul = result.filter((item) => {
       return (item.id_valorAfectAmen != null) && (item.id_Frecuencia != null) && (item.id_DegradCualit != null)
@@ -297,10 +297,10 @@ module.exports = class ngclienAnalit {
     return result
   }
 
-  async list_afectaactiv_insidencia (req, res) {
+  async list_afectaactiv_insidencia (req, res, idActivProsVerAnali = 0, idAmenazas1 = 0) {
     // const idLibreryAmen = req.body.id_libreryAmen
-    const idAactivProctAnali = req.params.id_activProsVerAnali
-    const idAmenazas = req.params.id_amenazas
+    const idAactivProctAnali = (parseInt(idActivProsVerAnali) === 0) ? req.params.id_activProsVerAnali : idActivProsVerAnali
+    const idAmenazas = (parseInt(idAmenazas1) === 0) ? req.params.id_amenazas : idAmenazas1
     // se substrae la informacion del activo a analisar
     const result = await objactivprocesanali.read_activprosveranali(req, res, idAactivProctAnali)
     if (parseInt(result.length) === 0) return []

@@ -6,7 +6,8 @@ const objsalvafectact = new Negsalvafectact()
 
 // List
 rooutes.get('/:id_afectaActiv', async (req, res) => {
-  objsalvafectact.list_salvAfectAct(req, res)
+  const result = await objsalvafectact.list_salvAfectAct(req, res)
+  res.send(result)
 })
 
 // read

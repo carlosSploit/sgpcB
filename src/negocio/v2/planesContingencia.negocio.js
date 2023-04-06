@@ -10,6 +10,16 @@ const Bdactivprocesanali = require('../../model/v2/activprocesanali.bd')
 const objactivprocesanali = new Bdactivprocesanali()
 const Bdafectaactiv = require('../../model/v2/afectaactiv.bd')
 const objafectaactiv = new Bdafectaactiv()
+const Bdafecactivinsiden = require('../../model/v2/afecactivinsiden.bd')
+const objafecactivinsiden = new Bdafecactivinsiden()
+const BdresponSalvAfectAct = require('../../model/v2/responSalvAfectAct.bd')
+const objresponSalvAfectAct = new BdresponSalvAfectAct()
+const BdrecurSalvAfectAct = require('../../model/v2/recurSalvAfectAct.bd')
+const objrecurSalvAfectAct = new BdrecurSalvAfectAct()
+const Negsalvafectact = require('../v2/salvafectact.negocio')
+const objnegsalvafectact = new Negsalvafectact()
+// const Negafectaactiv = require('../v2/afectaactiv.negocio')
+// const objnegafectaactiv = new Negafectaactiv()
 
 // const Valideinsert = (req) => {
 //   const valida =
@@ -86,6 +96,39 @@ module.exports = class NegPlanesContingencias {
     // capturar la informacion de las versiones
     const result = await objversionanali.list_versionanali(req, res)
     res.json(result)
+  }
+
+  async imformationAmenaz (req, res) {
+    const idActivProsVerAnali = req.params.id_activProsVerAnali
+    const idAfectaActiv = req.params.id_afectaActiv
+    // ---------------------------------------------------------------------- capturar la informacion de la amenaza
+    const result = await objafectaactiv.list_afectaactiv(req, res, idActivProsVerAnali)
+    // console.log(result)
+    const listResult = result.filter((item) => {
+      return parseInt(item.id_afectaActiv) === parseInt(idAfectaActiv)
+    })
+    if (parseInt(listResult.length) === 0) return res.send([])
+    const objJson = { ...listResult[0] }
+    // capturar de las insidencias - debe darse por la lista de insidencias
+    const resultInsiden = await objafecactivinsiden.list_afecactivinsiden(req, res, objJson.id_afectaActiv)
+    objJson.insidenAline = resultInsiden
+    // capturar de las salvaguardas
+    const resulSalvagurd = await objnegsalvafectact.list_salvAfectAct(req, res, objJson.id_afectaActiv)
+    // captuar los recursos y los responsables
+    const resulSalvagurdRespoRecurs = await Promise.all(
+      resulSalvagurd.map(async (item) => {
+        const objJsonSalv = { ...item }
+        // capturar los responsables de las salvaguardas
+        const listResponSalvagu = await objresponSalvAfectAct.list_responSalvAfectAct(req, res, objJsonSalv.id_salvAfectAct)
+        objJsonSalv.responSalvagu = listResponSalvagu
+        // capturar los recursos de las salvaguardas
+        const listRecursSalvagu = await objrecurSalvAfectAct.list_recurSalvAfectAct(req, res, objJsonSalv.id_salvAfectAct)
+        objJsonSalv.recursSalvagu = listRecursSalvagu
+        return objJsonSalv
+      })
+    )
+    objJson.salvagAfect = resulSalvagurdRespoRecurs
+    res.send(objJson)
   }
 
   async informationProces (req, res) {

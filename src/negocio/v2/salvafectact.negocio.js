@@ -123,8 +123,9 @@ module.exports = class ngsalvAfectAct {
     return itemvalor[0]
   }
 
-  async list_salvAfectAct (req, res) {
-    const result = await objsalvafectact.list_salvAfectAct(req, res)
+  async list_salvAfectAct (req, res, idAfectActiv1) {
+    const idAfectActiv = (parseInt(idAfectActiv1) === 0) ? req.params.id_afectaActiv : idAfectActiv1
+    const result = await objsalvafectact.list_salvAfectAct(req, res, idAfectActiv)
     const listkeyRiesgo = await objescalRiesgo.list_escalRiesgo(req, res)
     const listkeyImpactResi = await objescalImpacResid.liest_escalaimpactoresidual(req, res)
     req.params.id_activProsVerAnali = 0
@@ -159,7 +160,7 @@ module.exports = class ngsalvAfectAct {
       return objJson
     })
     // console.log(listAux)
-    res.json(listAux)
+    return listAux
   }
 
   async delete_salvAfectAct (req, res) {
