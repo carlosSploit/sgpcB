@@ -18,6 +18,8 @@ const BdrecurSalvAfectAct = require('../../model/v2/recurSalvAfectAct.bd')
 const objrecurSalvAfectAct = new BdrecurSalvAfectAct()
 const Negsalvafectact = require('../v2/salvafectact.negocio')
 const objnegsalvafectact = new Negsalvafectact()
+const NegvalorSalvAfectAct = require('../v2/valorSalvAfectAct.negocio')
+const objnegvalorSalvAfectAct = new NegvalorSalvAfectAct()
 // const Negafectaactiv = require('../v2/afectaactiv.negocio')
 // const objnegafectaactiv = new Negafectaactiv()
 
@@ -114,9 +116,20 @@ module.exports = class NegPlanesContingencias {
     objJson.insidenAline = resultInsiden
     // capturar de las salvaguardas
     const resulSalvagurd = await objnegsalvafectact.list_salvAfectAct(req, res, objJson.id_afectaActiv)
+    // hacer una recarga de datos
+    const listValorize = resulSalvagurd.filter((item) => {
+      return (!((parseInt(item.valEficDegr) === 0) && (parseInt(item.valEficFrec) === 0) && (parseInt(item.valEficImpac) === 0)))
+    })
+    console.log(listValorize)
+    for (let index = 0; index < listValorize.length; index++) {
+      const element = listValorize[index]
+      await objnegvalorSalvAfectAct.cagarInforValorizacion(req, res, element.id_salvAfectAct)
+    }
+    // volver a cargar las salvaguardas
+    const resulSalvagurd2 = await objnegsalvafectact.list_salvAfectAct(req, res, objJson.id_afectaActiv)
     // captuar los recursos y los responsables
     const resulSalvagurdRespoRecurs = await Promise.all(
-      resulSalvagurd.map(async (item) => {
+      resulSalvagurd2.map(async (item) => {
         const objJsonSalv = { ...item }
         // capturar los responsables de las salvaguardas
         const listResponSalvagu = await objresponSalvAfectAct.list_responSalvAfectAct(req, res, objJsonSalv.id_salvAfectAct)
