@@ -23,19 +23,21 @@ SET time_zone = "+00:00";
 CREATE DATABASE IF NOT EXISTS `sgpc` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `sgpc`;
 
+SET GLOBAL log_bin_trust_function_creators = 1;
+
 DELIMITER $$
 --
 -- Procedimientos
 --
 DROP PROCEDURE IF EXISTS `comp_correo`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `comp_correo` (IN `correo` VARCHAR(100))   BEGIN
+CREATE PROCEDURE `comp_correo` (IN `correo` VARCHAR(100))   BEGIN
 
 SELECT COUNT(*) as userEnlance FROM usuarios us INNER JOIN clientanali clan ON clan.id_cliente = us.id_inform WHERE us.tip_user = 'C' AND clan.correo = correo ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `comp_correo_login`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `comp_correo_login` (IN `username` VARCHAR(100))   BEGIN
+CREATE PROCEDURE `comp_correo_login` (IN `username` VARCHAR(100))   BEGIN
 
 SELECT us.usaio, clan.photo, clan.correo
 FROM usuarios us 
@@ -48,224 +50,224 @@ LIMIT 1;
 END$$
 
 DROP PROCEDURE IF EXISTS `comp_loginUserbd`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `comp_loginUserbd` (IN `usuario` VARCHAR(100), IN `passwor` VARCHAR(100))   BEGIN
+CREATE PROCEDURE `comp_loginUserbd` (IN `usuario` VARCHAR(100), IN `passwor` VARCHAR(100))   BEGIN
 
 SELECT us.id_usuario , us.tip_user, us.id_inform FROM usuarios us WHERE us.usaio = usuario AND us.pass = passwor ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `delete_activos`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_activos` (IN `id_activo` INT)   BEGIN
+CREATE PROCEDURE `delete_activos` (IN `id_activo` INT)   BEGIN
 
 UPDATE activos act SET act.estade = 0 WHERE act.id_activo = id_activo ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `delete_activproces`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_activproces` (IN `id_activproc` INT)   BEGIN
+CREATE PROCEDURE `delete_activproces` (IN `id_activproc` INT)   BEGIN
 
 UPDATE activproces activpro SET activpro.estade = 0 WHERE activpro.id_activproc = id_activproc ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `delete_activprosveranali`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_activprosveranali` (IN `id_activProsVerAnali` INT)   BEGIN
+CREATE PROCEDURE `delete_activprosveranali` (IN `id_activProsVerAnali` INT)   BEGIN
 
 UPDATE activprosveranali actval SET actval.estade = 0 WHERE actval.id_activProsVerAnali = id_activProsVerAnali ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `delete_afecactivinsiden`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_afecactivinsiden` (IN `id_afectaActivInsid` INT)   BEGIN
+CREATE PROCEDURE `delete_afecactivinsiden` (IN `id_afectaActivInsid` INT)   BEGIN
 
 UPDATE afecactivinsiden afecin SET afecin.estade = 0 WHERE afecin.id_afectaActivInsid = id_afectaActivInsid; 
 
 END$$
 
 DROP PROCEDURE IF EXISTS `delete_afectaactiv`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_afectaactiv` (IN `id_afectaActiv` INT)   BEGIN
+CREATE PROCEDURE `delete_afectaactiv` (IN `id_afectaActiv` INT)   BEGIN
 
 UPDATE afectaactiv afeactiv SET afeactiv.estade = 0 WHERE afeactiv.id_afectaActiv = id_afectaActiv ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `delete_areasempresa`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_areasempresa` (IN `id_areEmpre` INT)   BEGIN
+CREATE PROCEDURE `delete_areasempresa` (IN `id_areEmpre` INT)   BEGIN
 
 UPDATE areasempresa ampre SET ampre.estade = 0 WHERE ampre.id_areempre = id_areEmpre ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `delete_depentactiv`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_depentactiv` (IN `id_depenActiv` INT)   BEGIN
+CREATE PROCEDURE `delete_depentactiv` (IN `id_depenActiv` INT)   BEGIN
 
 UPDATE depentactiv depact SET depact.estade = 0 WHERE depact.id_depenActiv = id_depenActiv ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `delete_empresa_enlace`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_empresa_enlace` (IN `id_empresa` INT, IN `id_clienAnalit` INT)   BEGIN
+CREATE PROCEDURE `delete_empresa_enlace` (IN `id_empresa` INT, IN `id_clienAnalit` INT)   BEGIN
 
 UPDATE analisisempresa analiEmp SET analiEmp.estade = 0 WHERE analiEmp.id_empresa = id_empresa AND analiEmp.id_cliente = id_clienAnalit ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `delete_insidencias`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_insidencias` (IN `id_insidencia` INT)   BEGIN 
+CREATE PROCEDURE `delete_insidencias` (IN `id_insidencia` INT)   BEGIN 
 
 UPDATE insidencias insid SET insid.estade = 0 WHERE insid.id_insidencia = id_insidencia ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `delete_objempresa`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_objempresa` (IN `id_objEmpresa` INT)   BEGIN
+CREATE PROCEDURE `delete_objempresa` (IN `id_objEmpresa` INT)   BEGIN
 
 UPDATE objempresa objem SET objem.estade = 0 WHERE objem.id_objempresa = id_objEmpresa ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `delete_objversanali`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_objversanali` (IN `id_objVersAnali` INT)   BEGIN
+CREATE PROCEDURE `delete_objversanali` (IN `id_objVersAnali` INT)   BEGIN
 
 UPDATE objversanali objver SET objver.estade = 0 WHERE objver.id_objVersAnali = id_objVersAnali ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `delete_passalvafect`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_passalvafect` (IN `id_pasSalvAfec` INT)   BEGIN
+CREATE PROCEDURE `delete_passalvafect` (IN `id_pasSalvAfec` INT)   BEGIN
 
 UPDATE passalvafect pasalf SET pasalf.estade = 0 WHERE pasalf.id_pasSalvAfec = id_pasSalvAfec ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `delete_proceempresa`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_proceempresa` (IN `id_proceso` INT)   BEGIN
+CREATE PROCEDURE `delete_proceempresa` (IN `id_proceso` INT)   BEGIN
 
 UPDATE proceempresa proem SET proem.estade = 0 WHERE proem.id_proceso = id_proceso ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `delete_recurSalvAfectAct`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_recurSalvAfectAct` (IN `id_recurSalvAfectAct` INT)   BEGIN
+CREATE PROCEDURE `delete_recurSalvAfectAct` (IN `id_recurSalvAfectAct` INT)   BEGIN
 
 UPDATE recursalvafectact recsalv SET recsalv.estade = 0 WHERE recsalv.id_recurSalvAfectAct = id_recurSalvAfectAct;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `delete_responanalis`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_responanalis` (IN `id_responAnalis` INT)   BEGIN
+CREATE PROCEDURE `delete_responanalis` (IN `id_responAnalis` INT)   BEGIN
 
 UPDATE responanalis resana SET resana.estade = 0 WHERE resana.id_responAnalis = id_responAnalis ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `delete_responSalvAfectAct`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_responSalvAfectAct` (IN `id_responSalvAfectAct` INT)   BEGIN
+CREATE PROCEDURE `delete_responSalvAfectAct` (IN `id_responSalvAfectAct` INT)   BEGIN
 
 UPDATE responsalvafectact ressalv SET ressalv.estade = 0 WHERE ressalv.id_responSalvAfectAct = id_responSalvAfectAct ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `delete_resposproce`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_resposproce` (IN `id_resposProce` INT)   BEGIN
+CREATE PROCEDURE `delete_resposproce` (IN `id_resposProce` INT)   BEGIN
 
 UPDATE resposproce respo SET respo.estade = 0 WHERE respo.id_resposProce = id_resposProce ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `delete_salvAfectAct`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_salvAfectAct` (IN `id_salvAfectAct` INT)   BEGIN
+CREATE PROCEDURE `delete_salvAfectAct` (IN `id_salvAfectAct` INT)   BEGIN
 
 UPDATE  salvafectact salv SET salv.estade = 0 WHERE salv.id_salvAfectAct = id_salvAfectAct ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `delete_trabajempresa`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_trabajempresa` (IN `id_trabajador` INT)   BEGIN
+CREATE PROCEDURE `delete_trabajempresa` (IN `id_trabajador` INT)   BEGIN
 
 UPDATE trabajempresa tbrem SET tbrem.estade = 0 WHERE tbrem.Id_trabajador = id_trabajador ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `delete_valorafectamenDim`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_valorafectamenDim` (IN `id_valAfectAmenDimen` INT)   BEGIN
+CREATE PROCEDURE `delete_valorafectamenDim` (IN `id_valAfectAmenDimen` INT)   BEGIN
 
 UPDATE valafectamendimen valafdim SET valafdim.estade = 0 WHERE valafdim.id_valAfectAmenDimen = id_valAfectAmenDimen ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `delete_valoriActivDimen`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_valoriActivDimen` (IN `id_valorActiDimen` INT)   BEGIN
+CREATE PROCEDURE `delete_valoriActivDimen` (IN `id_valorActiDimen` INT)   BEGIN
 
 UPDATE valoractivdimen valdim SET valdim.estade = 0 WHERE valdim.id_valorActiDimen = id_valorActiDimen ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `delete_versionanali`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `delete_versionanali` (IN `id_versionAnali` INT)   BEGIN
+CREATE PROCEDURE `delete_versionanali` (IN `id_versionAnali` INT)   BEGIN
 
 UPDATE versionanali veranl SET veranl.estade = 0 WHERE veranl.id_versionAnali = id_versionAnali ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `delet_areainterproce`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `delet_areainterproce` (IN `id_areaProce` INT)   BEGIN
+CREATE PROCEDURE `delet_areainterproce` (IN `id_areaProce` INT)   BEGIN
 
 UPDATE areainterproce arepro SET arepro.estade = 0 WHERE arepro.id_areaProce = id_areaProce ; 
 
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_activo`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_activo` (IN `nombre_Activo` VARCHAR(100), IN `descripc` VARCHAR(300), IN `id_empresa` INT, IN `id_tipoActiv` INT)   BEGIN
+CREATE PROCEDURE `insert_activo` (IN `nombre_Activo` VARCHAR(100), IN `descripc` VARCHAR(300), IN `id_empresa` INT, IN `id_tipoActiv` INT)   BEGIN
 
 INSERT INTO `activos` (`id_empresa`, `nombre_Activo`, `descripc`, `id_tipoActiv`, `estade`) VALUES (id_empresa, nombre_Activo, descripc, id_tipoActiv, 1);
 
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_activproces`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_activproces` (IN `id_proceso` INT, IN `id_activo` INT)   BEGIN
+CREATE PROCEDURE `insert_activproces` (IN `id_proceso` INT, IN `id_activo` INT)   BEGIN
 
 INSERT INTO `activproces`( `id_proceso`, `id_activo`, `fechaenlace`, `estade`) VALUES (id_proceso, id_activo, NOW(), 1);
 
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_activprosveranali`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_activprosveranali` (IN `id_versonAnali` INT, IN `id_activProc` INT)   BEGIN
+CREATE PROCEDURE `insert_activprosveranali` (IN `id_versonAnali` INT, IN `id_activProc` INT)   BEGIN
 
 INSERT INTO `activprosveranali`(`id_versonAnali`, `id_activProc`, `estade`) VALUES ( id_versonAnali, id_activProc,'1') ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_afecactivinsiden`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_afecactivinsiden` (IN `id_afectaActiv` INT, IN `id_insidencia` INT)   BEGIN
+CREATE PROCEDURE `insert_afecactivinsiden` (IN `id_afectaActiv` INT, IN `id_insidencia` INT)   BEGIN
 
 INSERT INTO `afecactivinsiden`(`id_afectaActiv`, `id_insidencia`, `fechaEnlace`, `estade`) VALUES (id_afectaActiv, id_insidencia, now(), 1);
 
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_afectaactiv`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_afectaactiv` (IN `id_activProsVerAnali` INT, IN `id_amenaza` INT)   BEGIN
+CREATE PROCEDURE `insert_afectaactiv` (IN `id_activProsVerAnali` INT, IN `id_amenaza` INT)   BEGIN
 
 INSERT INTO `afectaactiv`(`id_activProsVerAnali`, `id_amenaza`, `esenario`, `estade`) VALUES (id_activProsVerAnali, id_amenaza, '', '1');
 
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_areainterproce`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_areainterproce` (IN `id_areaEmpre` INT, IN `id_proceso` INT)   BEGIN
+CREATE PROCEDURE `insert_areainterproce` (IN `id_areaEmpre` INT, IN `id_proceso` INT)   BEGIN
 
 INSERT INTO `areainterproce`(`id_areaEmpre`, `id_proceso`, `fechaEnlace`, `estade`) VALUES (id_areaEmpre, id_proceso, now(), 1);
 
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_areasempresa`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_areasempresa` (IN `nombrearea` VARCHAR(100), IN `descriparea` VARCHAR(300), IN `id_empresa` INT)   BEGIN
+CREATE PROCEDURE `insert_areasempresa` (IN `nombrearea` VARCHAR(100), IN `descriparea` VARCHAR(300), IN `id_empresa` INT)   BEGIN
 
 INSERT INTO `areasempresa`(`nombrearea`, `descriparea`, `id_empresa`, `estade`) VALUES (nombrearea, descriparea, id_empresa, 1);
 
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_clientAnali`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_clientAnali` (IN `nombre` VARCHAR(100), IN `apellidos` VARCHAR(100), IN `telefono` VARCHAR(20), IN `correo` VARCHAR(100), IN `pass` VARCHAR(50), IN `nombre_usuario` VARCHAR(100), IN `photo` VARCHAR(1000))   BEGIN
+CREATE PROCEDURE `insert_clientAnali` (IN `nombre` VARCHAR(100), IN `apellidos` VARCHAR(100), IN `telefono` VARCHAR(20), IN `correo` VARCHAR(100), IN `pass` VARCHAR(50), IN `nombre_usuario` VARCHAR(100), IN `photo` VARCHAR(1000))   BEGIN
 
 DECLARE id_clienteAn int(11);
 INSERT INTO `clientanali`(`nombre`, `apellidos`, `telefono`, `correo`, `photo`) VALUES (nombre, apellidos, telefono, correo, photo);
@@ -275,14 +277,14 @@ INSERT INTO `usuarios`(`usaio`, `pass`, `id_inform`, `tip_user`, `estade`) VALUE
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_depentactiv`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_depentactiv` (IN `id_activProc` INT, IN `id_depActiv` INT)   BEGIN
+CREATE PROCEDURE `insert_depentactiv` (IN `id_activProc` INT, IN `id_depActiv` INT)   BEGIN
 
 INSERT INTO `depentactiv`(`id_activProc`, `id_depActiv`, `fechaDepent`, `estade`) VALUES (id_activProc, id_depActiv, now(), 1);
 
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_empresa`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_empresa` (IN `id_clienAnalit` INT, IN `nombreempresa` VARCHAR(100), IN `ruc` VARCHAR(11), IN `descripc` VARCHAR(200), IN `telefono` VARCHAR(20), IN `rubroempresa` VARCHAR(100), IN `misio` VARCHAR(300), IN `vision` VARCHAR(300))   BEGIN
+CREATE PROCEDURE `insert_empresa` (IN `id_clienAnalit` INT, IN `nombreempresa` VARCHAR(100), IN `ruc` VARCHAR(11), IN `descripc` VARCHAR(200), IN `telefono` VARCHAR(20), IN `rubroempresa` VARCHAR(100), IN `misio` VARCHAR(300), IN `vision` VARCHAR(300))   BEGIN
 
 DECLARE id_empresa int(11);
 INSERT INTO `empresa`(`nombreempresa`, `ruc`, `descripc`, `telefono`, `rubroEmpresa`, `mision`, `vision`, `estade`) VALUES (nombreempresa, ruc, descripc, telefono, rubroempresa, misio, vision, 1);
@@ -292,7 +294,7 @@ INSERT INTO `analisisempresa`(`id_cliente`, `id_empresa`, `fechaenlace`, `estade
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_empresa_enlace`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_empresa_enlace` (IN `id_empresa` INT, IN `id_clienAnalit` INT)   BEGIN
+CREATE PROCEDURE `insert_empresa_enlace` (IN `id_empresa` INT, IN `id_clienAnalit` INT)   BEGIN
 
 DECLARE camtiEnla int(11);
 SET camtiEnla = (SELECT COUNT(*) FROM analisisempresa anEmp WHERE anEmp.id_cliente = id_clienAnalit AND anEmp.id_empresa = id_empresa);
@@ -306,77 +308,77 @@ END IF;
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_inisiden`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_inisiden` (IN `id_activProc` INT, IN `id_amenaza` INT, IN `nombroInsid` VARCHAR(100), IN `descrpInsid` VARCHAR(300))   BEGIN
+CREATE PROCEDURE `insert_inisiden` (IN `id_activProc` INT, IN `id_amenaza` INT, IN `nombroInsid` VARCHAR(100), IN `descrpInsid` VARCHAR(300))   BEGIN
 
 INSERT INTO `insidencias`(`id_activProc`, `id_amenaza`, `nombroInsid`, `descrpInsid`, `estade`,`fechainside`) VALUES (id_activProc, id_amenaza, nombroInsid, descrpInsid, 1, now() );
 
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_loginInfoUser`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_loginInfoUser` (IN `idusuario` INT, IN `seccionkey` VARCHAR(200), IN `apikey` VARCHAR(200))   BEGIN
+CREATE PROCEDURE `insert_loginInfoUser` (IN `idusuario` INT, IN `seccionkey` VARCHAR(200), IN `apikey` VARCHAR(200))   BEGIN
 
 INSERT INTO `loginuser`(`seccion_key`, `apikey`, `fechaPeticion`, `id_usuario`) VALUES (seccionkey, apikey, now(), idusuario);
 
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_objempresa`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_objempresa` (IN `id_empresa` INT, IN `nombreObje` VARCHAR(300))   BEGIN
+CREATE PROCEDURE `insert_objempresa` (IN `id_empresa` INT, IN `nombreObje` VARCHAR(300))   BEGIN
 
 INSERT INTO `objempresa`(`id_empresa`, `nombreobj`, `estade`) VALUES (id_empresa, nombreObje, 1);
 
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_objversanali`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_objversanali` (IN `id_versionAnali` INT, IN `nombreObj` VARCHAR(100))   BEGIN
+CREATE PROCEDURE `insert_objversanali` (IN `id_versionAnali` INT, IN `nombreObj` VARCHAR(100))   BEGIN
 
 INSERT INTO `objversanali`(`id_versionAnali`, `nombreObj`, `estade`) VALUES ( id_versionAnali, nombreObj, 1);
 
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_passalvafect`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_passalvafect` (IN `id_salvAfectAct` INT, IN `nombreSalvAfec` VARCHAR(100))   BEGIN
+CREATE PROCEDURE `insert_passalvafect` (IN `id_salvAfectAct` INT, IN `nombreSalvAfec` VARCHAR(100))   BEGIN
 
 INSERT INTO `passalvafect`(`id_salvAfectAct`, `nombreSalvAfec`,`estade`) VALUES (id_salvAfectAct, nombreSalvAfec, 1);
 
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_proceempresa`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_proceempresa` (IN `nombreProce` VARCHAR(100), IN `descripccion` VARCHAR(300), IN `id_gerarProc` INT, IN `id_tipProce` INT, IN `isDepProcPadre` INT, IN `id_DepentProc` INT, IN `id_empresa` INT)   BEGIN
+CREATE PROCEDURE `insert_proceempresa` (IN `nombreProce` VARCHAR(100), IN `descripccion` VARCHAR(300), IN `id_gerarProc` INT, IN `id_tipProce` INT, IN `isDepProcPadre` INT, IN `id_DepentProc` INT, IN `id_empresa` INT)   BEGIN
 
 INSERT INTO `proceempresa`(`nombreProce`, `descripccion`, `id_gerarProc`, `id_tipProce`, `isDepProcPadre`, `id_DepentProc`, `id_empresa`, `estade`) VALUES (nombreProce, descripccion, id_gerarProc, id_tipProce, isDepProcPadre, id_DepentProc, id_empresa, 1);
 
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_recurSalvAfectAct`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_recurSalvAfectAct` (IN `id_salvAfectAct` INT, IN `nombreRecurSalvAfect` VARCHAR(100), IN `descripc` VARCHAR(300), IN `presioRecurMitAfec` DOUBLE)   BEGIN
+CREATE PROCEDURE `insert_recurSalvAfectAct` (IN `id_salvAfectAct` INT, IN `nombreRecurSalvAfect` VARCHAR(100), IN `descripc` VARCHAR(300), IN `presioRecurMitAfec` DOUBLE)   BEGIN
 
 INSERT INTO `recursalvafectact`(`id_salvAfectAct`, `nombreRecurSalvAfect`, `descripc`, `presioRecurSalvAfect`, `estade`) VALUES (id_salvAfectAct, nombreRecurSalvAfect, descripc, presioRecurMitAfec, 1);
 
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_responanalis`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_responanalis` (IN `id_versionAnali` INT, IN `id_cliente` INT, IN `id_rolRespon` INT)   BEGIN
+CREATE PROCEDURE `insert_responanalis` (IN `id_versionAnali` INT, IN `id_cliente` INT, IN `id_rolRespon` INT)   BEGIN
 
 INSERT INTO `responanalis`(`id_versionAnali`, `id_cliente`, `id_rolRespon`, `estade`) VALUES (id_versionAnali, id_cliente, id_rolRespon, 1);
 
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_responSalvAfectAct`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_responSalvAfectAct` (IN `id_salvAfectAct` INT, IN `id_trabajador` INT)   BEGIN
+CREATE PROCEDURE `insert_responSalvAfectAct` (IN `id_salvAfectAct` INT, IN `id_trabajador` INT)   BEGIN
 
 INSERT INTO `responsalvafectact`(`id_salvAfectAct`, `id_trabajador`, `estade`) VALUES (id_salvAfectAct, id_trabajador, 1);
 
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_resposproce`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_resposproce` (IN `id_trabajador` INT, IN `id_proceso` INT)   BEGIN
+CREATE PROCEDURE `insert_resposproce` (IN `id_trabajador` INT, IN `id_proceso` INT)   BEGIN
 
 INSERT INTO `resposproce`(`id_trabajador`, `id_proceso`, `estade`, `fechaEnlace`) VALUES (id_trabajador, id_proceso, 1, NOW());
 
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_salvAfectAct`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_salvAfectAct` (IN `id_afectaActiv` INT, IN `id_control` INT, IN `id_salvaguarda` INT, IN `extrategia` VARCHAR(100))   BEGIN
+CREATE PROCEDURE `insert_salvAfectAct` (IN `id_afectaActiv` INT, IN `id_control` INT, IN `id_salvaguarda` INT, IN `extrategia` VARCHAR(100))   BEGIN
 DECLARE id_salvAfectAct int(11); 
 # INSERTAR UNA SALVAGUARDA 
 INSERT INTO `salvafectact`(`id_afectaActiv`, `id_control`, `id_salvaguarda`, `extrategia`, `estade`) VALUES (id_afectaActiv, id_control, id_salvaguarda, extrategia, 1);
@@ -387,28 +389,28 @@ INSERT INTO `valoreficacia`(`id_salvAfectAct`, `id_escalEficDegr`, `valEficDegr`
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_trabajempresa`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_trabajempresa` (IN `nombre` VARCHAR(100), IN `cargo` VARCHAR(100), IN `descripc` VARCHAR(300), IN `telefono` VARCHAR(20), IN `correo` VARCHAR(100), IN `codTrabajo` VARCHAR(20), IN `id_empresa` INT)   BEGIN
+CREATE PROCEDURE `insert_trabajempresa` (IN `nombre` VARCHAR(100), IN `cargo` VARCHAR(100), IN `descripc` VARCHAR(300), IN `telefono` VARCHAR(20), IN `correo` VARCHAR(100), IN `codTrabajo` VARCHAR(20), IN `id_empresa` INT)   BEGIN
 
 INSERT INTO `trabajempresa`(`nombre_apellido`, `cargo`, `descripc`, `telefono`, `correo`, `codTrabajo`, `estade`, `id_empresa`) VALUES (nombre, cargo, descripc, telefono, correo, codTrabajo, 1, id_empresa);
 
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_valoractiv`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_valoractiv` (IN `id_activProsVerAnali` INT, IN `valorActivCuanti` INT)   BEGIN
+CREATE PROCEDURE `insert_valoractiv` (IN `id_activProsVerAnali` INT, IN `valorActivCuanti` INT)   BEGIN
 
 INSERT INTO `valoractiv`(`id_activProsVerAnali`, `valorActivCuanti`, `promValorCuanti`, `nunValorDimen`, `fechaValorizacion`, `estade`) VALUES (id_activProsVerAnali, valorActivCuanti, 0, 0, now(), 1);
 
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_valorafectamen`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_valorafectamen` (IN `id_afectaActiv` INT, IN `id_escalaFrecuen` INT)   BEGIN
+CREATE PROCEDURE `insert_valorafectamen` (IN `id_afectaActiv` INT, IN `id_escalaFrecuen` INT)   BEGIN
 
 INSERT INTO `valorafectamen`(`id_afectaActiv`, `id_escalaFrecuen`, `promEscalDregad`, `impactCuanti`, `riesgoCuanti`, `numValDim`, `estade`) VALUES (id_afectaActiv, id_escalaFrecuen, 0, 0, 0, 0, 1);
 
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_valorAfectAmenDim`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_valorAfectAmenDim` (IN `id_valorAfectAmen` INT, IN `id_dimension` INT, IN `id_escalDegrad` INT, IN `valorDegrad` INT)   BEGIN
+CREATE PROCEDURE `insert_valorAfectAmenDim` (IN `id_valorAfectAmen` INT, IN `id_dimension` INT, IN `id_escalDegrad` INT, IN `valorDegrad` INT)   BEGIN
 
 DECLARE countValDimension int(11);
 DECLARE id_valorActiDimen int(11);
@@ -433,7 +435,7 @@ END IF;
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_valoriActivDimen`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_valoriActivDimen` (IN `id_valorActiv` INT, IN `id_dimension` INT, IN `valorAcivCualit` INT, IN `id_varlotActivCualit` INT, IN `tipValoActivDimen` VARCHAR(5), IN `id_nivelCritec` INT)   BEGIN
+CREATE PROCEDURE `insert_valoriActivDimen` (IN `id_valorActiv` INT, IN `id_dimension` INT, IN `valorAcivCualit` INT, IN `id_varlotActivCualit` INT, IN `tipValoActivDimen` VARCHAR(5), IN `id_nivelCritec` INT)   BEGIN
 
 DECLARE countValDimension int(11);
 DECLARE id_valorActiDimen int(11);
@@ -458,7 +460,7 @@ END IF;
 END$$
 
 DROP PROCEDURE IF EXISTS `insert_versionanali`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `insert_versionanali` (IN `id_proceso` INT)   BEGIN
+CREATE PROCEDURE `insert_versionanali` (IN `id_proceso` INT)   BEGIN
 
 DECLARE cantVersion int(11);
 DECLARE id_version  int(11);
@@ -484,35 +486,35 @@ INSERT INTO `valorproces`(`id_versionAnali`, `id_escalaRTO`, `id_escalaRPO`, `va
 END$$
 
 DROP PROCEDURE IF EXISTS `liest_escaladegradresidual`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `liest_escaladegradresidual` ()   BEGIN
+CREATE PROCEDURE `liest_escaladegradresidual` ()   BEGIN
 
 SELECT * FROM escaladegradresidual escdecresi WHERE escdecresi.estade = 1 ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `liest_escalafrecuenresidual`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `liest_escalafrecuenresidual` ()   BEGIN
+CREATE PROCEDURE `liest_escalafrecuenresidual` ()   BEGIN
 
 SELECT * FROM escalafrecuenresidual escfreres WHERE escfreres.estade = 1 ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `liest_escalaimpactoresidual`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `liest_escalaimpactoresidual` ()   BEGIN
+CREATE PROCEDURE `liest_escalaimpactoresidual` ()   BEGIN
 
 SELECT * FROM escalaimpactoresidual escImRes WHERE escImRes.estade = 1 ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `liest_escalariesgoresidual`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `liest_escalariesgoresidual` ()   BEGIN
+CREATE PROCEDURE `liest_escalariesgoresidual` ()   BEGIN
 
 SELECT * FROM escalariesgoresidual escriesres WHERE escriesres.estade = 1 ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `list_activos`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_activos` (IN `id_empresa` INT)   BEGIN
+CREATE PROCEDURE `list_activos` (IN `id_empresa` INT)   BEGIN
 
 SELECT actv.id_activo, actv.nombre_Activo, actv.descripc, actv.id_tipoActiv, tipac.dependAbreb
 FROM activos actv 
@@ -523,7 +525,7 @@ AND actv.estade = 1 ;
 END$$
 
 DROP PROCEDURE IF EXISTS `list_activproces`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_activproces` (IN `id_proceso` INT)   BEGIN
+CREATE PROCEDURE `list_activproces` (IN `id_proceso` INT)   BEGIN
 
 IF id_proceso <> 0 THEN 
 SELECT actpro.id_activproc, actpro.id_proceso, actpro.id_activo, activ.nombre_Activo, activ.descripc, activ.id_tipoActiv, tpactiv.dependAbreb 
@@ -543,7 +545,7 @@ END IF;
 END$$
 
 DROP PROCEDURE IF EXISTS `list_activprosveranali`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_activprosveranali` (IN `id_versonAnali` INT)   BEGIN
+CREATE PROCEDURE `list_activprosveranali` (IN `id_versonAnali` INT)   BEGIN
 
 SELECT 
 actanal.id_activProsVerAnali, 
@@ -564,7 +566,7 @@ AND actanal.id_versonAnali = id_versonAnali ;
 END$$
 
 DROP PROCEDURE IF EXISTS `list_afecactivinsiden`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_afecactivinsiden` (IN `id_afectaActiv` INT)   BEGIN
+CREATE PROCEDURE `list_afecactivinsiden` (IN `id_afectaActiv` INT)   BEGIN
 
 SELECT 
 afecinsi.id_afectaActivInsid,
@@ -583,7 +585,7 @@ AND afecinsi.estade = 1 ;
 END$$
 
 DROP PROCEDURE IF EXISTS `list_afectaactiv`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_afectaactiv` (IN `id_activProsVerAnali` INT)   BEGIN
+CREATE PROCEDURE `list_afectaactiv` (IN `id_activProsVerAnali` INT)   BEGIN
 
 IF id_activProsVerAnali <> 0 THEN  
 SELECT 
@@ -799,7 +801,7 @@ END IF;
 END$$
 
 DROP PROCEDURE IF EXISTS `list_afectaDimem`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_afectaDimem` ()   BEGIN
+CREATE PROCEDURE `list_afectaDimem` ()   BEGIN
 
 SELECT afecdi.id_afectDimen, afecdi.id_amenaza, afecdi.id_dimension, dimal.abreb
 FROM afectadimen afecdi 
@@ -809,7 +811,7 @@ WHERE afecdi.estade = 1 ;
 END$$
 
 DROP PROCEDURE IF EXISTS `list_afectaTip`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_afectaTip` (IN `id_libreryAmen` INT)   BEGIN
+CREATE PROCEDURE `list_afectaTip` (IN `id_libreryAmen` INT)   BEGIN
 
 SELECT afectip.id_amenazas, afectip.id_libreryAmen, libm.nombreLibreyAmen, afectip.id_tipoActivo, tipac.dependAbreb
 FROM afectatip afectip 
@@ -821,7 +823,7 @@ AND afectip.id_libreryAmen = id_libreryAmen ;
 END$$
 
 DROP PROCEDURE IF EXISTS `list_amenas`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_amenas` (IN `id_tipoActiv` INT)   BEGIN
+CREATE PROCEDURE `list_amenas` (IN `id_tipoActiv` INT)   BEGIN
 
 IF id_tipoActiv = 0 THEN
 
@@ -836,7 +838,7 @@ END IF;
 END$$
 
 DROP PROCEDURE IF EXISTS `list_areainterproce`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_areainterproce` (IN `id_proceso` INT)   BEGIN
+CREATE PROCEDURE `list_areainterproce` (IN `id_proceso` INT)   BEGIN
 
 SELECT arepro.id_areaProce, arem.id_areempre, arem.nombrearea, arem.descriparea
 FROM areainterproce arepro 
@@ -847,28 +849,28 @@ AND arepro.estade = 1 ;
 END$$
 
 DROP PROCEDURE IF EXISTS `list_areasempresa`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_areasempresa` (IN `id_empresa` INT)   BEGIN
+CREATE PROCEDURE `list_areasempresa` (IN `id_empresa` INT)   BEGIN
 
 SELECT * FROM areasempresa arem WHERE arem.id_empresa = id_empresa AND arem.estade = 1 ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `list_classcontrol`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_classcontrol` ()   BEGIN
+CREATE PROCEDURE `list_classcontrol` ()   BEGIN
 
 SELECT * FROM classcontrol classcron WHERE classcron.estade = 1;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `list_clienAnalit`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_clienAnalit` ()   SELECT  us.id_usuario, us.usaio, us.pass, us.tip_user, clan.id_cliente, clan.nombre, clan.apellidos, clan.telefono, clan.correo, clan.photo
+CREATE PROCEDURE `list_clienAnalit` ()   SELECT  us.id_usuario, us.usaio, us.pass, us.tip_user, clan.id_cliente, clan.nombre, clan.apellidos, clan.telefono, clan.correo, clan.photo
 FROM usuarios us 
 INNER JOIN clientanali clan ON clan.id_cliente = us.id_inform
 WHERE us.tip_user = 'C'
 AND us.estade = 1$$
 
 DROP PROCEDURE IF EXISTS `list_controles`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_controles` (IN `id_classControles` INT)   BEGIN
+CREATE PROCEDURE `list_controles` (IN `id_classControles` INT)   BEGIN
 
 IF id_classControles = 0 THEN
 SELECT * FROM controles con WHERE con.estade = 1 ;
@@ -879,14 +881,14 @@ END IF;
 END$$
 
 DROP PROCEDURE IF EXISTS `list_criteriosValori`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_criteriosValori` ()   BEGIN
+CREATE PROCEDURE `list_criteriosValori` ()   BEGIN
 
 SELECT * FROM criteriosvalor crival WHERE crival.estade = 1 ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `list_depentactiv`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_depentactiv` (IN `id_activproc` INT)   BEGIN
+CREATE PROCEDURE `list_depentactiv` (IN `id_activproc` INT)   BEGIN
 
 SELECT depativ.id_depenActiv, depativ.id_depActiv, act.nombre_Activo, act.descripc, act.id_tipoActiv, tipact.dependAbreb
 FROM depentactiv depativ
@@ -899,7 +901,7 @@ AND depativ.estade = 1 ;
 END$$
 
 DROP PROCEDURE IF EXISTS `list_depentactivarbol`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_depentactivarbol` ()   BEGIN
+CREATE PROCEDURE `list_depentactivarbol` ()   BEGIN
 
 SELECT 
 depearb.id_dependActivArbol, 
@@ -913,14 +915,14 @@ WHERE depearb.estade = 1;
 END$$
 
 DROP PROCEDURE IF EXISTS `list_dimensionanalisis`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_dimensionanalisis` ()   BEGIN
+CREATE PROCEDURE `list_dimensionanalisis` ()   BEGIN
 
 SELECT * FROM dimensionanalisis dimanal WHERE dimanal.estade = 1;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `list_empresa`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_empresa` (IN `id_clientAnalitic` INT)   BEGIN
+CREATE PROCEDURE `list_empresa` (IN `id_clientAnalitic` INT)   BEGIN
 
 IF id_clientAnalitic = 0 THEN
 SELECT em.id_empresa, em.nombreempresa, em.ruc, em.descripc, em.telefono, em.rubroEmpresa, em.mision, em.vision
@@ -938,63 +940,63 @@ END IF;
 END$$
 
 DROP PROCEDURE IF EXISTS `list_escaladegrad`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_escaladegrad` ()   BEGIN
+CREATE PROCEDURE `list_escaladegrad` ()   BEGIN
 
 SELECT * FROM escaladegrad escdes WHERE escdes.estade = 1 ; 
 
 END$$
 
 DROP PROCEDURE IF EXISTS `list_escalafrecuencia`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_escalafrecuencia` ()   BEGIN
+CREATE PROCEDURE `list_escalafrecuencia` ()   BEGIN
 
 SELECT * FROM escalafrecuencia escfreg WHERE escfreg.estade = 1 ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `list_escalaimpacto`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_escalaimpacto` ()   BEGIN
+CREATE PROCEDURE `list_escalaimpacto` ()   BEGIN
 
 SELECT * FROM escalaimpacto esim WHERE esim.estade = 1 ; 
 
 END$$
 
 DROP PROCEDURE IF EXISTS `list_escalariesgo`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_escalariesgo` ()   BEGIN
+CREATE PROCEDURE `list_escalariesgo` ()   BEGIN
 
 SELECT * FROM escalariesgo escRies WHERE escRies.estade = 1 ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `list_escalarpo`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_escalarpo` ()   BEGIN
+CREATE PROCEDURE `list_escalarpo` ()   BEGIN
 
 SELECT * FROM escalarpo escrpo WHERE escrpo.estade = 1 ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `list_escalarto`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_escalarto` ()   BEGIN
+CREATE PROCEDURE `list_escalarto` ()   BEGIN
 
 SELECT * FROM escalarto escrto WHERE escrto.estade = 1 ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `list_escalEficacia`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_escalEficacia` ()   BEGIN
+CREATE PROCEDURE `list_escalEficacia` ()   BEGIN
 
 SELECT * FROM escalaefica escefi WHERE escefi.estade = 1 ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `list_gerarProce`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_gerarProce` ()   BEGIN
+CREATE PROCEDURE `list_gerarProce` ()   BEGIN
 
 SELECT * FROM gerarproce genpro WHERE genpro.estade = 1 ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `list_insidencias`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_insidencias` (IN `id_proceso` INT)   BEGIN
+CREATE PROCEDURE `list_insidencias` (IN `id_proceso` INT)   BEGIN
 
 SELECT insid.id_insidencia, insid.id_activProc, insid.id_amenaza, tipact.dependAbreb, insid.nombroInsid, insid.descrpInsid
 FROM insidencias insid 
@@ -1008,35 +1010,35 @@ AND actpros.id_proceso = id_proceso ;
 END$$
 
 DROP PROCEDURE IF EXISTS `list_nivelvalor`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_nivelvalor` ()   BEGIN
+CREATE PROCEDURE `list_nivelvalor` ()   BEGIN
 
 SELECT * FROM nivelvalor nilval WHERE nilval.estade = 1;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `list_objempresa`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_objempresa` (IN `id_empresa` INT)   BEGIN
+CREATE PROCEDURE `list_objempresa` (IN `id_empresa` INT)   BEGIN
 
 SELECT * FROM objempresa objem WHERE objem.id_empresa = id_empresa AND objem.estade = 1 ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `list_objversanali`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_objversanali` (IN `id_versionAnali` INT)   BEGIN
+CREATE PROCEDURE `list_objversanali` (IN `id_versionAnali` INT)   BEGIN
 
 SELECT * FROM objversanali objal WHERE objal.estade = 1 AND objal.id_versionAnali = id_versionAnali ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `list_passalvafect`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_passalvafect` (IN `id_salvAfectAct` INT)   BEGIN
+CREATE PROCEDURE `list_passalvafect` (IN `id_salvAfectAct` INT)   BEGIN
 
 SELECT * FROM passalvafect passalv WHERE passalv.estade = 1 AND passalv.id_salvAfectAct = id_salvAfectAct ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `list_proceempresa`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_proceempresa` (IN `id_empresa` INT)   BEGIN
+CREATE PROCEDURE `list_proceempresa` (IN `id_empresa` INT)   BEGIN
 
 SELECT proem.id_proceso, proem.nombreProce, proem.descripccion, proem.id_gerarProc, gerap.nombre, proem.id_tipProce, tiproc.nombre as nombreTip, proem.isDepProcPadre, proem.id_DepentProc 
 FROM proceempresa proem 
@@ -1048,14 +1050,14 @@ AND proem.id_empresa = id_empresa ;
 END$$
 
 DROP PROCEDURE IF EXISTS `list_recurSalvAfectAct`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_recurSalvAfectAct` (IN `id_salvAfectAct` INT)   BEGIN
+CREATE PROCEDURE `list_recurSalvAfectAct` (IN `id_salvAfectAct` INT)   BEGIN
 
 SELECT * FROM recursalvafectact recusalv WHERE recusalv.estade = 1 AND recusalv.id_salvAfectAct = id_salvAfectAct ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `list_responanalis`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_responanalis` (IN `id_versionAnali` INT)   BEGIN
+CREATE PROCEDURE `list_responanalis` (IN `id_versionAnali` INT)   BEGIN
 
 SELECT respan.id_responAnalis, respan.id_cliente, CONCAT(clian.nombre,' ',clian.apellidos) AS nombre, clian.photo, respan.id_rolRespon, rolre.nombreRolRespon
 FROM responanalis respan 
@@ -1067,7 +1069,7 @@ AND respan.id_versionAnali = id_versionAnali ;
 END$$
 
 DROP PROCEDURE IF EXISTS `list_responSalvAfectAct`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_responSalvAfectAct` (IN `id_salvAfectAct` INT)   BEGIN
+CREATE PROCEDURE `list_responSalvAfectAct` (IN `id_salvAfectAct` INT)   BEGIN
 
 SELECT 
 ressalv.id_responSalvAfectAct, 
@@ -1084,7 +1086,7 @@ AND ressalv.id_salvAfectAct = id_salvAfectAct ;
 END$$
 
 DROP PROCEDURE IF EXISTS `list_resposproce`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_resposproce` (IN `id_proceso` INT)   BEGIN
+CREATE PROCEDURE `list_resposproce` (IN `id_proceso` INT)   BEGIN
 
 SELECT respro.id_resposProce, trabem.Id_trabajador, trabem.nombre_apellido, trabem.cargo, trabem.descripc 
 FROM resposproce respro 
@@ -1095,14 +1097,14 @@ AND respro.estade = 1 ;
 END$$
 
 DROP PROCEDURE IF EXISTS `list_rolrespon`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_rolrespon` ()   BEGIN
+CREATE PROCEDURE `list_rolrespon` ()   BEGIN
 
 SELECT * FROM rolrespon rolre WHERE rolre.estade = 1;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `list_salvAfectAct`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_salvAfectAct` (IN `id_afectaActiv` INT)   BEGIN
+CREATE PROCEDURE `list_salvAfectAct` (IN `id_afectaActiv` INT)   BEGIN
 
 SELECT 
 salv.id_salvAfectAct, 
@@ -1207,7 +1209,7 @@ AND salv.id_afectaActiv = id_afectaActiv ;
 END$$
 
 DROP PROCEDURE IF EXISTS `list_salvaguardas`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_salvaguardas` (IN `id_tipoSalva` INT)   BEGIN
+CREATE PROCEDURE `list_salvaguardas` (IN `id_tipoSalva` INT)   BEGIN
 
 IF id_tipoSalva <> 0 THEN
 SELECT * FROM salvaguardas salv WHERE salv.estade = 1 AND salv.id_tipoSalva = id_tipoSalva ;
@@ -1218,7 +1220,7 @@ END IF;
 END$$
 
 DROP PROCEDURE IF EXISTS `list_tipoActiv`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_tipoActiv` (IN `codeAbre` INT(11))   BEGIN
+CREATE PROCEDURE `list_tipoActiv` (IN `codeAbre` INT(11))   BEGIN
 
 IF codeAbre = 0 THEN
 SELECT * FROM tipoactivo tipact WHERE tipact.estade = 1 ;
@@ -1229,42 +1231,42 @@ END IF;
 END$$
 
 DROP PROCEDURE IF EXISTS `list_tipoAmenasa`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_tipoAmenasa` ()   BEGIN
+CREATE PROCEDURE `list_tipoAmenasa` ()   BEGIN
 
 SELECT * FROM tipoamen tipam WHERE tipam.estade = 1 ; 
 
 END$$
 
 DROP PROCEDURE IF EXISTS `list_tipocritervalor`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_tipocritervalor` ()   BEGIN
+CREATE PROCEDURE `list_tipocritervalor` ()   BEGIN
 
 SELECT * FROM tipocritervalor tipval WHERE tipval.estade = 1;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `list_tipoSalv`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_tipoSalv` ()   BEGIN
+CREATE PROCEDURE `list_tipoSalv` ()   BEGIN
 
 SELECT * FROM tiposalvaguarda tipsalv WHERE tipsalv.estade = 1 ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `list_tipProce`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_tipProce` ()   BEGIN
+CREATE PROCEDURE `list_tipProce` ()   BEGIN
 
 SELECT * FROM tipproce tipro WHERE tipro.estade = 1 ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `list_trabajempresa`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_trabajempresa` (IN `id_empresa` INT)   BEGIN
+CREATE PROCEDURE `list_trabajempresa` (IN `id_empresa` INT)   BEGIN
 
 SELECT * FROM trabajempresa trbem WHERE trbem.estade = 1 AND trbem.id_empresa = id_empresa ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `list_valAfectAmenDimen`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_valAfectAmenDimen` (IN `id_valorAfectAmen` INT)   BEGIN
+CREATE PROCEDURE `list_valAfectAmenDimen` (IN `id_valorAfectAmen` INT)   BEGIN
 
 SELECT 
 valafamdim.id_valAfectAmenDimen, 
@@ -1287,35 +1289,35 @@ AND valafamdim.id_valorAfectAmen = id_valorAfectAmen ;
 END$$
 
 DROP PROCEDURE IF EXISTS `list_valoractiv`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_valoractiv` (IN `id_activProsVerAnali` INT)   BEGIN
+CREATE PROCEDURE `list_valoractiv` (IN `id_activProsVerAnali` INT)   BEGIN
 
 SELECT * FROM valoractiv valact WHERE valact.estade = 1 AND valact.id_activProsVerAnali = id_activProsVerAnali ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `list_valorafectamen`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_valorafectamen` (IN `id_afectaActiv` INT)   BEGIN
+CREATE PROCEDURE `list_valorafectamen` (IN `id_afectaActiv` INT)   BEGIN
 
 SELECT * FROM valorafectamen valafamen WHERE valafamen.estade = 1 AND valafamen.id_afectaActiv = id_afectaActiv ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `list_valoriActivDimen`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_valoriActivDimen` (IN `id_valorActiv` INT)   BEGIN
+CREATE PROCEDURE `list_valoriActivDimen` (IN `id_valorActiv` INT)   BEGIN
 
 SELECT valdim.id_valorActiDimen, valdim.id_dimension, valdim.valorAcivCualit, valdim.id_varlotActivCualit, valdim.tipValoActivDimen FROM valoractivdimen valdim WHERE valdim.id_valorActiv = id_valorActiv AND valdim.estade = 1 ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `list_versionanali`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `list_versionanali` (IN `id_proceso` INT)   BEGIN
+CREATE PROCEDURE `list_versionanali` (IN `id_proceso` INT)   BEGIN
 
 SELECT veranl.id_versionAnali, veranl.abreb, veranl.fechaVersionAnali FROM versionanali veranl WHERE veranl.id_proceso = id_proceso AND veranl.estade = 1 ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `loadProm_valoractiv`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadProm_valoractiv` (IN `id_valorActiv` INT)   BEGIN
+CREATE PROCEDURE `loadProm_valoractiv` (IN `id_valorActiv` INT)   BEGIN
 
 DECLARE promValor int(11);
 DECLARE countVal int(11);
@@ -1327,7 +1329,7 @@ UPDATE valoractiv val SET val.promValorCuanti = promValor, val.nunValorDimen = c
 END$$
 
 DROP PROCEDURE IF EXISTS `loadProm_valorAfectAmen`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadProm_valorAfectAmen` (IN `id_valorAfectAmen` INT)   BEGIN
+CREATE PROCEDURE `loadProm_valorAfectAmen` (IN `id_valorAfectAmen` INT)   BEGIN
 
 DECLARE promEscalDregad int(11);
 DECLARE impacto int(11);
@@ -1360,14 +1362,14 @@ UPDATE valorafectamen valafam SET valafam.promEscalDregad = promEscalDregad, val
 END$$
 
 DROP PROCEDURE IF EXISTS `loadProm_valorAfectAmenDim`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadProm_valorAfectAmenDim` (IN `id_valAfectAmenDimen` INT, IN `id_escaleImpac` INT, IN `valorImpacto` INT, IN `id_escalRiesgo` INT, IN `valNivelRiesgo` INT)   BEGIN
+CREATE PROCEDURE `loadProm_valorAfectAmenDim` (IN `id_valAfectAmenDimen` INT, IN `id_escaleImpac` INT, IN `valorImpacto` INT, IN `id_escalRiesgo` INT, IN `valNivelRiesgo` INT)   BEGIN
 
 UPDATE valafectamendimen valamdim SET valamdim.id_escaleImpac = id_escaleImpac, valamdim.valorImpacto = valorImpacto, valamdim.id_escalRiesgo = id_escalRiesgo, valamdim.valNivelRiesgo = valNivelRiesgo WHERE valamdim.id_valAfectAmenDimen = id_valAfectAmenDimen ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `loadProm_valoraSalv`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `loadProm_valoraSalv` (IN `id_valorEficacia` INT)   BEGIN
+CREATE PROCEDURE `loadProm_valoraSalv` (IN `id_valorEficacia` INT)   BEGIN
 # --------------------------------- variables del analisis de riesgos
 DECLARE promValImpacto double;
 DECLARE promValFrecue double;
@@ -1414,7 +1416,7 @@ UPDATE valoreficacia valefi SET valefi.promValFrecueResi = promValFrecueResi, va
 END$$
 
 DROP PROCEDURE IF EXISTS `read_activprosveranali`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `read_activprosveranali` (IN `id_activProsVerAnali` INT)   BEGIN
+CREATE PROCEDURE `read_activprosveranali` (IN `id_activProsVerAnali` INT)   BEGIN
 
 SELECT actanal.id_activProsVerAnali, actanal.id_activProc, actv.nombre_Activo, actv.id_tipoActiv, tipac.dependAbreb 
 FROM activprosveranali actanal 
@@ -1427,7 +1429,7 @@ AND actanal.id_activProsVerAnali = id_activProsVerAnali ;
 END$$
 
 DROP PROCEDURE IF EXISTS `read_afectaactiv`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `read_afectaactiv` (IN `id_afectaActiv` INT)   BEGIN
+CREATE PROCEDURE `read_afectaactiv` (IN `id_afectaActiv` INT)   BEGIN
 
 SELECT afact.id_afectaActiv, afact.id_activProsVerAnali, afact.id_amenaza, am.abreb, am.nombreAmena, am.id_tipoActiv, tipam.abreb, tipam.nombreTipoActiv 
 FROM afectaactiv afact 
@@ -1439,7 +1441,7 @@ AND afact.id_afectaActiv = id_afectaActiv ;
 END$$
 
 DROP PROCEDURE IF EXISTS `read_clientAnali`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `read_clientAnali` (IN `id_cliente` INT)   BEGIN
+CREATE PROCEDURE `read_clientAnali` (IN `id_cliente` INT)   BEGIN
 
 SELECT  us.id_usuario, us.usaio, us.pass, us.tip_user, clan.id_cliente, clan.nombre, clan.apellidos, clan.telefono, clan.correo, clan.photo
 FROM usuarios us 
@@ -1450,7 +1452,7 @@ AND clan.id_cliente = id_cliente ;
 END$$
 
 DROP PROCEDURE IF EXISTS `read_loginApiKey`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `read_loginApiKey` (IN `seccion_key` VARCHAR(100))   BEGIN
+CREATE PROCEDURE `read_loginApiKey` (IN `seccion_key` VARCHAR(100))   BEGIN
 
 SELECT 
 lgus.apikey, lgus.seccion_key
@@ -1461,7 +1463,7 @@ WHERE lgus.seccion_key = seccion_key ;
 END$$
 
 DROP PROCEDURE IF EXISTS `read_loginInfoUser`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `read_loginInfoUser` (IN `seccion_key` VARCHAR(100))   BEGIN
+CREATE PROCEDURE `read_loginInfoUser` (IN `seccion_key` VARCHAR(100))   BEGIN
 
 SELECT 
 us.id_usuario, us.tip_user, us.id_inform, lgus.seccion_key
@@ -1472,14 +1474,14 @@ WHERE lgus.seccion_key = seccion_key ;
 END$$
 
 DROP PROCEDURE IF EXISTS `read_valorafectamen`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `read_valorafectamen` (IN `id_valorAfectAmen` INT)   BEGIN
+CREATE PROCEDURE `read_valorafectamen` (IN `id_valorAfectAmen` INT)   BEGIN
 
 SELECT * FROM valorafectamen valafamen WHERE valafamen.estade = 1 AND valafamen.id_valorAfectAmen = id_valorAfectAmen ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `read_valoreficacia`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `read_valoreficacia` (IN `id_salvAfectAct` INT)   BEGIN
+CREATE PROCEDURE `read_valoreficacia` (IN `id_salvAfectAct` INT)   BEGIN
 
 SELECT 
 afeact.id_afectaActiv,  
@@ -1505,7 +1507,7 @@ DESC LIMIT 1 ;
 END$$
 
 DROP PROCEDURE IF EXISTS `read_valorproces`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `read_valorproces` (IN `id_versionAnali` INT)   BEGIN
+CREATE PROCEDURE `read_valorproces` (IN `id_versionAnali` INT)   BEGIN
 
 SELECT valpro.id_valorProc, valpro.id_escalaRTO, valpro.id_escalaRPO, valpro.valorMDT 
 FROM valorproces valpro 
@@ -1517,7 +1519,7 @@ DESC LIMIT 1 ;
 END$$
 
 DROP PROCEDURE IF EXISTS `read_versionanali`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `read_versionanali` (IN `id_versionAnali` INT)   BEGIN
+CREATE PROCEDURE `read_versionanali` (IN `id_versionAnali` INT)   BEGIN
 
 SELECT 
 veran.id_versionAnali, 
@@ -1542,28 +1544,28 @@ AND veran.estade = 1 ;
 END$$
 
 DROP PROCEDURE IF EXISTS `update_acivos`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_acivos` (IN `nombre_Activo` VARCHAR(100), IN `descrip` VARCHAR(300), IN `id_tipoActiv` INT, IN `id_activo` INT)   BEGIN
+CREATE PROCEDURE `update_acivos` (IN `nombre_Activo` VARCHAR(100), IN `descrip` VARCHAR(300), IN `id_tipoActiv` INT, IN `id_activo` INT)   BEGIN
 
 UPDATE activos act SET  act.nombre_Activo = nombre_Activo , act.descripc = descrip , act.id_tipoActiv = id_tipoActiv WHERE act.id_activo = id_activo ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `update_afectaativ`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_afectaativ` (IN `esenario` VARCHAR(400), IN `id_afectaActiv` INT)   BEGIN
+CREATE PROCEDURE `update_afectaativ` (IN `esenario` VARCHAR(400), IN `id_afectaActiv` INT)   BEGIN
 
 UPDATE afectaactiv actactiv SET actactiv.esenario = esenario WHERE actactiv.id_afectaActiv = id_afectaActiv ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `update_areasempresa`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_areasempresa` (IN `nombreArea` VARCHAR(100), IN `descripArea` VARCHAR(300), IN `id_areEmpre` INT)   BEGIN
+CREATE PROCEDURE `update_areasempresa` (IN `nombreArea` VARCHAR(100), IN `descripArea` VARCHAR(300), IN `id_areEmpre` INT)   BEGIN
 
 UPDATE areasempresa ampre SET ampre.nombrearea = nombreArea , ampre.descriparea = descripArea WHERE ampre.id_areempre = id_areEmpre ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `update_clienAnalitInfoUser`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_clienAnalitInfoUser` (IN `correo` VARCHAR(100), IN `usser` VARCHAR(100), IN `pass` VARCHAR(100), IN `id_cliente` INT)   BEGIN
+CREATE PROCEDURE `update_clienAnalitInfoUser` (IN `correo` VARCHAR(100), IN `usser` VARCHAR(100), IN `pass` VARCHAR(100), IN `id_cliente` INT)   BEGIN
 
 UPDATE usuarios us 
 INNER JOIN clientanali clan ON clan.id_cliente = us.id_inform 
@@ -1578,98 +1580,98 @@ WHERE clan.id_cliente = id_cliente ;
 END$$
 
 DROP PROCEDURE IF EXISTS `update_clientAnali`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_clientAnali` (IN `nombre` VARCHAR(100), IN `apellidos` VARCHAR(100), IN `telefono` VARCHAR(20), IN `photo` VARCHAR(1000), IN `id_cliente` INT)   BEGIN
+CREATE PROCEDURE `update_clientAnali` (IN `nombre` VARCHAR(100), IN `apellidos` VARCHAR(100), IN `telefono` VARCHAR(20), IN `photo` VARCHAR(1000), IN `id_cliente` INT)   BEGIN
 
 UPDATE clientanali clan SET `nombre`= nombre, `apellidos`= apellidos, `telefono`= telefono, `photo`= photo WHERE clan.id_cliente = id_cliente ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `update_empresa`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_empresa` (IN `id_empresa` INT, IN `nombreempresa` VARCHAR(100), IN `ruc` VARCHAR(11), IN `descripc` VARCHAR(200), IN `telefono` VARCHAR(20), IN `rubroempresa` VARCHAR(100), IN `misio` VARCHAR(300), IN `vision` VARCHAR(300))   BEGIN
+CREATE PROCEDURE `update_empresa` (IN `id_empresa` INT, IN `nombreempresa` VARCHAR(100), IN `ruc` VARCHAR(11), IN `descripc` VARCHAR(200), IN `telefono` VARCHAR(20), IN `rubroempresa` VARCHAR(100), IN `misio` VARCHAR(300), IN `vision` VARCHAR(300))   BEGIN
 
 UPDATE empresa em SET em.nombreempresa = nombreempresa , em.ruc = ruc , em.descripc = descripc , em.telefono = telefono , em.rubroEmpresa = rubroempresa , em.mision = misio, em.vision = vision WHERE em.id_empresa = id_empresa ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `update_insidencias`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_insidencias` (IN `id_insidencia` INT, IN `id_activProc` INT, IN `id_amenaza` INT, IN `nombreInsid` VARCHAR(100), IN `descrpInsid` VARCHAR(300))   BEGIN
+CREATE PROCEDURE `update_insidencias` (IN `id_insidencia` INT, IN `id_activProc` INT, IN `id_amenaza` INT, IN `nombreInsid` VARCHAR(100), IN `descrpInsid` VARCHAR(300))   BEGIN
 
 UPDATE insidencias insd SET insd.id_activProc = id_activProc, insd.id_amenaza = id_amenaza, insd.nombroInsid = nombreInsid , insd.descrpInsid = descrpInsid WHERE insd.id_insidencia = id_insidencia ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `update_objempresa`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_objempresa` (IN `nombreObje` VARCHAR(300), IN `id_objEmpresa` INT)   BEGIN
+CREATE PROCEDURE `update_objempresa` (IN `nombreObje` VARCHAR(300), IN `id_objEmpresa` INT)   BEGIN
 
 UPDATE objempresa objem SET objem.nombreobj = nombreObje WHERE objem.id_objempresa = id_objEmpresa ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `update_objversanali`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_objversanali` (IN `nombreObj` VARCHAR(100), IN `id_objVersAnali` INT)   BEGIN
+CREATE PROCEDURE `update_objversanali` (IN `nombreObj` VARCHAR(100), IN `id_objVersAnali` INT)   BEGIN
 
 UPDATE objversanali objAnali SET objAnali.nombreObj = nombreObj WHERE objAnali.id_objVersAnali = id_objVersAnali;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `update_passalvafect`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_passalvafect` (IN `id_pasSalvAfec` INT, IN `nombreSalvAfec` VARCHAR(100))   BEGIN
+CREATE PROCEDURE `update_passalvafect` (IN `id_pasSalvAfec` INT, IN `nombreSalvAfec` VARCHAR(100))   BEGIN
 
 UPDATE passalvafect pasalv SET pasalv.nombreSalvAfec = nombreSalvAfec WHERE pasalv.id_pasSalvAfec = id_pasSalvAfec ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `update_proceempresa`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_proceempresa` (IN `nombreProce` VARCHAR(100), IN `descripccion` VARCHAR(300), IN `id_gerarProc` INT, IN `id_tipProce` INT, IN `isDepProcPadre` INT, IN `id_DepentProc` INT, IN `id_proceso` INT)   BEGIN
+CREATE PROCEDURE `update_proceempresa` (IN `nombreProce` VARCHAR(100), IN `descripccion` VARCHAR(300), IN `id_gerarProc` INT, IN `id_tipProce` INT, IN `isDepProcPadre` INT, IN `id_DepentProc` INT, IN `id_proceso` INT)   BEGIN
 
 UPDATE proceempresa proem SET proem.nombreProce = nombreProce , proem.descripccion = descripccion, proem.id_gerarProc = id_gerarProc , proem.id_tipProce = id_tipProce , proem.isDepProcPadre = isDepProcPadre, proem.id_DepentProc = id_DepentProc WHERE proem.id_proceso = id_proceso ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `update_recurSalvAfectAct`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_recurSalvAfectAct` (IN `id_recurSalvAfectAct` INT, IN `nombreRecurSalvAfect` VARCHAR(100), IN `descripc` VARCHAR(300), IN `presioRecurMitAfec` DOUBLE)   BEGIN
+CREATE PROCEDURE `update_recurSalvAfectAct` (IN `id_recurSalvAfectAct` INT, IN `nombreRecurSalvAfect` VARCHAR(100), IN `descripc` VARCHAR(300), IN `presioRecurMitAfec` DOUBLE)   BEGIN
 
 UPDATE recursalvafectact recsalv SET recsalv.nombreRecurSalvAfect = nombreRecurSalvAfect , recsalv.descripc = descripc , recsalv.presioRecurSalvAfect = presioRecurMitAfec WHERE recsalv.id_recurSalvAfectAct = id_recurSalvAfectAct ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `update_salvAfectAct`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_salvAfectAct` (IN `id_salvAfectAct` INT, IN `id_control` INT, IN `extrategia` VARCHAR(100))   BEGIN
+CREATE PROCEDURE `update_salvAfectAct` (IN `id_salvAfectAct` INT, IN `id_control` INT, IN `extrategia` VARCHAR(100))   BEGIN
 
 UPDATE salvafectact salaf SET salaf.id_control = id_control, salaf.extrategia = extrategia WHERE salaf.id_salvAfectAct = id_salvAfectAct;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `update_trabajempresa`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_trabajempresa` (IN `nombre` VARCHAR(100), IN `cargo` VARCHAR(100), IN `descripc` VARCHAR(300), IN `telefono` VARCHAR(20), IN `correo` VARCHAR(100), IN `codTrabajo` VARCHAR(20), IN `Id_trabajador` INT)   BEGIN
+CREATE PROCEDURE `update_trabajempresa` (IN `nombre` VARCHAR(100), IN `cargo` VARCHAR(100), IN `descripc` VARCHAR(300), IN `telefono` VARCHAR(20), IN `correo` VARCHAR(100), IN `codTrabajo` VARCHAR(20), IN `Id_trabajador` INT)   BEGIN
 
 UPDATE trabajempresa tbrem SET tbrem.nombre_apellido = nombre, tbrem.cargo = cargo, tbrem.descripc= descripc, tbrem.telefono = telefono, tbrem.correo = correo, tbrem.codTrabajo = codTrabajo WHERE tbrem.Id_trabajador = Id_trabajador ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `update_valoractiv`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_valoractiv` (IN `id_valorActiv` INT, IN `valorActivCuanti` INT)   BEGIN
+CREATE PROCEDURE `update_valoractiv` (IN `id_valorActiv` INT, IN `valorActivCuanti` INT)   BEGIN
 
 UPDATE valoractiv valact SET valact.valorActivCuanti = valorActivCuanti WHERE valact.id_valorActiv = id_valorActiv ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `update_valorafectamen`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_valorafectamen` (IN `id_afectaActiv` INT, IN `id_escalaFrecuen` INT)   BEGIN
+CREATE PROCEDURE `update_valorafectamen` (IN `id_afectaActiv` INT, IN `id_escalaFrecuen` INT)   BEGIN
 
 UPDATE valorafectamen valafame SET valafame.id_escalaFrecuen = id_escalaFrecuen WHERE valafame.id_afectaActiv = id_afectaActiv ;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `update_valorEficacia`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_valorEficacia` (IN `id_salvAfectAct` INT, IN `id_escalEficDegr` INT, IN `valEficDegr` INT, IN `id_escalEficFrec` INT, IN `valEficFrec` INT, IN `id_escalEficImpac` INT, IN `valEficImpac` INT)   BEGIN
+CREATE PROCEDURE `update_valorEficacia` (IN `id_salvAfectAct` INT, IN `id_escalEficDegr` INT, IN `valEficDegr` INT, IN `id_escalEficFrec` INT, IN `valEficFrec` INT, IN `id_escalEficImpac` INT, IN `valEficImpac` INT)   BEGIN
 
 UPDATE valoreficacia valer SET valer.id_escalEficDegr = id_escalEficDegr, valer.valEficDegr = valEficDegr, valer.id_escalEficFrec = id_escalEficFrec, valer.valEficFrec= valEficFrec, valer.id_escalEficImpac = id_escalEficImpac, valer.valEficImpac = valEficImpac WHERE valer.id_salvAfectAct = id_salvAfectAct;
 
 END$$
 
 DROP PROCEDURE IF EXISTS `update_valoreficacidimension`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_valoreficacidimension` (IN `id_valorEficacia` INT, IN `id_dimension` INT, IN `id_escalDegradResid` INT, IN `valEscalDegradResid` DOUBLE, IN `id_escalFrecuenResid` INT, IN `valEscalFrecuenResid` DOUBLE, IN `id_escalImpaResid` INT, IN `valEscalImpaResid` DOUBLE, IN `id_escalRiesgResid` INT, IN `valEscalRiesgResid` DOUBLE)   BEGIN
+CREATE PROCEDURE `update_valoreficacidimension` (IN `id_valorEficacia` INT, IN `id_dimension` INT, IN `id_escalDegradResid` INT, IN `valEscalDegradResid` DOUBLE, IN `id_escalFrecuenResid` INT, IN `valEscalFrecuenResid` DOUBLE, IN `id_escalImpaResid` INT, IN `valEscalImpaResid` DOUBLE, IN `id_escalRiesgResid` INT, IN `valEscalRiesgResid` DOUBLE)   BEGIN
 
 DECLARE contValori int(11);
 SET contValori = (SELECT valefidim.id_valEficaDimen FROM valoreficacidimension valefidim WHERE valefidim.estade = 1 AND valefidim.id_valorEficacia = id_valorEficacia AND valefidim.id_dimension = id_dimension );
@@ -1683,7 +1685,7 @@ END IF;
 END$$
 
 DROP PROCEDURE IF EXISTS `update_valorproces`$$
-CREATE DEFINER=`root`@`localhost` PROCEDURE `update_valorproces` (IN `id_escalaRTO` INT, IN `id_escalaRPO` INT, IN `valorMDT` INT, IN `id_valorProc` INT)   BEGIN
+CREATE PROCEDURE `update_valorproces` (IN `id_escalaRTO` INT, IN `id_escalaRPO` INT, IN `valorMDT` INT, IN `id_valorProc` INT)   BEGIN
 
 UPDATE valorproces valproc SET valproc.id_escalaRTO = id_escalaRTO, valproc.id_escalaRPO = id_escalaRPO, valproc.valorMDT = valorMDT 
 WHERE valproc.id_valorProc = id_valorProc ;
@@ -1694,7 +1696,7 @@ END$$
 -- Funciones
 --
 DROP FUNCTION IF EXISTS `fnGetIdafectaActiv`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `fnGetIdafectaActiv` (`id_afectaActiv` INT) RETURNS INT(11)  BEGIN
+CREATE FUNCTION `fnGetIdafectaActiv` (`id_afectaActiv` INT) RETURNS INT(11)  BEGIN
 
 DECLARE id_escalDegrad  int(11);
 
@@ -1711,7 +1713,7 @@ RETURN id_escalDegrad;
 END$$
 
 DROP FUNCTION IF EXISTS `fnGetIdEscalDegradResid`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `fnGetIdEscalDegradResid` (`id_salvAfectAct` INT) RETURNS INT(11)  BEGIN
+CREATE FUNCTION `fnGetIdEscalDegradResid` (`id_salvAfectAct` INT) RETURNS INT(11)  BEGIN
 
 DECLARE id_escalDegradResid int (11);
 
@@ -1728,7 +1730,7 @@ RETURN id_escalDegradResid ;
 END$$
 
 DROP FUNCTION IF EXISTS `fnGetIdFrecunDegradResid`$$
-CREATE DEFINER=`root`@`localhost` FUNCTION `fnGetIdFrecunDegradResid` (`id_salvAfectAct` INT) RETURNS INT(11)  BEGIN
+CREATE FUNCTION `fnGetIdFrecunDegradResid` (`id_salvAfectAct` INT) RETURNS INT(11)  BEGIN
 
 DECLARE id_escalFrecuenResid int(11);
 
@@ -3035,18 +3037,18 @@ CREATE TABLE `dependactivarbol` (
 --
 
 INSERT INTO `dependactivarbol` VALUES
-(1, 146, 225, 1, '0000-00-00 00:00:00'),
-(2, 146, 1, 1, '0000-00-00 00:00:00'),
-(3, 1, 225, 1, '0000-00-00 00:00:00'),
-(4, 225, 258, 1, '0000-00-00 00:00:00'),
-(5, 360, 258, 1, '0000-00-00 00:00:00'),
-(6, 305, 258, 1, '0000-00-00 00:00:00'),
-(7, 344, 258, 1, '0000-00-00 00:00:00'),
-(8, 373, 1, 1, '0000-00-00 00:00:00'),
-(9, 69, 0, 1, '0000-00-00 00:00:00'),
-(10, 110, 0, 1, '0000-00-00 00:00:00'),
-(11, 129, 0, 1, '0000-00-00 00:00:00'),
-(12, 323, 0, 1, '0000-00-00 00:00:00');
+(1, 146, 225, 1, now()),
+(2, 146, 1, 1, now()),
+(3, 1, 225, 1, now()),
+(4, 225, 258, 1, now()),
+(5, 360, 258, 1, now()),
+(6, 305, 258, 1, now()),
+(7, 344, 258, 1, now()),
+(8, 373, 1, 1, now()),
+(9, 69, 0, 1, now()),
+(10, 110, 0, 1, now()),
+(11, 129, 0, 1, now()),
+(12, 323, 0, 1, now());
 
 -- --------------------------------------------------------
 

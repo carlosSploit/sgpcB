@@ -66,6 +66,7 @@ module.exports = class ngusuario {
   async loginUser (req, res) {
     // se comprueba el inicio de secion
     const result = await objusuario.compruebe_loginUserbd(req, res)
+    console.log(result)
     if (result.length === 0) {
       const resultError = await objusuario.compruebe_correo_logIn(req, res, req.body.user)
       const dataErrot = (resultError.length === 0) ? {} : { ...resultError[0] }
