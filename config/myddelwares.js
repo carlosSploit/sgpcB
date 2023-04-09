@@ -9,7 +9,7 @@ const midellerror = require("./error/midellerror");
 // configuraciones
 const dbopccion = config.bd.mysql[config.bd.mysql.tipeOption]
 
-function getIPAddress() {
+function getIPAddress () {
     var interfaces = require('os').networkInterfaces();
     for (var devName in interfaces) {
       var iface = interfaces[devName];

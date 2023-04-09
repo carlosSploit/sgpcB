@@ -10,7 +10,10 @@
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
+SET GLOBAL log_bin_trust_function_creators = 1;
 
+ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'fOxwPKcWxuq088P8hhLQ';
+flush privileges;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -22,8 +25,6 @@ SET time_zone = "+00:00";
 --
 CREATE DATABASE IF NOT EXISTS `sgpc` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
 USE `sgpc`;
-
-SET GLOBAL log_bin_trust_function_creators = 1;
 
 DELIMITER $$
 --

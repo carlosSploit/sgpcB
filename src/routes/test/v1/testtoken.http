@@ -1,2 +1,2 @@
 ### Generar tokenizar
-GET http://localhost:5000/tokeniser HTTP/1.1
+GET https://sgpcb-production.up.railway.app/api/v1/tokeniser HTTP/1.1

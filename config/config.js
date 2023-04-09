@@ -1,4 +1,10 @@
 const keysconfig = require('./key.json')
+/*
+#
+
+ALTER USER 'directus'@'%' IDENTIFIED WITH 'mysql_native_password' BY 'mySecretPassword';
+FLUSH PRIVILEGES;
+*/
 
 const config = {
   bd: {

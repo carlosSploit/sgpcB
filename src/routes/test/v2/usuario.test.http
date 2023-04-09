@@ -3,7 +3,7 @@ POST http://localhost:5001/api/v1/usuar/loginUser HTTP/1.1
 Content-Type: application/json
 
 {
-    "user": "@pedrna122",
+    "user": "@pedrna15",
     "pass": "perrito59"
 }
 

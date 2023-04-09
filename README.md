@@ -1,7 +1,3 @@
-# Canvaritech Backend
-
-Este es el backend de la aplicacion del sistema Elearning, el cual fue hecha con nodejs, express, mysql y otras librerias que se pueden encontrar en el packete de package.json
-
 # install libreris
 
 Para poder instalar las librerias solo se tiene que ingresar el comando npm install, antes
@@ -36,3 +32,5 @@ git commit -m "comentario" // agregar un comentario a la rama
 
 git push origin [rama] // insertar de una rama local a la remota
 git pull origin [rama] // actualizar de una rama a otra
+
+# fly.io

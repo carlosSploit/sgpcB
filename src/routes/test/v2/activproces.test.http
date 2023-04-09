@@ -1,5 +1,5 @@
 ### LISTAR LOS ACTIVOS DE UNA EMPRESA
-GET http://localhost:5001/api/v1/activproc/2 HTTP/1.1
+GET http://localhost:5001/api/v1/activproc/0 HTTP/1.1
 
 ### ELIMINAR ACTIVO DE UNA EMPRESA
 DELETE http://localhost:5001/api/v1/activproc/6 HTTP/1.1
