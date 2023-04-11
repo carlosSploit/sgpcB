@@ -9,6 +9,11 @@ rooutes.get('/:id_clienAnalit', async (req, res) => {
   objempresa.list_empresa(req, res)
 })
 
+// List
+rooutes.get('/enlace/:id_empresa', async (req, res) => {
+  objempresa.list_empresa_enlace(req, res)
+})
+
 // read
 // rooutes.get('/read/:id_clienAnalit', async (req, res) => {
 //   objempresa.read_clienAnalit(req, res)
