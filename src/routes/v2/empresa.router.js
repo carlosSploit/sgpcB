@@ -29,9 +29,14 @@ rooutes.post('/enlace', async (req, res) => {
   objempresa.inser_empresa_enlace(req, res)
 })
 
-// delete
-rooutes.delete('/:id_clienAnalit/:id_empresa', async (req, res) => {
+// delete enlace
+rooutes.delete('/enlace/:id_clienAnalit/:id_empresa', async (req, res) => {
   objempresa.eliminar_empresa_enlace(req, res)
+})
+
+// delete
+rooutes.delete('/:id_empresa', async (req, res) => {
+  objempresa.eliminar_empresa(req, res)
 })
 // actualizar
 // rooutes.put('/:id_clienAnalit', async (req, res) => {

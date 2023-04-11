@@ -150,4 +150,9 @@ module.exports = class ngclienAnalit {
     const result = await objempresa.eliminar_empresa_enlace(req, res)
     res.json(result)
   }
+
+  async eliminar_empresa (req, res) {
+    const result = await objempresa.eliminar_empresa(req, res)
+    res.json(result)
+  }
 }

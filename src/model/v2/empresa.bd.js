@@ -57,6 +57,19 @@ module.exports = class DbclientAnali {
     return results
   }
 
+  async eliminar_empresa (req, res) {
+    const results = await conexibd.single_query(
+      req,
+      res,
+      'CALL `delete_empresa`(?);',
+      [
+        req.params.id_empresa
+      ],
+      'Se elimino correctamente el empresa'
+    )
+    return results
+  }
+
   async eliminar_empresa_enlace (req, res) {
     const results = await conexibd.single_query(
       req,
