@@ -25,7 +25,8 @@ Content-Type: application/json
 
 {
     "id_clienAnalit" : 1,
-    "id_empresa" : 1
+    "id_empresa" : 1,
+    "permis": "C"
 }
 
 ### ACTUALIZAR UNA EMPRESA

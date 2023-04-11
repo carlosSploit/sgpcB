@@ -26,12 +26,13 @@ module.exports = class DbclientAnali {
     const results = await conexibd.single_query(
       req,
       res,
-      'CALL `insert_empresa_enlace`(?,?);',
+      'CALL `insert_empresa_enlace`(?,?,?);',
       [
         req.body.id_empresa,
-        req.body.id_clienAnalit
+        req.body.id_clienAnalit,
+        req.body.permis
       ],
-      'Se inserto correctamente la empresa'
+      'Se enlazo con la empresa correctamente'
     )
     return results
   }
