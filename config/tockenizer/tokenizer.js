@@ -4,17 +4,17 @@ const config = require('../config.js')
 
 // verificacion del token
 module.exports = function verifyToken (req, res, next) {
-  console.log(req.headers.authorization)
   if (!req.headers.authorization) {
     return res.status(403).send({ message: 'No tienes autorizacion' })
   }
+  console.log(req.headers.authorization)
   // si existe sigue la operacion
   const tokenext = req.headers['authorization']
   if (typeof tokenext !== 'undefined') {
     const listdatetoken = tokenext.split(' ')
     const token = listdatetoken[listdatetoken.length - 1]
     const payload = jwt.decode(token, config.apidatkey)
-    if (payload == null) return res.status(403).send({message: 'No tienes autorizacion'});
+    if (payload == null) return res.status(403).send({ message: 'No tienes autorizacion' })
     // coomprobamos la existencia de las key y sus valores dados, entre el json esperado y el json desifrado
     for (const key in config.apidatkey) {
       try {
