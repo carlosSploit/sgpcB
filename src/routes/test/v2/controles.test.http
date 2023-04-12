@@ -1,5 +1,6 @@
 ### LISTAR LOS CONTROLES
 GET http://localhost:5001/api/v1/controles/0 HTTP/1.1
+Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5NjkyODAyNTUsIm5vbWJyZSI6ImJyYWRjYXIiLCJlbWFpbCI6InVjdjIwMjFAZW1haWwuY29tIn0sImlhdCI6MTY4MTMyMDQ0N30.tzfZ2W3wvrTCoH4R4l1H02PfVedDo8xbXtZp30J0xr4'
 
 ### INSERTAR O MIGRAR LOS DATOS DE LOS CONTROLES
 POST http://localhost:5001/api/v1/controles HTTP/1.1 
