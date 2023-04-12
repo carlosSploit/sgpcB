@@ -12,9 +12,9 @@ module.exports = function verifyToken (req, res, next) {
   if (typeof tokenext !== typeof undefined) {
     const listdatetoken = tokenext.split(' ')
     const token = listdatetoken[listdatetoken.length - 1]
-    console.log(req.headers.authorization)
+    // console.log(req.headers.authorization)
     const payload = jwt.decode(token, config.apidatkey)
-    console.log('payload', payload)
+    // console.log('payload', payload)
     if (payload == null) return res.status(403).send({ message: 'No tienes autorizacion' })
     // coomprobamos la existencia de las key y sus valores dados, entre el json esperado y el json desifrado
     for (const key in config.apidatkey) {
