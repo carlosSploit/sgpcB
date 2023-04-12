@@ -6,11 +6,8 @@ const config = require('../../config.js')
 // **** atentificacion *****/
 rooutes.use('/', (req, res) => {
   const user = config.apidatkey
-  jwt.sign({ user }, 'secretkey', (erro, token) => {
-    res.json({
-      token
-    })
-  })
+  const token = jwt.sign({ user }, 'secretkey')
+  res.json({ token: token })
 })
 
 module.exports = rooutes
