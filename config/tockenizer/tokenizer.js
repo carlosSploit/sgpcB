@@ -19,7 +19,7 @@ module.exports = function verifyToken (req, res, next) {
     // coomprobamos la existencia de las key y sus valores dados, entre el json esperado y el json desifrado
     for (const key in config.apidatkey) {
       try {
-        if (payload.user[key] != config.apidatkey[key]) {
+        if ((payload.user[key] + '') !== (config.apidatkey[key] + '')) {
           return res.status(403).send({ message: 'El toquen es invalido' })
         }
       } catch (Exeption) {
