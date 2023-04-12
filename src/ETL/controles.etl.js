@@ -20,7 +20,7 @@ module.exports = class ETLcontroles {
         return `'${item}'`
       })
       const dataInserConsult = `( ${dataTrasnforColumn.join(',')} )`
-      console.log(dataInserConsult)
+      // console.log(dataInserConsult)
       const transforDataInsert = dataInserConsult + ((parseInt(index) === parseInt(LoadDataCVS.length - 1)) ? ';' : ',').toString()
       return transforDataInsert
     // eslint-disable-next-line eqeqeq
