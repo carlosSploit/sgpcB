@@ -20,6 +20,7 @@ module.exports = class ETLcontroles {
         return `'${item}'`
       })
       const dataInserConsult = `( ${dataTrasnforColumn.join(',')} )`
+      console.log(dataInserConsult)
       const transforDataInsert = dataInserConsult + ((parseInt(index) === parseInt(LoadDataCVS.length - 1)) ? ';' : ',').toString()
       return transforDataInsert
     // eslint-disable-next-line eqeqeq
@@ -44,7 +45,7 @@ module.exports = class ETLcontroles {
       return FormatoInserDatos
     // eslint-disable-next-line eqeqeq
     }).filter(item => item.length > mintCapDatos).filter((item, index) => { return (limitInsert == 0) ? true : index < limitInsert })
-    console.log(dataConsult)
+    // console.log(dataConsult)
     return dataConsult
   }
 // eslint-disable-next-line eol-last
