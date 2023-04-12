@@ -44,6 +44,7 @@ module.exports = class ETLcontroles {
       return FormatoInserDatos
     // eslint-disable-next-line eqeqeq
     }).filter(item => item.length > mintCapDatos).filter((item, index) => { return (limitInsert == 0) ? true : index < limitInsert })
+    console.log(dataConsult)
     return dataConsult
   }
 // eslint-disable-next-line eol-last

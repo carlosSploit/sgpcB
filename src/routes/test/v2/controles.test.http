@@ -1,9 +1,10 @@
 ### LISTAR LOS CONTROLES
 GET https://sgpcb-production.up.railway.app/api/v1/controles/0 HTTP/1.1
-Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5NjkyODAyNTUsIm5vbWJyZSI6ImJyYWRjYXIiLCJlbWFpbCI6InVjdjIwMjFAZW1haWwuY29tIn0sImlhdCI6MTY4MTMyMzE1OX0.u90qqnNdR-LL_8thjyVA1a2LZ5eZ1YmtGt8ONbqXF_4'
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5NjkyODAyNTUsIm5vbWJyZSI6ImJyYWRjYXIiLCJlbWFpbCI6InVjdjIwMjFAZW1haWwuY29tIn0sImlhdCI6MTY4MTMzMDA5MX0.ahbcI8-3eRH6ZGCerISHw4OkOj9GDCqN7EawGI4JJBo
 
 ### INSERTAR O MIGRAR LOS DATOS DE LOS CONTROLES
-POST http://localhost:5001/api/v1/controles HTTP/1.1 
+POST https://sgpcb-production.up.railway.app/api/v1/controles HTTP/1.1 
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5NjkyODAyNTUsIm5vbWJyZSI6ImJyYWRjYXIiLCJlbWFpbCI6InVjdjIwMjFAZW1haWwuY29tIn0sImlhdCI6MTY4MTMzMDA5MX0.ahbcI8-3eRH6ZGCerISHw4OkOj9GDCqN7EawGI4JJBo
 Content-Type: application/json
 
 {
