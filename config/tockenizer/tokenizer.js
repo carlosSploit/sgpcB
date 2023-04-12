@@ -7,9 +7,9 @@ module.exports = function verifyToken (req, res, next) {
   if (!req.headers.authorization) {
     return res.status(403).send({ message: 'No tienes autorizacion' })
   }
-  console.log(req.headers.authorization)
   // si existe sigue la operacion
   const tokenext = req.headers['authorization']
+  console.log(req.headers['authorization'])
   if (typeof tokenext !== 'undefined') {
     const listdatetoken = tokenext.split(' ')
     const token = listdatetoken[listdatetoken.length - 1]
