@@ -31,7 +31,7 @@ module.exports = class ngResponanalis {
       return
     }
 
-    if (req.body.id_rolRespon == 0) {
+    if (parseInt(req.body.id_rolRespon) === 0) {
       res.send({
         status: 404,
         typo: 'error',
