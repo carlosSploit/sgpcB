@@ -25,7 +25,17 @@ module.exports = class ngResponanalis {
       res.send({
         status: 404,
         typo: 'error',
-        messege: 'El area ya fue designado al proceso.',
+        messege: 'El responsable ya fue designado al proceso.',
+        data: []
+      })
+      return
+    }
+
+    if (req.body.id_rolRespon == 0) {
+      res.send({
+        status: 404,
+        typo: 'error',
+        messege: 'No se designo un rol al responsables.',
         data: []
       })
       return
