@@ -1,6 +1,6 @@
 ### LISTAR LOS CONTROLES
-GET http://localhost:5001/api/v1/controles/0 HTTP/1.1
-Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5NjkyODAyNTUsIm5vbWJyZSI6ImJyYWRjYXIiLCJlbWFpbCI6InVjdjIwMjFAZW1haWwuY29tIn0sImlhdCI6MTY4MTMyMDQ0N30.tzfZ2W3wvrTCoH4R4l1H02PfVedDo8xbXtZp30J0xr4'
+GET https://sgpcb-production.up.railway.app/api/v1/controles/0 HTTP/1.1
+Authorization: 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5NjkyODAyNTUsIm5vbWJyZSI6ImJyYWRjYXIiLCJlbWFpbCI6InVjdjIwMjFAZW1haWwuY29tIn0sImlhdCI6MTY4MTMyMzE1OX0.u90qqnNdR-LL_8thjyVA1a2LZ5eZ1YmtGt8ONbqXF_4'
 
 ### INSERTAR O MIGRAR LOS DATOS DE LOS CONTROLES
 POST http://localhost:5001/api/v1/controles HTTP/1.1 
