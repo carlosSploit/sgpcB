@@ -64,10 +64,10 @@ idControl,idClassControl,Codigo,CodigoDependencia,DescripcionControl,TipoControl
 63,1,1,11.1,Áreas seguras.,O,62
 64,1,1,11.1.1,Perímetro de seguridad física.,C,63
 65,1,2,11.1.2,Controles físicos de entrada.,C,63
-66,1,3,11.1.3,"Seguridad de oficinas, despachos y recursos.",C,63
+66,1,3,11.1.3,Seguridad de oficinas; despachos y recursos.,C,63
 67,1,4,11.1.4,Protección contra las amenazas externas y ambientales.,C,63
 68,1,5,11.1.5,El trabajo en áreas seguras.,C,63
-69,1,6,11.1.6,"Áreas de acceso público, carga y descarga.",C,63
+69,1,6,11.1.6,Áreas de acceso público; carga y descarga.,C,63
 70,1,2,11.2,Seguridad de los equipos.,O,62
 71,1,1,11.2.1,Emplazamiento y protección de equipos.,C,70
 72,1,2,11.2.2,Instalaciones de suministro.,C,70
@@ -148,7 +148,7 @@ idControl,idClassControl,Codigo,CodigoDependencia,DescripcionControl,TipoControl
 147,1,1,17.1,Continuidad de la seguridad de la información,O,146
 148,1,1,17.1.1,Planificación de la continuidad de la seguridad de la información.,C,147
 149,1,2,17.1.2,Implantación de la continuidad de la seguridad de la información.,C,147
-150,1,3,17.1.3,"Verificación, revisión y evaluación de la continuidad de la seguridad de la información.",C,147
+150,1,3,17.1.3,Verificación; revisión y evaluación de la continuidad de la seguridad de la información.,C,147
 151,1,2,17.2,Redundancias,O,146
 152,1,1,17.2.1,Disponibilidad de instalaciones para el procesamiento de la información.,C,151
 153,1,18,18,CUMPLIMIENTO,D,
