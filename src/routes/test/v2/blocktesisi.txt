@@ -1,0 +1,364 @@
+GET: /api/v1/empresa/:id_clienAnalit
+
+GET: /api/v1/proceEmpresa/:id_empresa
+
+GET: /api/v1/versionanali/:id_proceso
+DELETE: /api/v1/versionanali/:id_versionAnali
+POST: /api/v1/versionanali/
+
+{
+    "id_proceso": 2
+}
+
+GET: /api/v1/empresa/enlace/:id_empresa
+
+GET: /api/v1/responanalis/:id_versionAnali
+DELETE: /api/v1/responanalis/:id_responAnalis
+POST: /api/v1/responanalis/
+
+{
+    "id_versionAnali" : 2,
+    "id_cliente": 1,
+    "id_rolRespon": 1
+}
+
+GET: /api/v1/objVersioAnalis/:id_versionAnali
+DELETE: /api/v1/objVersioAnalis/:id_objVersAnali
+POST: /api/v1/objVersioAnalis/
+
+{
+    "id_versionAnali" : 4,
+    "nombreObje": "."
+}
+
+PUT: /api/v1/objVersioAnalis/:id_objVersAnali
+
+{
+    "nombreObje": "."
+}
+
+
+GET: /api/v1/escalarpo/ 
+GET: /api/v1/escalarto/
+
+GET: /api/v1/valorproces/:id_versionAnali
+PUT: /api/v1/valorproces/:id_valorProc
+
+{
+    "id_escalaRTO" : 2,
+    "id_escalaRPO": 4,
+    "valorMDT" :  5
+}
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+GET: /api/v1/activproc/:id_proceso
+
+GET: /api/v1/activprosveranali/:id_versonAnali
+GET: /api/v1/activprosveranali/read/:id_activProsVerAnali
+DELETE: /api/v1/activprosveranali/:id_activProsVerAnali
+POST: /api/v1/activprosveranali/
+
+{
+    "id_versonAnali" : 4,
+    "id_activProc": 8
+}
+
+
+GET: /api/v1/valorActiv/read/:id_activProsVerAnali
+POST: /api/v1/valorActiv/
+
+{
+    "id_activProsVerAnali" : 1,
+    "valorActivCuanti": 0
+}
+
+PUT: /api/v1/valorActiv/:id_valorActiv
+
+{
+    "valorActivCuanti" : 1000
+}
+
+
+GET: /api/v1/valorActivDim/:id_valorActiv
+POST: /api/v1/valorActivDim/
+
+{
+    "id_valorActiv": 3,
+    "dataValor" : [
+        {
+            "id_dimension" : 1,
+            "valorAcivCualit" : 5,
+            "id_varlotActivCualit" : 0,
+            "tipValoActivDimen" : "N"
+        },
+        {
+            "id_dimension" : 2,
+            "valorAcivCualit" : 4,
+            "id_varlotActivCualit" : 12,
+            "tipValoActivDimen" : "C"
+        },
+        {
+            "id_dimension" : 4,
+            "valorAcivCualit" : 6,
+            "id_varlotActivCualit" : 12,
+            "tipValoActivDimen" : "C"
+        }
+    ]
+}
+
+DELETE: /api/v1/valorActivDim/:id_valorActiDimen HTTP/1.1 
+
+GET: /api/v1/dimensioen/ 
+
+---------- Nivel de criticidad
+GET: /api/v1/nivelvalor/
+
+---------- Escala de valorizacion
+GET: /api/v1/criteriosValori/
+
+---------- Tipos de Escala de valorizacion
+GET: /api/v1/tipocritervalor/
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+GET: /api/v1/afectaactiv/:id_activProsVerAnali
+GET: /api/v1/afectaactiv/insiden/:id_activProsVerAnali/:id_amenazas
+DELETE: /api/v1/afectaactiv/:id_afectaActiv
+POST: /api/v1/afectaactiv/generar/
+
+{
+    "id_activProsVerAnali" : 35,
+    "id_libreryAmen": 1
+}
+
+POST: /api/v1/afectaactiv
+
+{
+    "id_activProsVerAnali" : 4,
+    "id_amenaza": 1
+}
+
+PUT: /api/v1/afectaactiv/:id_afectaActiv
+
+{
+    "esenario" : ""
+}
+
+---- insidencias de una amenaza
+
+GET: /api/v1/afecactivinsiden/:id_afectaActiv
+DELETE: /api/v1/afecactivinsiden/:id_afectaActivInsid
+POST: /api/v1/afecactivinsiden/
+
+{
+    "id_afectaActiv" : 1,
+    "id_insidencia": 1
+}
+
+---- Amenazas 
+
+GET: /api/v1/amenasas/:id_tipoActiv
+
+---- Tipos Amenas
+
+GET: /api/v1/tipoAmenas
+
+------------------------------------------------------------------------------------------------------------
+GET: /api/v1/valorafectamen/:id_afectaActiv
+POST: /api/v1/valorafectamen/
+
+{
+    "id_afectaActiv" : 8,
+    "id_escalaFrecuen": 1
+}
+
+POST: /api/v1/valorafectamen/comprobar/
+
+{
+    "id_afectaActiv" : 17
+}
+
+PUT: /api/v1/valorafectamen/:id_valorAfectAmen
+
+{
+    "id_escalaFrecuen" : 2
+}
+
+----- Escala de Frecuencia
+
+GET: /api/v1/escalFrecuen/
+
+----- Valorizacion de las amenazas por dimension
+
+GET: /api/v1/valorafectamenDim/:id_valorAfectAmen
+
+GET: /api/v1/valorafectamenDim/listDimension/:id_valorAfectAmen // lista de dimenciones que afecta.
+
+POST: /api/v1/valorafectamenDim/
+
+{
+    "id_valorAfectAmen": 2,
+    "dataValor" : [
+        {
+            "id_dimension" : 1,
+            "valorDegrad" : 80
+        },
+        {
+            "id_dimension" : 2,
+            "valorDegrad" : 60
+        }
+    ]
+}
+
+POST: /api/v1/valorafectamenDim/compruebe/
+
+{
+    "id_valorAfectAmen": 2
+}
+
+POST: /api/v1/valorafectamenDim/cargRiesgo/
+
+{
+    "id_valorAfectAmen": 2
+}
+
+------ Escala de Degradacion
+
+GET: /api/v1/escalDegrad/
+
+------ Escala de Impacto
+
+GET /api/v1/escalImpact/
+
+------ Escala de Riesgo
+
+GET /api/v1/escalRiesgo/
+
+#################################################################################################################
+
+---------------------- Empresa
+GET: /api/v1/empresa/:id_clienAnalit
+
+---------------------- Procesoso de un Empresa
+GET: /api/v1/proceEmpresa/:id_empresa
+
+---------------------- Version de Amenaza
+
+id_proceso
+
+Params
+
+Se encarga de listar todas las versiones de análisis de un proceso.
+
+GET: /api/v1/versionanali/:id_proceso
+
+---------------------- Activos de una Version
+
+Activos de análisis de un procesos 
+
+id_versonAnali
+
+Params
+
+Se encarga de lista los activos de un proceso que se van a análisis en una versión de análisis.
+
+GET: /api/v1/activprosveranali/:id_versonAnali
+
+---------------------- Amenazas de un activo
+
+Amenazas de un activo en una versión de análisis
+
+id_activProsVerAnali
+
+Params
+
+Se encarga de listar las amenazas de un activo en una versión de análisis.
+
+GET: /api/v1/afectaactiv/:id_activProsVerAnali
+
+---------------------- Controles
+GET: /api/v1/controles/:id_classControl
+
+---------------------- Salvaguarda
+GET: /api/v1/salvaguardas/:id_tipoSalvg
+
+---------------------- Salvaguarda de una amenaza
+GET: /api/v1/salvafectact/:id_afectaActiv
+DELETE: /api/v1/salvafectact/:id_salvAfectAct
+POST: /api/v1/salvafectact/
+
+{
+    "id_afectaActiv" : 17,
+    "id_control": 1,
+    "id_salvaguarda" :  1,
+    "extrategia": "."
+}
+
+PUT: /api/v1/salvafectact/:id_salvAfectAct
+
+{
+    "id_control": 2,
+    "extrategia" :  "Se una empresa muy madafaker"
+}
+
+---------------------- Trabajador de una empresa
+GET: /api/v1/trabEmpresa/:id_empresa
+
+---------------------- Responsables de una Salvaguarda
+GET: /api/v1/responSalvAfectActs/:id_salvAfectAct
+DELETE: /api/v1/responSalvAfectAct/:id_responSalvAfectAct
+POST: /api/v1/responSalvAfectAct/
+
+{
+    "id_salvAfectAct" : 1,
+    "id_trabajador": 2
+}
+
+---------------------- Recursos de una Salvaguarda
+GET: /api/v1/recurSalvAfectAct/:id_salvAfectAct
+DELETE: /api/v1/recurSalvAfectAct/:id_recurSalvAfectAct
+POST: /api/v1/recurSalvAfectAct/
+
+{
+    "id_salvAfectAct" : 1,
+    "nombreRecurSalvAfect": "PC",
+    "descripc": "Descripccion de la PC.",
+    "presioRecurMitAfec": 0.0
+}
+
+PUT: /api/v1/recurSalvAfectAct/:id_recurSalvAfectAct
+
+{
+    "nombreRecurSalvAfect": "PC de Escritorio",
+    "descripc": "Descripccion de la PC.",
+    "presioRecurMitAfec": 0.0
+}
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+---------------------- Valorizacion de una Salvaguarda
+GET: /api/v1/valorSalvAfectAct/:id_salvAfectAct
+GET: /api/v1/valorSalvAfectAct/comprobar/:id_salvAfectAct
+PUT: /api/v1/valorSalvAfectAct/:id_salvAfectAct
+
+{
+    "valEficDegr": 10,
+    "valEficFrec":  10,
+    "valEficImpac": 10
+}
+
+---------------------- Escala de Eficacia
+GET: /api/v1/escalEficacia/
+
+---------------------- Escala de Degradacion Residual
+GET: /api/v1/escalDegradResid/
+
+---------------------- Escala de Frecuencia Residual
+GET: /api/v1/escalFrecueResid/
+
+---------------------- Escala de Impacto Residual
+GET /api/v1/escalImpactResid/
+
+---------------------- Escala de Riesgo Residual
+GET /api/v1/escalRiesgoResid/

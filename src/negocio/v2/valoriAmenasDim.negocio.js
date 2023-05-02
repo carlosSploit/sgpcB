@@ -85,7 +85,7 @@ module.exports = class NegValoriAmenDim {
       res.send({
         status: 404,
         typo: 'error',
-        messege: 'Error, no se a valizado al activo, lo cual puede suceder comflicto.',
+        messege: 'Error, no se valorizo el activo, lo cual puede suceder comflicto.',
         data: []
       })
       // eslint-disable-next-line no-useless-return

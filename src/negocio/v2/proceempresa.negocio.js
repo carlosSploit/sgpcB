@@ -100,9 +100,9 @@ module.exports = class ngproceempresa {
     })
   }
 
-  async list_proceempresa (req, res) {
-    const result = await objproceempresa.list_proceempresa(req, res)
-    res.json(result)
+  async list_proceempresa (req, res, idEmpresa = -1) {
+    const result = await objproceempresa.list_proceempresa(req, res, (parseInt(idEmpresa) === -1) ? req.params.id_empresa : idEmpresa)
+    return result
   }
 
   async eliminar_proceempresa (req, res) {

@@ -6,7 +6,8 @@ const objversionanali = new Negversionanali()
 
 // List
 rooutes.get('/:id_proceso', async (req, res) => {
-  objversionanali.list_versionanali(req, res)
+  const result = await objversionanali.list_versionanali(req, res)
+  res.json(result)
 })
 
 // insertar

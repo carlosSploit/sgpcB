@@ -20,6 +20,8 @@ const Negsalvafectact = require('../v2/salvafectact.negocio')
 const objnegsalvafectact = new Negsalvafectact()
 const NegvalorSalvAfectAct = require('../v2/valorSalvAfectAct.negocio')
 const objnegvalorSalvAfectAct = new NegvalorSalvAfectAct()
+const NegvaloriAmenas = require('./valoriAmenas.negocio')
+const objvaloriAmenas = new NegvaloriAmenas()
 // const Negafectaactiv = require('../v2/afectaactiv.negocio')
 // const objnegafectaactiv = new Negafectaactiv()
 
@@ -150,6 +152,9 @@ module.exports = class NegPlanesContingencias {
     const result = await objversionanali.read_versionanali(req, res, idVersionAnalitic)
     if (parseInt(result.length) === 0) return []
     const objJson = { ...result[0] }
+    // capturar informacion de su criticidad
+    const resulCritc = await objvaloriAmenas.criticiAmenasProces(req, res, objJson.id_proceso)
+    objJson.valorProcesCritis = resulCritc
     // capturar informacion de las areas
     const resultAreas = await objareainterproce.list_areainterproce(req, res, objJson.id_proceso)
     objJson.areasInterac = resultAreas

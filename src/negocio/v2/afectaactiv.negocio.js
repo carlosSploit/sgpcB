@@ -269,6 +269,7 @@ module.exports = class ngclienAnalit {
 
   async list_afectaactiv (req, res, idActivProsVerAnali = 0) {
     const result = await objafectaactiv.list_afectaactiv(req, res, (parseInt(idActivProsVerAnali) === 0) ? req.params.id_activProsVerAnali : idActivProsVerAnali)
+
     // varificar que los datos sean correctos
     const CompruResul = result.filter((item) => {
       return (item.id_valorAfectAmen != null) && (item.id_Frecuencia != null) && (item.id_DegradCualit != null)
@@ -281,7 +282,7 @@ module.exports = class ngclienAnalit {
         await objvaloriAmenasDim.cargar_valorizacionRiesgo(req, res)
       }
       // recargar la informacion
-      const listResult = await objafectaactiv.list_afectaactiv(req, res)
+      const listResult = await objafectaactiv.list_afectaactiv(req, res, (parseInt(idActivProsVerAnali) === 0) ? req.params.id_activProsVerAnali : idActivProsVerAnali)
       const listResultAux = listResult.map((item) => {
         const objJson = { ...item }
         if ((item.id_valorAfectAmen == null) && (item.id_Frecuencia == null) && (item.id_DegradCualit == null)) return item

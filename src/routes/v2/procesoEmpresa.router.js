@@ -6,7 +6,8 @@ const objproceempresa = new Negproceempresa()
 
 // List
 rooutes.get('/:id_empresa', async (req, res) => {
-  objproceempresa.list_proceempresa(req, res)
+  const proce = await objproceempresa.list_proceempresa(req, res)
+  res.json(proce)
 })
 
 // insertar

@@ -6,7 +6,8 @@ const objactivprocesanali = new Negactivprocesanali()
 
 // List
 rooutes.get('/:id_versonAnali', async (req, res) => {
-  objactivprocesanali.list_activprosveranali(req, res)
+  const result = await objactivprocesanali.list_activprosveranali(req, res)
+  res.send(result)
 })
 
 // Read

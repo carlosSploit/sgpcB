@@ -23,9 +23,11 @@ module.exports = class ngversionanali {
     })
   }
 
-  async list_versionanali (req, res) {
-    const result = await objversionanali.list_versionanali(req, res)
-    res.json(result)
+  async list_versionanali (req, res, idProces = -1) {
+    console.log(idProces)
+    const result = await objversionanali.list_versionanali(req, res, (parseInt(idProces) === -1) ? 0 : idProces)
+    // res.json()
+    return result
   }
 
   async eliminar_versionanali (req, res) {

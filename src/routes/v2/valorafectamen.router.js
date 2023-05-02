@@ -9,6 +9,11 @@ rooutes.get('/:id_afectaActiv', async (req, res) => {
   objvaloriAmenas.list_valorafectamen(req, res)
 })
 
+// listar valorizacion procesos
+rooutes.get('/procesoValori/:id_empresa', async (req, res) => {
+  objvaloriAmenas.list_criticiAmenasProces(req, res)
+})
+
 // insertar
 rooutes.post('/', async (req, res) => {
   objvaloriAmenas.insert_valorafectamen(req, res)

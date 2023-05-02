@@ -36,9 +36,9 @@ module.exports = class ngclienAnalit {
     })
   }
 
-  async list_activprosveranali (req, res) {
-    const result = await objactivprocesanali.list_activprosveranali(req, res)
-    res.json(result)
+  async list_activprosveranali (req, res, idVersionAnali = -1) {
+    const result = await objactivprocesanali.list_activprosveranali(req, res, (parseInt(idVersionAnali) === -1) ? 0 : idVersionAnali)
+    return result
   }
 
   async read_activprosveranali (req, res) {

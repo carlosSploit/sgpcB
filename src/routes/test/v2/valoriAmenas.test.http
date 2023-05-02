@@ -1,5 +1,10 @@
 ### LEER LA VALORIZACION DE UN ACTIVO
-GET http://localhost:5001/api/v1/valorafectamen/21 HTTP/1.1
+GET https://sgpcb-production.up.railway.app/api/v1/valorafectamen/21 HTTP/1.1
+Authorization: Banner eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5NjkyODAyNTUsIm5vbWJyZSI6ImJyYWRjYXIiLCJlbWFpbCI6InVjdjIwMjFAZW1haWwuY29tIn0sImlhdCI6MTY4MTAxNjUzMn0.skWhxxYNQ4awHWw4kPp6WTsqvImO3bKa-F4w_rKwjhU
+
+### LEER LA VALORIZACION DE UN ACTIVO
+GET http://localhost:5001/api/v1/valorafectamen/procesoValori/1 HTTP/1.1
+Authorization: Banner eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5NjkyODAyNTUsIm5vbWJyZSI6ImJyYWRjYXIiLCJlbWFpbCI6InVjdjIwMjFAZW1haWwuY29tIn0sImlhdCI6MTY4MTAxNjUzMn0.skWhxxYNQ4awHWw4kPp6WTsqvImO3bKa-F4w_rKwjhU
 
 ### APERTURA LA VALORIZACION DE UN ACTIVO PARA SU EDICION - INICIALIZAR O APERTURAR LA OPCCION DE VALORIZACION
 POST http://localhost:5001/api/v1/valorafectamen/ HTTP/1.1 

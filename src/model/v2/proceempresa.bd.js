@@ -53,13 +53,13 @@ module.exports = class Dbproceempresa {
     return results
   }
 
-  async list_proceempresa (req, res) {
+  async list_proceempresa (req, res, idEmpresa = -1) {
     const results = await conexibd.single_query(
       req,
       res,
       'CALL `list_proceempresa`(?);',
       [
-        req.params.id_empresa
+        (parseInt(idEmpresa) === -1) ? req.params.id_empresa : idEmpresa
       ]
     )
     return Array.isArray(results) ? results : []

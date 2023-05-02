@@ -1,5 +1,6 @@
 ### LISTAR LAS AREA QUE INTERVIENEN EN UN PROCESO  DE UNA EMPRESA
-GET http://localhost:5001/api/v1/afectaactiv/35 HTTP/1.1
+GET http://localhost:5001/api/v1/afectaactiv/50 HTTP/1.1
+Authorization: Banner eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjo5NjkyODAyNTUsIm5vbWJyZSI6ImJyYWRjYXIiLCJlbWFpbCI6InVjdjIwMjFAZW1haWwuY29tIn0sImlhdCI6MTY4MTAxNjUzMn0.skWhxxYNQ4awHWw4kPp6WTsqvImO3bKa-F4w_rKwjhU
 
 ### LISTAR LAS INSIDENCIAS DE UNA AMENAZA id_activo_analizar / id_amenaza
 GET http://localhost:5001/api/v1/afectaactiv/insiden/35/10 HTTP/1.1
